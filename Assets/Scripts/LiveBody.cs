@@ -13,6 +13,7 @@ public abstract class LiveBody : MonoBehaviour
         {
             Debug.Log(gameObject.name + " is Dead");
         }
-      StartCoroutine(SetPlayerHealthBar.SetHP(hp));
+     
     }
+   
 }

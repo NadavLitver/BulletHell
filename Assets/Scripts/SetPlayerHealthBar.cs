@@ -10,14 +10,15 @@ public class SetPlayerHealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         slider = GetComponent<Slider>();
+        transform.position = Camera.main.WorldToScreenPoint(Follow.position);
     }
 
     // Update is called once per frame
     void Update()
     { 
-        transform.position = Camera.main.WorldToScreenPoint(Follow.position);
-        
+        transform.position = new Vector2(Mathf.MoveTowards(transform.position.x, Camera.main.WorldToScreenPoint(Follow.position).x,300*Time.deltaTime),Camera.main.WorldToScreenPoint(Follow.position).y);
     }
     public static IEnumerator SetHP(int hp)
     {

@@ -32,6 +32,12 @@ public class AttachGameObjectsToParticles : MonoBehaviour
         GameObject tempGo = Instantiate(m_Prefab, m_ParticleSystem.transform);
         m_Instances.Add(tempGo);
     }
+    public void RemoveFromList(GameObject toRemove)
+    {
+        m_Instances.Remove(toRemove);
+       
+       // Destroy(toRemove);
+    }
     private void UpdateLists()
     {
         count = m_ParticleSystem.GetParticles(m_Particles);
@@ -50,8 +56,13 @@ public class AttachGameObjectsToParticles : MonoBehaviour
                 }
                 else
                 {
+                    
                     m_Instances[i].SetActive(false);
                 }
+            }
+            else
+            {
+             //   RemoveFromList(m_Instances[i]);
             }
           
         }

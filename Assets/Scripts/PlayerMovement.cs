@@ -19,6 +19,11 @@ public class PlayerMovement : LiveBody
         moveH = Input.GetAxis("Horizontal") * moveSpeed;
         moveV = Input.GetAxis("Vertical") * moveSpeed;
     }
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        StartCoroutine(SetPlayerHealthBar.SetHP(hp));
+    }
     private void FixedUpdate()
     {
        
@@ -26,7 +31,4 @@ public class PlayerMovement : LiveBody
         Vector2 direction = new Vector2(moveH, moveV);
        // playerAnim.SetDirection(direction);
     }
-
-
-
 }
