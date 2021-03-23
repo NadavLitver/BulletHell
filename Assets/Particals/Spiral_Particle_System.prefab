@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6857646508691527713}
   - component: {fileID: 4925299424278299781}
   m_Layer: 0
-  m_Name: Particle_System
+  m_Name: Spiral_Particle_System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -4,20 +4,36 @@ using UnityEngine;
 
 public class PlayerMovement : LiveBody
 {
-    private Rigidbody2D rb;
+    [HideInInspector]
+    public Rigidbody2D rb;
+
+    public bool canMove;
+
     private float moveH, moveV;
+
     [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private PlayerShooter playershoot;
+    [SerializeField]
+  
+
+
     private PlayerAnimation playerAnim;
+    internal bool isTeleport;
 
     private void Awake()
     {
+        canMove = true;
         playerAnim = FindObjectOfType<PlayerAnimation>();
         rb = GetComponent<Rigidbody2D>();
     }
     private void Update()
     {
-        moveH = Input.GetAxis("Horizontal") * moveSpeed;
-        moveV = Input.GetAxis("Vertical") * moveSpeed;
+        if (canMove)
+        {
+            moveH = Input.GetAxis("Horizontal") * moveSpeed;
+            moveV = Input.GetAxis("Vertical") * moveSpeed;
+        }
+       
     }
     public override void TakeDamage(int damage)
     {
@@ -26,9 +42,19 @@ public class PlayerMovement : LiveBody
     }
     private void FixedUpdate()
     {
-       
-        rb.MovePosition(rb.position + new Vector2(moveH, moveV) * Time.fixedDeltaTime);//OPTIONAL rb.MovePosition();
-        Vector2 direction = new Vector2(moveH, moveV);
-       // playerAnim.SetDirection(direction);
+        if (canMove)
+        {
+            rb.MovePosition(rb.position + new Vector2(moveH, moveV) * Time.fixedDeltaTime);
+        }
+        if (isTeleport)
+        {
+            rb.MovePosition(Vector2.MoveTowards(rb.position, playershoot.curTelePos, playershoot.teleSpeed * Time.deltaTime));
+            if (Vector2.Distance(rb.position, playershoot.telePoint.position) < 0.5f)
+            {
+                isTeleport = false;
+               
+            }
+        }
     }
+   
 }
