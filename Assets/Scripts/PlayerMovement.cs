@@ -13,10 +13,6 @@ public class PlayerMovement : LiveBody
 
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private PlayerShooter playershoot;
-    [SerializeField]
-  
-
-
     private PlayerAnimation playerAnim;
     internal bool isTeleport;
 

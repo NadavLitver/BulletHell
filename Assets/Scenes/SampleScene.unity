@@ -754,9 +754,8 @@ MonoBehaviour:
   isVulnerable: 1
   rb: {fileID: 0}
   canMove: 0
-  moveSpeed: 4
+  moveSpeed: 5
   playershoot: {fileID: 462923963}
-  playerAnim: {fileID: 0}
 --- !u!61 &462923962
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -799,12 +798,12 @@ MonoBehaviour:
   firePoint: {fileID: 2093080338}
   telePoint: {fileID: 570347365}
   guns: []
-  shootButton: 323
-  TeleportButton: 324
   bodyCollider: {fileID: 462923962}
   sr: {fileID: 462923959}
   currentGun: {fileID: 3852776666628693728, guid: e93d0b98f0f7b904e868cd8419f7c227,
     type: 3}
+  shootButton: 323
+  TeleportButton: 324
   teleSpeed: 20
 --- !u!1 &562385414
 GameObject:

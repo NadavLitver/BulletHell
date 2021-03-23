@@ -17,12 +17,6 @@ public class PlayerShooter : MonoBehaviour
     private GameObject[] guns;
 
     [SerializeField]
-    private KeyCode shootButton;
-
-    [SerializeField]
-    private KeyCode TeleportButton;
-
-    [SerializeField]
     private Collider2D bodyCollider;
 
     [SerializeField]
@@ -30,6 +24,13 @@ public class PlayerShooter : MonoBehaviour
 
     [SerializeField]
     private GameObject currentGun;
+
+    [SerializeField]
+    private KeyCode shootButton;
+
+    [SerializeField]
+    private KeyCode TeleportButton;
+
     public float teleSpeed;
     internal Vector2 curTelePos;
     private Vector2 mousePos;
@@ -49,9 +50,7 @@ public class PlayerShooter : MonoBehaviour
         {
            StartCoroutine(Teleport());
         }
-       
     }
-
     private IEnumerator Teleport()
     {
         playermove.canMove = false;
