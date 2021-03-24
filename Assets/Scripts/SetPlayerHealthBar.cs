@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SetPlayerHealthBar : MonoBehaviour
 {
     public Transform Follow;
+    public float healthBarSpeed;
     private static Slider slider;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class SetPlayerHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        transform.position = new Vector2(Mathf.MoveTowards(transform.position.x, Camera.main.WorldToScreenPoint(Follow.position).x,300*Time.deltaTime),Camera.main.WorldToScreenPoint(Follow.position).y);
+        transform.position = new Vector2(Mathf.MoveTowards(transform.position.x, Camera.main.WorldToScreenPoint(Follow.position).x, healthBarSpeed * Time.deltaTime),Camera.main.WorldToScreenPoint(Follow.position).y);
     }
     public static IEnumerator SetHP(int hp)
     {

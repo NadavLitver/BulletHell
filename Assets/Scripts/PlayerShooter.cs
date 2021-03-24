@@ -35,22 +35,55 @@ public class PlayerShooter : MonoBehaviour
     internal Vector2 curTelePos;
     private Vector2 mousePos;
     private Vector2 dir;
- 
+    private float shootTimer;
+    private float teleportTimer;
+    public float shootCD;
+    public float teleportCD;
+
     // Update is called once per frame
     void Update()
     {
         GetWorldMousePos();
         GetFirePointDirNor();
         SetFirePointRotation();
+       
+       
+        if(shootTimer <= shootCD)
+        {
+            shootTimer += Time.deltaTime;
+        }
+        else
+        {
+            GetInputShoot();
+        }
+        if (teleportTimer <= teleportCD)
+        {
+            teleportTimer += Time.deltaTime;
+        }
+        else
+        {
+            GetTeleportShoot();
+        }
+    }
+
+    private void GetTeleportShoot()
+    {
+        if (Input.GetKeyDown(TeleportButton))
+        {
+            StartCoroutine(Teleport());
+            teleportTimer = 0;
+        }
+    }
+
+    private void GetInputShoot()
+    {
         if (Input.GetKeyDown(shootButton))
         {
             Shoot();
-        }
-        if (Input.GetKeyDown(TeleportButton))
-        {
-           StartCoroutine(Teleport());
+            shootTimer = 0;
         }
     }
+
     private IEnumerator Teleport()
     {
         playermove.canMove = false;

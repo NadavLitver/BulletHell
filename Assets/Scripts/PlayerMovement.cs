@@ -48,7 +48,6 @@ public class PlayerMovement : LiveBody
             if (Vector2.Distance(rb.position, playershoot.telePoint.position) < 0.5f)
             {
                 isTeleport = false;
-               
             }
         }
     }
