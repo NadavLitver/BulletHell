@@ -14,16 +14,22 @@ public class PlayerShooter : MonoBehaviour
     internal Transform telePoint;
 
     [SerializeField]
-    private GameObject[] guns;
+    private GameObject[] Abilities;
 
     [SerializeField]
     private Collider2D bodyCollider;
 
     [SerializeField]
-    private SpriteRenderer sr; 
+    private SpriteRenderer sr;
 
     [SerializeField]
-    private GameObject currentGun;
+    private GameObject holyShock;
+
+    [SerializeField]
+    private GameObject specialAbilityPrefab;
+   
+    [SerializeField]
+    private Ability specialAbility;
 
     [SerializeField]
     private KeyCode shootButton;
@@ -31,15 +37,17 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField]
     private KeyCode TeleportButton;
 
+    [SerializeField]
+    private KeyCode SpecialButton;
+
     public float teleSpeed;
     internal Vector2 curTelePos;
     private Vector2 mousePos;
     private Vector2 dir;
-    private float shootTimer;
+    private float holyShockTimer;
     private float teleportTimer;
-    public float shootCD;
+    public float holyShockCD;
     public float teleportCD;
-
     // Update is called once per frame
     void Update()
     {
@@ -48,9 +56,9 @@ public class PlayerShooter : MonoBehaviour
         SetFirePointRotation();
        
        
-        if(shootTimer <= shootCD)
+        if(holyShockTimer <= holyShockCD)
         {
-            shootTimer += Time.deltaTime;
+            holyShockTimer += Time.deltaTime;
         }
         else
         {
@@ -62,11 +70,48 @@ public class PlayerShooter : MonoBehaviour
         }
         else
         {
-            GetTeleportShoot();
+            GetInputTeleport();
         }
-    }
+        if(specialAbility.runningCD <= specialAbility.cooldown)
+        {
+            specialAbility.runningCD += Time.deltaTime;
+        }
+        else
+        {
+            GetInputSpecial();
 
-    private void GetTeleportShoot()
+        }
+
+
+    }
+    void GetInputSpecial()
+    {
+       
+            if (specialAbility.isGetKeyDown)
+            {
+                if (Input.GetKeyDown(SpecialButton))
+                {
+                    UseSpecialAbility();
+                    specialAbility.runningCD = 0;
+
+                }
+            }
+            else
+            {
+              if (Input.GetKeyDown(SpecialButton))
+              {
+                Abilities[0].GetComponent<Animator>().SetBool("PlayEmission", true);
+              }
+              if (Input.GetKeyUp(SpecialButton))
+              {
+                Abilities[0].GetComponent<Animator>().SetBool("PlayEmission", false);
+                specialAbility.runningCD = 0;
+              }
+            }
+
+
+    }
+    private void GetInputTeleport()
     {
         if (Input.GetKeyDown(TeleportButton))
         {
@@ -80,7 +125,7 @@ public class PlayerShooter : MonoBehaviour
         if (Input.GetKeyDown(shootButton))
         {
             Shoot();
-            shootTimer = 0;
+            holyShockTimer = 0;
         }
     }
 
@@ -129,8 +174,14 @@ public class PlayerShooter : MonoBehaviour
         }
         return ang;
     }
-        void Shoot()
+    void Shoot()
     {
-        GameObject bullet = Instantiate(currentGun, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(holyShock, firePoint.position, firePoint.rotation);
+    }
+    GameObject UseSpecialAbility()
+    {
+        GameObject specialBullet = Instantiate(specialAbilityPrefab, firePoint.position, firePoint.rotation);
+        specialBullet.transform.parent = firePoint.transform;
+        return specialBullet;
     }
 }
