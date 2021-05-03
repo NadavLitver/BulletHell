@@ -14,6 +14,8 @@ public abstract class LiveBody : MonoBehaviour
         {
             Debug.Log(gameObject.name + " is Dead");
         }
+        AfterTakeDamage();
     }
-   
+    protected abstract void AfterTakeDamage();
+  
 }

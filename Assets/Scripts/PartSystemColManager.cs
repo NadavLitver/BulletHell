@@ -9,7 +9,7 @@ public class PartSystemColManager : MonoBehaviour
     // Start is called before the first frame update
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log(other.name + "hit");
+        //Debug.Log(other.name + "hit");
         switch (other.tag)
         {
             case "Wall":
@@ -22,4 +22,5 @@ public class PartSystemColManager : MonoBehaviour
                 break;
         }
     }
+   
 }

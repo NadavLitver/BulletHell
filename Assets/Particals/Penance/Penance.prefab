@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2390691080195929875}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 8.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -287,8 +287,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.3
-      minScalar: 0.2
+      scalar: 0.2
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -669,7 +669,7 @@ ParticleSystem:
     radiusThickness: 0
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: -5}
+    m_Rotation: {x: 0, y: 0, z: -2.5}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -806,7 +806,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 10
+      value: 5
       mode: 2
       spread: 0
       speed:
@@ -4782,8 +4782,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb4bf71b9e3c704ab8c8a27a682b956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runningCD: 0
-  cooldown: 1
+  runningCD: 0.4
+  cooldown: 0.7
   isGetKeyDown: 0
 --- !u!95 &-4179898433051576490
 Animator:
@@ -4795,7 +4795,7 @@ Animator:
   m_GameObject: {fileID: 2390691080195929875}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b854c83ccf513a14393ae5be7a67b876, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

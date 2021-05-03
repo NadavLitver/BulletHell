@@ -51,5 +51,9 @@ public class PlayerMovement : LiveBody
             }
         }
     }
-   
+
+    protected override void AfterTakeDamage()
+    {
+       
+    }
 }

@@ -14,9 +14,6 @@ public class PlayerShooter : MonoBehaviour
     internal Transform telePoint;
 
     [SerializeField]
-    private GameObject[] Abilities;
-
-    [SerializeField]
     private Collider2D bodyCollider;
 
     [SerializeField]
@@ -24,12 +21,6 @@ public class PlayerShooter : MonoBehaviour
 
     [SerializeField]
     private GameObject holyShock;
-
-    [SerializeField]
-    private GameObject specialAbilityPrefab;
-   
-    [SerializeField]
-    private Ability specialAbility;
 
     [SerializeField]
     private KeyCode shootButton;
@@ -40,30 +31,51 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField]
     private KeyCode SpecialButton;
 
+    [SerializeField]
+    private float chargeTimeForRetribution;
+
+    private GameObject CurSpecial;
     public float teleSpeed;
     internal Vector2 curTelePos;
     private Vector2 mousePos;
     private Vector2 dir;
     private float holyShockTimer;
     private float teleportTimer;
+    public bool specialKeyPressing;
+    public float specialKeyDownCounter;
     public float holyShockCD;
     public float teleportCD;
-    // Update is called once per frame
     void Update()
     {
         GetWorldMousePos();
         GetFirePointDirNor();
         SetFirePointRotation();
-       
-       
-        if(holyShockTimer <= holyShockCD)
+        HolyShockCDTimer();
+        TeleportCDTimer();
+        SpecialCDTimer();
+        CountSpecialKeyTime();
+    }
+
+  
+
+    private void SpecialCDTimer()
+    {
+        if (Inventory.InventoryInstace.specialAbility != null)
         {
-            holyShockTimer += Time.deltaTime;
+            if (Inventory.InventoryInstace.specialAbility.runningCD <= Inventory.InventoryInstace.specialAbility.cooldown)
+            {
+                Inventory.InventoryInstace.specialAbility.runningCD += Time.deltaTime;
+            }
+            else
+            {
+                GetInputSpecial();
+
+            }
         }
-        else
-        {
-            GetInputShoot();
-        }
+    }
+
+    private void TeleportCDTimer()
+    {
         if (teleportTimer <= teleportCD)
         {
             teleportTimer += Time.deltaTime;
@@ -72,45 +84,94 @@ public class PlayerShooter : MonoBehaviour
         {
             GetInputTeleport();
         }
-        if(specialAbility.runningCD <= specialAbility.cooldown)
+    }
+
+    private void HolyShockCDTimer()
+    {
+        if (holyShockTimer <= holyShockCD)
         {
-            specialAbility.runningCD += Time.deltaTime;
+            holyShockTimer += Time.deltaTime;
         }
         else
         {
-            GetInputSpecial();
-
+            GetInputShoot();
         }
-
-
     }
+    #region specialInput
     void GetInputSpecial()
     {
        
-            if (specialAbility.isGetKeyDown)
+            if (Inventory.InventoryInstace.specialAbility.isGetKeyDown)
             {
                 if (Input.GetKeyDown(SpecialButton))
                 {
                     UseSpecialAbility();
-                    specialAbility.runningCD = 0;
-
+                    Inventory.InventoryInstace.specialAbility.runningCD = 0;
+                   
                 }
             }
             else
             {
-              if (Input.GetKeyDown(SpecialButton))
-              {
-                Abilities[0].GetComponent<Animator>().SetBool("PlayEmission", true);
-              }
-              if (Input.GetKeyUp(SpecialButton))
-              {
-                Abilities[0].GetComponent<Animator>().SetBool("PlayEmission", false);
-                specialAbility.runningCD = 0;
-              }
+
+            CheckSpecialKeyDown();
+            CheckSpecialKeyUp();
             }
 
 
     }
+   
+
+    private void CheckSpecialKeyDown()
+    {
+        if (Input.GetKeyDown(SpecialButton) && !Inventory.InventoryInstace.specialAbility.isChargingReq)
+        {
+            UseSpecialAbility();
+            if (CurSpecial != null)
+            {
+                CurSpecial.GetComponent<Animator>().SetBool("PlayEmission", true);
+            }
+
+        }else if(Input.GetKeyDown(SpecialButton) && Inventory.InventoryInstace.specialAbility.isChargingReq)
+        {
+            specialKeyPressing = true;
+           
+        }
+    }
+    private void CountSpecialKeyTime()
+    {
+        if (specialKeyPressing)
+        {
+            specialKeyDownCounter += Time.deltaTime;
+            if (specialKeyDownCounter >= chargeTimeForRetribution)
+            {
+                UseSpecialAbility();
+                specialKeyDownCounter = 0;
+                specialKeyPressing = false;
+                Inventory.InventoryInstace.specialAbility.runningCD = 0;
+                CurSpecial.GetComponent<Animator>().SetBool("PlayEmission", true);
+            }
+        }
+
+    }
+    private void CheckSpecialKeyUp()
+    {
+        if (Input.GetKeyUp(SpecialButton))
+        {
+            specialKeyPressing = false;
+            if (CurSpecial != null)
+            {
+                CurSpecial.GetComponent<Animator>().SetBool("PlayEmission", false);
+                Inventory.InventoryInstace.specialAbility.runningCD = 0;
+                specialKeyDownCounter = 0;
+                Destroy(CurSpecial.gameObject, 3f);
+            }
+         
+        }
+    }
+    #endregion
+
+
+    #region baseInputs
     private void GetInputTeleport()
     {
         if (Input.GetKeyDown(TeleportButton))
@@ -128,7 +189,7 @@ public class PlayerShooter : MonoBehaviour
             holyShockTimer = 0;
         }
     }
-
+    #endregion
     private IEnumerator Teleport()
     {
         playermove.canMove = false;
@@ -161,8 +222,9 @@ public class PlayerShooter : MonoBehaviour
     }
 
 
-    private float Angle(Vector3 v)
+    private float Angle(Vector2 v)
     {
+        //return Vector2.SignedAngle(Vector2.up, v) + 90; // Use this Nadav of the future
         var ang = Mathf.Asin(v.y) * Mathf.Rad2Deg;
         if (v.x < 0)
         {
@@ -180,8 +242,12 @@ public class PlayerShooter : MonoBehaviour
     }
     GameObject UseSpecialAbility()
     {
-        GameObject specialBullet = Instantiate(specialAbilityPrefab, firePoint.position, firePoint.rotation);
-        specialBullet.transform.parent = firePoint.transform;
+        GameObject specialBullet = Instantiate(Inventory.InventoryInstace.curAbilityPrefab, firePoint.position, firePoint.rotation);
+        if (!Inventory.InventoryInstace.specialAbility.isGetKeyDown)
+        {
+            specialBullet.transform.parent = firePoint.transform;
+        }
+        CurSpecial = specialBullet;
         return specialBullet;
     }
 }
