@@ -134,24 +134,39 @@ public class PlayerShooter : MonoBehaviour
         }else if(Input.GetKeyDown(SpecialButton) && Inventory.InventoryInstace.specialAbility.isChargingReq)
         {
             specialKeyPressing = true;
-           
+            playermove.canMove = false;
         }
     }
     private void CountSpecialKeyTime()
     {
-        if (specialKeyPressing)
+        if (playermove.canMove == false)
         {
             specialKeyDownCounter += Time.deltaTime;
-            if (specialKeyDownCounter >= chargeTimeForRetribution)
+            if (specialKeyPressing)
             {
-                UseSpecialAbility();
-                specialKeyDownCounter = 0;
-                specialKeyPressing = false;
-                Inventory.InventoryInstace.specialAbility.runningCD = 0;
-                CurSpecial.GetComponent<Animator>().SetBool("PlayEmission", true);
-            }
-        }
+                
+                if (specialKeyDownCounter >= chargeTimeForRetribution)
+                {
+                    UseSpecialAbility();
+                    specialKeyPressing = false;
+                    Inventory.InventoryInstace.specialAbility.runningCD = 0;
+                    CurSpecial.GetComponent<Animator>().SetBool("PlayEmission", true);
 
+
+                }
+
+            }
+
+            if (specialKeyDownCounter >= chargeTimeForRetribution + 2)
+            {
+
+
+                specialKeyDownCounter = 0;
+                playermove.canMove = true;
+
+            }
+        } 
+          
     }
     private void CheckSpecialKeyUp()
     {
