@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 [RequireComponent(typeof(ParticleSystem))]
 public class AttachGameObjectsToParticles : MonoBehaviour
 {
     public GameObject m_Prefab;
-
+    public Light2D light;
     private ParticleSystem m_ParticleSystem;
     private List<GameObject> m_Instances = new List<GameObject>();
     private ParticleSystem.Particle[] m_Particles;
@@ -17,6 +18,10 @@ public class AttachGameObjectsToParticles : MonoBehaviour
         m_ParticleSystem = GetComponent<ParticleSystem>();
         m_Particles = new ParticleSystem.Particle[m_ParticleSystem.main.maxParticles];
         worldSpace = (m_ParticleSystem.main.simulationSpace == ParticleSystemSimulationSpace.World);
+        if (m_Prefab.TryGetComponent<Light2D>(out light))
+        {
+            Debug.Log("YEYEYEYEYEYEYERADSFASDCSDCA");
+        } 
     }
     void LateUpdate()
     {
