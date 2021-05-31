@@ -17,12 +17,16 @@ public class AttachGameObjectsToParticles : MonoBehaviour
         m_ParticleSystem = GetComponent<ParticleSystem>();
         m_Particles = new ParticleSystem.Particle[m_ParticleSystem.main.maxParticles];
         worldSpace = (m_ParticleSystem.main.simulationSpace == ParticleSystemSimulationSpace.World);
+        for (int i = 0; i < m_Particles.Length; i++)
+        {
+            CreateAndAddToLists();
+        }
     }
     void LateUpdate()
     {
 
         UpdateLists();
-        while (m_Instances.Count < count)
+        if (m_Instances.Count < count)
         {
             CreateAndAddToLists(); // needs refactoring
         }

@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class SummonState : State
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void CallSwapState(State NextState)
     {
-        
+        base.CallSwapState(NextState);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
