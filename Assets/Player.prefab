@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 7806111776557038031}
   - component: {fileID: 7806111776557038030}
   - component: {fileID: 7806111776557038025}
+  - component: {fileID: 7269895229465984701}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -446,6 +447,32 @@ MonoBehaviour:
   - {fileID: 3724827357998448480, guid: 1d86e88ae9d51bb468e75e53dfe292ad, type: 3}
   curAbilityPrefab: {fileID: 0}
   specialAbility: {fileID: 0}
+--- !u!114 &7269895229465984701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7806111776557038016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.25, y: -0.25, z: 0}
+  - {x: 0.25, y: -0.25, z: 0}
+  - {x: 0.25, y: 0.25, z: 0}
+  - {x: -0.25, y: 0.25, z: 0}
+  m_ShapePathHash: 0
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -52574
 --- !u!1 &7806111776659316241
 GameObject:
   m_ObjectHideFlags: 0

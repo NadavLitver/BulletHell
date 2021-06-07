@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1576073977378604198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.6936, y: 3.6936, z: 3.6936}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 6781375104889480921}
   - {fileID: 4200554840092598105}
@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 2985284869967856400}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 8689661690481296857}
   m_RootOrder: 1
@@ -114,7 +114,7 @@ MonoBehaviour:
   - {x: -0.1515061, y: 0.016855273, z: -0.000003284188}
   m_ShapePathHash: -1844145829
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1572
+  m_InstanceId: 32250
 --- !u!1 &6849030428963679972
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 752767895290871225}
   - component: {fileID: 270805970275796633}
   - component: {fileID: 1154550140127290643}
+  - component: {fileID: 1707612016806424835}
   m_Layer: 14
   m_Name: GFX
   m_TagString: Untagged
@@ -215,7 +216,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -311,7 +312,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -320,3 +321,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24348313, y: 0.355249}
   m_EdgeRadius: 0
+--- !u!114 &1707612016806424835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6849030428963679972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 0
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: 0.04360301, y: -0.99579597, z: 0}
+  - {x: 0.1265065, y: -0.9782395, z: 0}
+  - {x: 0.1989553, y: -0.598389, z: 0}
+  - {x: -0.21580522, y: -0.6004241, z: 0}
+  - {x: -0.124332644, y: -0.97788626, z: 0}
+  - {x: -0.039979994, y: -0.9978907, z: 0}
+  m_ShapePathHash: 1088169283
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 32240
