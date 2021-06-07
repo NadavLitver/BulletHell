@@ -10,7 +10,7 @@ Material:
   m_Name: CartoonCoffee_Fire_Ring_001-Basic-[1.0]
   m_Shader: {fileID: 4800000, guid: 6b10eff4bdd4fe145b220a0c2cdbe77d, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _CUSTOMFADE_ON _DISTORT_ON _ENABLEALPHATINT_ON
-    _ENABLECUSTOMFADE_ON _ENABLEUVDISTORT_ON
+    _ENABLECUSTOMFADE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -70,7 +70,8 @@ Material:
     - _EnableAlphaTint: 1
     - _EnableBlackTint: 0
     - _EnableCustomFade: 1
-    - _EnableUVDistort: 1
+    - _EnableUVDistort: 0
+    - _EnableUVScroll: 0
     - _InvFade: 1
     - _UVDistortFade: 1
     - _UVDistortSpace: 0
@@ -84,3 +85,4 @@ Material:
     - _UVDistortNoiseScale: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _UVDistortSpeed: {r: 1, g: 1, b: 0, a: 0}
     - _UVDistortTo: {r: 0.1, g: 0, b: 0, a: 0}
+    - _UVScrollSpeed: {r: 0.2, g: 0, b: 0, a: 0}
