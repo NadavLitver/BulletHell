@@ -4,11 +4,26 @@ using UnityEngine;
 
 public abstract class State : MonoBehaviour
 {
+    [SerializeField]
     private StateSwapper stateSwapper;
-
-    private void Start()
+    [SerializeField]
+    private Boss boss;
+    protected int hpWhenEnterState;
+    [SerializeField]
+    protected State nextState;
+    protected int damageToSwapState = 20;
+    private void OnEnable()
     {
-        stateSwapper = GetComponent<StateSwapper>();
+        
+        hpWhenEnterState = boss.hp;
+    }
+    private void Update()
+    {
+        if (hpWhenEnterState >= boss.hp + damageToSwapState) 
+        {
+            CallSwapState(nextState);
+        }
+      
     }
     protected virtual void CallSwapState(State NextState)
     {

@@ -12,7 +12,7 @@ public class StateSwapper : MonoBehaviour
 
     private void Start()
     {
-        SwapState(idleState);
+        SwapState(BulletPatternsState);
     }
     public void SwapState(State state)
     {
@@ -21,6 +21,7 @@ public class StateSwapper : MonoBehaviour
             BulletPatternsState.enabled = false;
             summonState.enabled = false;
             idleState.enabled = false;
+            Debug.Log("laserState");
 
         }
         else if(state == BulletPatternsState)
@@ -28,6 +29,8 @@ public class StateSwapper : MonoBehaviour
             laserState.enabled = false;
             summonState.enabled = false;
             idleState.enabled = false;
+            Debug.Log("BulletPatternsState");
+
 
         }
         else if(state == summonState)
@@ -35,6 +38,7 @@ public class StateSwapper : MonoBehaviour
             laserState.enabled = false;
             BulletPatternsState.enabled = false;
             idleState.enabled = false;
+            Debug.Log("summonState");
 
         }
         else if(state == idleState)
@@ -42,6 +46,8 @@ public class StateSwapper : MonoBehaviour
             laserState.enabled = false;
             BulletPatternsState.enabled = false;
             summonState.enabled = false;
+            Debug.Log("idleState");
+
         }
         else
         {

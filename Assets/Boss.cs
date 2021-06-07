@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Boss : LiveBody
 {
+    
     protected override void AfterTakeDamage()
     {
        
