@@ -3792,7 +3792,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 3072
+      m_Bits: 19456
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -4829,6 +4829,7 @@ MonoBehaviour:
   runningCD: 0.50545734
   cooldown: 0.5
   isGetKeyDown: 1
+  isChargingReq: 0
 --- !u!114 &8118960924173371141
 MonoBehaviour:
   m_ObjectHideFlags: 0
