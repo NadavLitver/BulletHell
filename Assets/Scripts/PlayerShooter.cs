@@ -141,9 +141,9 @@ public class PlayerShooter : MonoBehaviour
     {
         if (playermove.canMove == false)
         {
-            specialKeyDownCounter += Time.deltaTime;
             if (specialKeyPressing)
             {
+                 specialKeyDownCounter += Time.deltaTime;
                 
                 if (specialKeyDownCounter >= chargeTimeForRetribution)
                 {
@@ -173,6 +173,7 @@ public class PlayerShooter : MonoBehaviour
         if (Input.GetKeyUp(SpecialButton))
         {
             specialKeyPressing = false;
+            playermove.canMove = true;
             if (CurSpecial != null)
             {
                 CurSpecial.GetComponent<Animator>().SetBool("PlayEmission", false);
