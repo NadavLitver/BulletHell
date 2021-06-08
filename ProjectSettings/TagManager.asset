@@ -44,3 +44,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: 1:Floor
+    uniqueID: 3083460331
+    locked: 0
+  - name: 2:Ground
+    uniqueID: 1213962761
+    locked: 0
+  - name: 3:Close
+    uniqueID: 2059856181
+    locked: 0
