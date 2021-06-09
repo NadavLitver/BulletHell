@@ -8,7 +8,7 @@ public class SortOrder : MonoBehaviour
     private float height = 7;
     void Start()
     {
-        m_sr = GetComponent<SpriteRenderer>();
+        m_sr = GetComponent<SpriteRenderer>() ?? GetComponentInChildren<SpriteRenderer>();
         m_sr.sortingOrder = getSort();
         StartCoroutine(doUpdateSortCoru());
     }

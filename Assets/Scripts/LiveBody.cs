@@ -14,6 +14,7 @@ public abstract class LiveBody : MonoBehaviour
         if(hp <= 0)
         {
             Debug.Log(gameObject.name + " is Dead");
+            Destroy(gameObject,0.1f);
         }
         AfterTakeDamage();
     }

@@ -114,7 +114,7 @@ MonoBehaviour:
   - {x: -0.1515061, y: 0.016855273, z: -0.000003284188}
   m_ShapePathHash: -1844145829
   m_Mesh: {fileID: 0}
-  m_InstanceId: 32250
+  m_InstanceId: 62284
 --- !u!1 &6849030428963679972
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,8 +185,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1213962761
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9e7d32c203e80d04798edc7656e08f06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -308,7 +308,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0072175413, y: -0.3223755}
+  m_Offset: {x: -0.006447479, y: -0.78696537}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -319,7 +319,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.24348313, y: 0.355249}
+  m_Size: {x: 0.3528032, y: 0.36905563}
   m_EdgeRadius: 0
 --- !u!114 &1707612016806424835
 MonoBehaviour:
@@ -348,4 +348,4 @@ MonoBehaviour:
   - {x: -0.039979994, y: -0.9978907, z: 0}
   m_ShapePathHash: 1088169283
   m_Mesh: {fileID: 0}
-  m_InstanceId: 32240
+  m_InstanceId: 62274
