@@ -9,16 +9,20 @@ public class OnBulletCollision : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     { 
      switch (collision.tag) {
+
             case "Wall":
                 Destroy(gameObject);
                 break;
-            case "Enemy":
+            case "Enviroment":
+                Destroy(gameObject);
                 break;
-            case "Player":
-                //parentref.RemoveFromList(gameObject);
+            case "Enemy":
                 collision.GetComponent<LiveBody>().TakeDamage(dmg);
                 Destroy(gameObject);
-               // GetComponentInParent<AttachGameObjectsToParticles>().RemoveFromList(gameObject);
+                break;
+            case "Player":
+                collision.GetComponent<LiveBody>().TakeDamage(dmg);
+                Destroy(gameObject);
                 break;
         }
     }

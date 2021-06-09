@@ -14,6 +14,8 @@ public class PartSystemColManager : MonoBehaviour
         {
             case "Wall":
                 break;
+            case "Enviroment":
+                break;
             case "Enemy":
                 other.GetComponent<LiveBody>().TakeDamage(dmg);
                 break;
