@@ -80,66 +80,7 @@ MonoBehaviour:
   - {x: -0.4429346, y: -0.6357994, z: 0}
   m_ShapePathHash: -1861453771
   m_Mesh: {fileID: 0}
-  m_InstanceId: -53912
---- !u!1 &2395083142036592391
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7470685515560960259}
-  - component: {fileID: 8745684372873406049}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &7470685515560960259
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2395083142036592391}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2093501030356973276}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8745684372873406049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2395083142036592391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_HasRenderer: 0
-  m_UseRendererSilhouette: 1
-  m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_ApplyToSortingLayers: 00000000
-  m_ShapePath:
-  - {x: -0.43693128, y: -0.6401529, z: 0}
-  - {x: -0.43323523, y: -1.0021421, z: 0}
-  - {x: 0.43552196, y: -0.9974026, z: 0}
-  - {x: 0.44043505, y: -0.6352379, z: 0}
-  - {x: 0.3200863, y: -0.5361338, z: 0}
-  - {x: -0.3178013, y: -0.53362703, z: 0}
-  m_ShapePathHash: -886902204
-  m_Mesh: {fileID: 0}
-  m_InstanceId: 31928
+  m_InstanceId: -83864
 --- !u!1 &2431300980060739278
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +248,7 @@ MonoBehaviour:
   - {x: -0.3178013, y: -0.53362703, z: 0}
   m_ShapePathHash: -886902204
   m_Mesh: {fileID: 0}
-  m_InstanceId: -65214
+  m_InstanceId: -83868
 --- !u!114 &2111360244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +292,6 @@ Transform:
   - {fileID: 4289174958749210076}
   - {fileID: 3179351735934246019}
   - {fileID: 2980081537542089251}
-  - {fileID: 7470685515560960259}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
