@@ -7,7 +7,6 @@ using Pathfinding;
 public class Mummy : LiveBody
 {
     IAstarAI ai;
-    Animator animator;
     AIDestinationSetter destinationSetter;
     private Transform target;
     public float DistanceToThrow;

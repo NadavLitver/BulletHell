@@ -5101,7 +5101,7 @@ MonoBehaviour:
   m_UseNormalMap: 1
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_ShadowIntensity: 0.509
+  m_ShadowIntensity: 0.25
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
@@ -5153,7 +5153,7 @@ Transform:
   m_GameObject: {fileID: 7806111776557038016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.03, y: 0.31, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6321582, y: 0.6321582, z: 0.6321582}
   m_Children:
   - {fileID: 7806111776440809148}
   - {fileID: 7806111775941365351}
@@ -5250,8 +5250,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   isVulnerable: 1
+  animator: {fileID: 1010449900}
   rb: {fileID: 0}
   canMove: 1
+  lastDirection: {x: 0, y: 0}
   moveSpeed: 5
   playershoot: {fileID: 7806111776557038030}
 --- !u!61 &7806111776557038031
@@ -5267,7 +5269,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.87429816}
+  m_Offset: {x: 0, y: -1.1958181}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5278,7 +5280,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 1.1014041}
+  m_Size: {x: 0.8, y: 0.4583642}
   m_EdgeRadius: 0
 --- !u!114 &7806111776557038030
 MonoBehaviour:

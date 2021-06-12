@@ -11,25 +11,34 @@ public class PlayerMovement : LiveBody
 
     private float moveH, moveV;
 
+    public Vector2Int lastDirection;
+    
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private PlayerShooter playershoot;
-    private PlayerAnimation playerAnim;
     internal bool isTeleport;
+    private Vector2 movement;
 
     private void Awake()
     {
+        lastDirection = new Vector2Int(0, -1);
         canMove = true;
-        playerAnim = FindObjectOfType<PlayerAnimation>();
         rb = GetComponent<Rigidbody2D>();
     }
     private void Update()
     {
         if (canMove)
         {
-            moveH = Input.GetAxis("Horizontal") * moveSpeed;
-            moveV = Input.GetAxis("Vertical") * moveSpeed;
+            moveH = Input.GetAxis("Horizontal");
+            moveV = Input.GetAxis("Vertical");
+            animator.SetFloat("Hor", moveH);
+            animator.SetFloat("Ver", moveV);
+            movement = new Vector2(moveH, moveV) * moveSpeed;
+            animator.SetFloat("Mag", movement.sqrMagnitude);
+            SetLastDir();
+            animator.SetFloat("LastHor", lastDirection.x);
+            animator.SetFloat("LastVer", lastDirection.y);
+
         }
-       
     }
     public override void TakeDamage(int damage)
     {
@@ -40,7 +49,7 @@ public class PlayerMovement : LiveBody
     {
         if (canMove)
         {
-            rb.MovePosition(rb.position + new Vector2(moveH, moveV) * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
         }
         if (isTeleport)
         {
@@ -56,4 +65,29 @@ public class PlayerMovement : LiveBody
     {
        
     }
+    Vector2 Dir()
+    {
+        return new Vector2(moveH, moveV);
+    }
+    void SetLastDir()
+    {
+        if(moveH > 0)
+        {
+            lastDirection = new Vector2Int(1, 0);
+        }else if ( moveH < 0)
+        {
+            lastDirection = new Vector2Int(-1, 0);
+
+        }
+
+        if (moveV > 0)
+        {
+            lastDirection = new Vector2Int(0, 1);
+        }
+        else if (moveV < 0)
+        {
+            lastDirection = new Vector2Int(0, -1);
+
+        }
+    } 
 }

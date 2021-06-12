@@ -6,7 +6,6 @@ using UnityEngine;
 public class Beatle : LiveBody
 {
     IAstarAI ai;
-    Animator animator;
     public int damage;
     private void OnEnable()
     {

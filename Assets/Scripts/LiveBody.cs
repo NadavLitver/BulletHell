@@ -7,6 +7,8 @@ public abstract class LiveBody : MonoBehaviour
 
     public int hp;
     public bool isVulnerable = true;
+    [SerializeField]
+    protected Animator animator;
  
     public virtual void TakeDamage(int damage)
     {
