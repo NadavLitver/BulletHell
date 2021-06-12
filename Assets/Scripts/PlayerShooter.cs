@@ -11,6 +11,9 @@ public class PlayerShooter : MonoBehaviour
     private Transform firePoint;
 
     [SerializeField]
+    private Transform handPoint;
+
+    [SerializeField]
     internal Transform telePoint;
 
     [SerializeField]
@@ -234,6 +237,7 @@ public class PlayerShooter : MonoBehaviour
     private void SetFirePointRotation()
     {
         firePoint.rotation = Quaternion.Euler(0, 0, Angle(dir));
+
         Debug.DrawRay(firePoint.position, dir);
     }
 
@@ -254,11 +258,11 @@ public class PlayerShooter : MonoBehaviour
     }
     void Shoot()
     {
-        GameObject bullet = Instantiate(holyShock, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(holyShock, handPoint.position, firePoint.rotation);
     }
     GameObject UseSpecialAbility()
     {
-        GameObject specialBullet = Instantiate(Inventory.InventoryInstace.curAbilityPrefab, firePoint.position, firePoint.rotation);
+        GameObject specialBullet = Instantiate(Inventory.InventoryInstace.curAbilityPrefab, handPoint.position, firePoint.rotation);
         if (!Inventory.InventoryInstace.specialAbility.isGetKeyDown)
         {
             specialBullet.transform.parent = firePoint.transform;
