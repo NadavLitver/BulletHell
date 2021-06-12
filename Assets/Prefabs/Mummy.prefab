@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3560139203745789556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.72, y: 4.16, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 6598051769233609278}
   m_Father: {fileID: 0}
@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   isVulnerable: 1
+  animator: {fileID: 0}
   DistanceToThrow: 5
   bulletSpeed: 4
   ThrowCD: 1
