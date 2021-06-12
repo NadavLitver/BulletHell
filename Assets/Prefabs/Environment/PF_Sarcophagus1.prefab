@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5916832202881463227}
+  - component: {fileID: 2957927036376791202}
   m_Layer: 14
   m_Name: PF_Sarcophagus1
   m_TagString: Untagged
@@ -27,12 +28,25 @@ Transform:
   m_LocalPosition: {x: -2.1, y: 4.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7370760695000166212}
   - {fileID: 7095797954547957299}
   - {fileID: 5018112378077245876}
+  - {fileID: 7370760695000166212}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2957927036376791202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4563404402043499204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 432dcc1dd5518a248b61b1aef9cf20a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doUpdate: 0
 --- !u!1 &5225385450935897794
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +58,7 @@ GameObject:
   - component: {fileID: 5018112378077245876}
   - component: {fileID: 19509566206107724}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,11 +72,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5225385450935897794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5916832202881463227}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &19509566206107724
 MonoBehaviour:
@@ -117,7 +131,7 @@ MonoBehaviour:
   - {x: -0.39440346, y: 0.6891911, z: 0}
   m_ShapePathHash: 288053781
   m_Mesh: {fileID: 0}
-  m_InstanceId: -88560
+  m_InstanceId: 25600
 --- !u!1 &6976281171432763339
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,11 +158,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6976281171432763339}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5916832202881463227}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1992145238338445698
 SpriteRenderer:
@@ -227,7 +241,7 @@ MonoBehaviour:
   - {x: 0.108128786, y: -2.0006275, z: 0}
   m_ShapePathHash: -955352223
   m_Mesh: {fileID: 0}
-  m_InstanceId: -88558
+  m_InstanceId: 25608
 --- !u!1 &7975000614815159209
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +271,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5916832202881463227}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2558574061930834725
 BoxCollider2D:
@@ -272,7 +286,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.8187943}
+  m_Offset: {x: 0, y: -1.5974557}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -283,5 +297,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.87783074, y: 0.3527969}
+  m_Size: {x: 0.45383435, y: 0.78500175}
   m_EdgeRadius: 0
