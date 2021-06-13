@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3605571200800188080}
-  - component: {fileID: 6713289772622737128}
+  - component: {fileID: 29102532}
+  - component: {fileID: 29102533}
   m_Layer: 14
   m_Name: PF_Torch
   m_TagString: Untagged
@@ -34,22 +35,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &6713289772622737128
-Animation:
+--- !u!95 &29102532
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3605571200800188087}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 3766033d817ce1b4ba6583f2c16ae026, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 3766033d817ce1b4ba6583f2c16ae026, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4441bfb779341ff49bad0871b7c7abff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &29102533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3605571200800188087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e33659ccf8fc624e8ada2f31bb8611c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 0.2
+  maxSpeed: 0.5
 --- !u!1 &6713289772507883927
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8515631869938621783}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.73900014, z: 0}
+  m_LocalPosition: {x: 0, y: 0.472, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3605571200800188080}
@@ -277,7 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.38
+  m_FalloffIntensity: 0.6
   m_Color: {r: 1, g: 0.80978805, b: 0.48584908, a: 1}
   m_Intensity: 0.5
   m_LightVolumeOpacity: 0
