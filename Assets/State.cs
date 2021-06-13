@@ -11,11 +11,15 @@ public abstract class State : MonoBehaviour
     protected int hpWhenEnterState;
     [SerializeField]
     protected State nextState;
-    protected int damageToSwapState = 20;
-    private void OnEnable()
+    public int damageToSwapState = 20;
+    private  void OnEnable()
     {
-        
+        StateOnEnable();
+    }
+     protected virtual void StateOnEnable()
+    {
         hpWhenEnterState = boss.hp;
+
     }
     private void Update()
     {

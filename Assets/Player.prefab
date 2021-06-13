@@ -4884,6 +4884,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7806111775639085442}
   - component: {fileID: 7806111775639085453}
+  - component: {fileID: 1380739536}
   m_Layer: 9
   m_Name: Hand
   m_TagString: Untagged
@@ -4899,8 +4900,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7806111775639085443}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: -0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalPosition: {x: 2, y: -0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7806111775941365351}
   m_RootOrder: 0
@@ -4944,10 +4945,10 @@ SpriteRenderer:
   m_SortingLayerID: 2059856181
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: caa98de8605f60d4bb18f2aa3a043f7a, type: 3}
-  m_Color: {r: 1, g: 0.76811314, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 8e0cec0859b36854eb886248500f0519, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -4955,6 +4956,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1380739536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7806111775639085443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b93f6058a9cb574a85c5e4d6d8477a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FirePoint: {fileID: 7806111775941365351}
 --- !u!1 &7806111775702684717
 GameObject:
   m_ObjectHideFlags: 0
@@ -5009,7 +5023,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7806111775941365348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7806111775639085442}
@@ -5153,7 +5167,7 @@ Transform:
   m_GameObject: {fileID: 7806111776557038016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.03, y: 0.31, z: 0}
-  m_LocalScale: {x: 0.6321582, y: 0.6321582, z: 0.6321582}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 7806111776440809148}
   - {fileID: 7806111775941365351}
@@ -5296,6 +5310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playermove: {fileID: 7806111776557038028}
   firePoint: {fileID: 7806111775941365351}
+  handPoint: {fileID: 7806111775639085442}
   telePoint: {fileID: 7806111776659316240}
   bodyCollider: {fileID: 7806111776557038031}
   sr: {fileID: 7806111776557038018}
@@ -5424,7 +5439,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7806111776659316241}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

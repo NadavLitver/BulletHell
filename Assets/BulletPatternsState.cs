@@ -6,11 +6,12 @@ public class BulletPatternsState : State
 {
     public GameObject wavePatternPrefab;
     
-    [SerializeField]private int amountOfPatterns = 2;
-
-    private void Start()
+    [SerializeField]private int amountOfPatterns = 1;
+    protected override void StateOnEnable()
     {
+        base.StateOnEnable();
         ChoosePattern();
+
     }
 
     void ChoosePattern()
@@ -20,9 +21,6 @@ public class BulletPatternsState : State
         {
             case 0:
                 WavePattern();
-                break;
-            case 1:
-                TempPattern();
                 break;
             default:
                 break;
