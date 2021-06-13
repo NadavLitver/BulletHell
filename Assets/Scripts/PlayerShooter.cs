@@ -48,6 +48,9 @@ public class PlayerShooter : MonoBehaviour
     public float specialKeyDownCounter;
     public float holyShockCD;
     public float teleportCD;
+
+    [SerializeField] private UnityEngine.Experimental.Rendering.Universal.Light2D AnkhLight;
+    [SerializeField] private float AnkhIdleIntensity;
     void Update()
     {
         GetWorldMousePos();
@@ -259,10 +262,29 @@ public class PlayerShooter : MonoBehaviour
     void Shoot()
     {
         GameObject bullet = Instantiate(holyShock, handPoint.position, firePoint.rotation);
+        PlayAnkhAnim(2000f, 1.5f);
+    }
+    private void PlayAnkhAnim(float intensity, float lerpSpeed)
+    {
+        StopAllCoroutines();
+        StartCoroutine(PlayAnkhAnimCoru(intensity, lerpSpeed));
+    }
+    private IEnumerator PlayAnkhAnimCoru(float intensity, float lerpSpeed)
+    {
+        AnkhLight.intensity = intensity;
+        float currDurr = 0;
+        while (AnkhLight.intensity > AnkhIdleIntensity)
+        {
+            currDurr += Time.deltaTime / lerpSpeed;
+            AnkhLight.intensity = Mathf.Lerp(AnkhLight.intensity, AnkhIdleIntensity, currDurr);
+            yield return new WaitForEndOfFrame();
+        }
+        AnkhLight.intensity = AnkhIdleIntensity;
     }
     GameObject UseSpecialAbility()
     {
         GameObject specialBullet = Instantiate(Inventory.InventoryInstace.curAbilityPrefab, handPoint.position, firePoint.rotation);
+        PlayAnkhAnim(2000f, 1.5f);
         if (!Inventory.InventoryInstace.specialAbility.isGetKeyDown)
         {
             specialBullet.transform.parent = firePoint.transform;
