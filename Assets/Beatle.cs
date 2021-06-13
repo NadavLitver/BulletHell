@@ -11,7 +11,6 @@ public class Beatle : LiveBody
     {
         ai = GetComponent<IAstarAI>();
         animator = GetComponentInChildren<Animator>();
-
     }
     private void Update()
     {
@@ -23,7 +22,6 @@ public class Beatle : LiveBody
     protected override void AfterTakeDamage()
     {
         //this.GetComponentInChildren<SpriteRenderer>().color = Color.red;
-
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
