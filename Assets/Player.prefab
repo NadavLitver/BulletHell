@@ -4864,7 +4864,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10
+  m_Intensity: 15
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000099a5b48
   m_LightCookieSprite: {fileID: 21300000, guid: 8e0cec0859b36854eb886248500f0519,
@@ -10138,6 +10138,7 @@ GameObject:
   - component: {fileID: 1010449899}
   - component: {fileID: 1010449900}
   - component: {fileID: 1353293400874591302}
+  - component: {fileID: 1247733770}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -10313,8 +10314,7 @@ MonoBehaviour:
   specialKeyDownCounter: 0
   holyShockCD: 0.2
   teleportCD: 0.75
-  AnkhLight: {fileID: 789738309}
-  AnkhIdleIntensity: 15
+  runeLight: {fileID: 1247733770}
 --- !u!114 &7806111776557038025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10407,6 +10407,20 @@ MonoBehaviour:
   pivotMid: {fileID: 1288290225}
   pivotLeft: {fileID: 229828969}
   pivotRight: {fileID: 1931468780}
+--- !u!114 &1247733770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7806111776557038016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71dddc2c865362642a8c1ae88a205b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_light: {fileID: 789738309}
+  idleIntensity: 15
 --- !u!1 &7806111776659316241
 GameObject:
   m_ObjectHideFlags: 0
