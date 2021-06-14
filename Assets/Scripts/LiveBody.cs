@@ -20,6 +20,14 @@ public abstract class LiveBody : MonoBehaviour
         }
         AfterTakeDamage();
     }
+    private void OnEnable()
+    {
+        OnLiveBodyEnable();
+    }
+    protected virtual void OnLiveBodyEnable()
+    {
+      
+    }
     protected abstract void AfterTakeDamage();
   
 }

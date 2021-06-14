@@ -7,6 +7,8 @@ public abstract class State : MonoBehaviour
     [SerializeField]
     private StateSwapper stateSwapper;
     [SerializeField]
+    protected Animator animator;
+    [SerializeField]
     private Boss boss;
     protected int hpWhenEnterState;
     [SerializeField]
@@ -25,7 +27,7 @@ public abstract class State : MonoBehaviour
     {
         if (hpWhenEnterState >= boss.hp + damageToSwapState) 
         {
-            CallSwapState(nextState);
+           // CallSwapState(nextState);
         }
       
     }

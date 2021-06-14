@@ -118,7 +118,7 @@ MonoBehaviour:
   pickNextWaypointDist: 2
   endReachedDistance: 1.5
   alwaysDrawGizmos: 0
-  slowWhenNotFacingTarget: 1
+  slowWhenNotFacingTarget: 0
   whenCloseToDestination: 1
   constrainInsideGraph: 0
 --- !u!114 &1820397386903010683
@@ -151,6 +151,7 @@ MonoBehaviour:
   isVulnerable: 1
   animator: {fileID: 0}
   damage: 5
+  rotationSpeed: 360
 --- !u!1 &6049131170510531798
 GameObject:
   m_ObjectHideFlags: 0

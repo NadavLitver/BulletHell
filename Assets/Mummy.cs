@@ -18,22 +18,24 @@ public class Mummy : LiveBody
     
     [SerializeField]
     private GameObject BulletPrefab;
-    private void OnEnable()
+    protected override void OnLiveBodyEnable()
     {
+        base.OnLiveBodyEnable();
         ai = GetComponent<IAstarAI>();
         destinationSetter = GetComponent<AIDestinationSetter>();
         animator = GetComponentInChildren<Animator>();
+        destinationSetter.target = FindObjectOfType<Target>().transform;
         target = destinationSetter.target;
         throwCooldownRunning = ThrowCD;
-
     }
     private void Update()
     {
         if (Vector2.Distance(transform.position, target.position) <= DistanceToThrow)
         {
+            ai.canMove = false;
+
             if (!isThrowing && canThrow)
             {
-                ai.canMove = false;
                 Vector2 dir = (target.position - transform.position).normalized;
                 StartCoroutine(Throw(dir));
                 Debug.Log("Reached");

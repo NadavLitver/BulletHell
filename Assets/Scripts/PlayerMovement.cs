@@ -18,8 +18,9 @@ public class PlayerMovement : LiveBody
     internal bool isTeleport;
     private Vector2 movement;
 
-    private void Awake()
+    protected override void OnLiveBodyEnable()
     {
+        base.OnLiveBodyEnable();
         lastDirection = new Vector2Int(0, -1);
         canMove = true;
         rb = GetComponent<Rigidbody2D>();

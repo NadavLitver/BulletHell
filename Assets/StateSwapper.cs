@@ -10,9 +10,10 @@ public class StateSwapper : MonoBehaviour
     public SummonState summonState;
     public BossIdleState idleState;
 
+    public State FirstState;
     private void Start()
     {
-        SwapState(BulletPatternsState);
+        SwapState(FirstState);
     }
     public void SwapState(State state)
     {
