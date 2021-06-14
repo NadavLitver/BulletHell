@@ -351,6 +351,7 @@ MonoBehaviour:
   lSummonPoint: {fileID: 953112648}
   amountOfEnemiesPerSummon: 3
   TimeBetweenEnemy: 2
+  TimeToNextState: 10
 --- !u!114 &126667366583538340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,6 +389,8 @@ MonoBehaviour:
   amountOfPatterns: 1
   LwavePatternPrefab: {fileID: 6539462566072084761}
   RwavePatternPrefab: {fileID: 2965397774277449708}
+  amountOfWaves: 0
+  TimeToNextState: 10
 --- !u!114 &126667366583538342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,6 +496,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8819917267643686741}
     m_Modifications:
+    - target: {fileID: 419505595, guid: f5e963e0c8c0d5d47867ae7c97485ba2, type: 3}
+      propertyPath: dmg
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1886168726360983510, guid: f5e963e0c8c0d5d47867ae7c97485ba2,
         type: 3}
       propertyPath: playOnAwake
@@ -719,6 +726,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4121643818157034975}
     m_Modifications:
+    - target: {fileID: 419505595, guid: f5e963e0c8c0d5d47867ae7c97485ba2, type: 3}
+      propertyPath: dmg
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1886168726360983510, guid: f5e963e0c8c0d5d47867ae7c97485ba2,
         type: 3}
       propertyPath: playOnAwake

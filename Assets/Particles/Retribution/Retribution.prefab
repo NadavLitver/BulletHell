@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6655227646091868543}
   - component: {fileID: 8074511277703772191}
   - component: {fileID: 8508174539283797819}
-  - component: {fileID: -2725922906037198571}
   - component: {fileID: -530697236997031734}
   - component: {fileID: 3310243523368715233}
   - component: {fileID: 5967339820837908643}
@@ -4826,19 +4825,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &-2725922906037198571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3724827357998448480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b4549afe79f2f5469c86bc3048fe50d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dmg: 1
 --- !u!95 &-530697236997031734
 Animator:
   serializedVersion: 3
@@ -4870,7 +4856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f826d7166845b48b695066e924106d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runningCD: 1.0124484
+  runningCD: 1.0094335
   cooldown: 1
   isGetKeyDown: 0
   isChargingReq: 1
@@ -4912,4 +4898,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edf8b5688c569a4aba5523956416cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 1
+  dmg: 2
