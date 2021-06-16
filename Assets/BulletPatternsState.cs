@@ -7,21 +7,19 @@ public class BulletPatternsState : State
     
     
     [SerializeField]private int amountOfPatterns = 1;
+    [SerializeField,Header("WavePatternScript")] GameObject LwavePattern;
+    [SerializeField, Header("WavePatternScript")] GameObject RwavePattern;
 
-    [SerializeField]
-    private ParticleSystem LwavePatternPrefab;
-    [SerializeField]
-    private ParticleSystem RwavePatternPrefab;
 
-    public int amountOfWaves;
+
     public float TimeToNextState = 10;
 
     protected override void StateOnEnable()
     {
         base.StateOnEnable();
         ChoosePattern();
-        LwavePatternPrefab.gameObject.SetActive(true);
-        RwavePatternPrefab.gameObject.SetActive(true);
+   
+
     }
 
     void ChoosePattern()
@@ -32,35 +30,23 @@ public class BulletPatternsState : State
         {
             case 0:
                 animator.SetTrigger("Shoot");
-                StartCoroutine(WaveCoroutine());
+                StartCoroutine(StateDelay());
                 break;
             default:
                 break;
         }
     }
   
-    public void LWavePattern()
+  
+    IEnumerator StateDelay()
     {
-        LwavePatternPrefab.Stop();
-
-        LwavePatternPrefab.Play();
-
-    }
-    public void RWavePattern()
-    {
-        RwavePatternPrefab.Stop();
-
-
-        RwavePatternPrefab.Play();
-
-    }
-    IEnumerator WaveCoroutine()
-    {
-        
-        yield return new WaitForSeconds(0.2f);
-        LWavePattern();
+        LwavePattern.SetActive(true);
         yield return new WaitForSeconds(0.8f);
-        RWavePattern();
+        LwavePattern.SetActive(false);
+        RwavePattern.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
+        RwavePattern.SetActive(false);
+
         yield return new WaitForSeconds(TimeToNextState);
         CallSwapState(nextState);
 
@@ -77,15 +63,13 @@ public class BulletPatternsState : State
 
     void TempPattern()
     {
-        LwavePatternPrefab.gameObject.SetActive(false);
-        RwavePatternPrefab.gameObject.SetActive(false);
+       
 
 
     }
     private void OnDisable()
     {
-        LwavePatternPrefab.gameObject.SetActive(false);
-        RwavePatternPrefab.gameObject.SetActive(false);
+     
         StopAllCoroutines();
 
     }
