@@ -4782,8 +4782,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb4bf71b9e3c704ab8c8a27a682b956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runningCD: 0.70079255
-  cooldown: 0.7
+  runningCD: 0.6
+  cooldown: 0.6
   isGetKeyDown: 0
   isChargingReq: 0
 --- !u!95 &-4179898433051576490

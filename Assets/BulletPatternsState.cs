@@ -6,12 +6,15 @@ public class BulletPatternsState : State
 {
     
     
-    [SerializeField]private int amountOfPatterns = 1;
-    [SerializeField,Header("WavePatternScript")] GameObject LwavePattern;
-    [SerializeField, Header("WavePatternScript")] GameObject RwavePattern;
+    [SerializeField]private int amountOfPatterns = 3;
+    [SerializeField,Header("Wave Shooting Script")] GameObject LwavePattern;
+    [SerializeField,Header("Wave Shooting Script")] GameObject RwavePattern;
 
+    [SerializeField, Header("Line Shooting Script")] GameObject LlinePattern;
+    [SerializeField, Header("Line Shooting Script")] GameObject RlinePattern;
 
-
+    [SerializeField, Header("ZigZag Shooting Script")] GameObject LZigZagPattern;
+    [SerializeField, Header("ZigZag Shooting Script")] GameObject RZigZagPattern;
     public float TimeToNextState = 10;
 
     protected override void StateOnEnable()
@@ -25,12 +28,20 @@ public class BulletPatternsState : State
     void ChoosePattern()
     {
 
-        var curPatternIndex = Randomizer.ReturnRandomNum(amountOfPatterns);
+        var curPatternIndex = Randomizer.ReturnRandomNum(0,amountOfPatterns);
         switch (curPatternIndex)
         {
             case 0:
                 animator.SetTrigger("Shoot");
-                StartCoroutine(StateDelay());
+                StartCoroutine(StateDelay(LwavePattern, RwavePattern));
+                break;
+            case 1:
+                animator.SetTrigger("Shoot");
+                StartCoroutine(StateDelay(LlinePattern, RlinePattern));
+                break;
+            case 2:
+                animator.SetTrigger("Shoot");
+                StartCoroutine(StateDelay(LZigZagPattern, RZigZagPattern));
                 break;
             default:
                 break;
@@ -38,15 +49,14 @@ public class BulletPatternsState : State
     }
   
   
-    IEnumerator StateDelay()
+    IEnumerator StateDelay(GameObject lP, GameObject rP)
     {
-        LwavePattern.SetActive(true);
-        yield return new WaitForSeconds(0.8f);
-        LwavePattern.SetActive(false);
-        RwavePattern.SetActive(true);
-        yield return new WaitForSeconds(0.8f);
-        RwavePattern.SetActive(false);
-
+        lP.SetActive(true);
+        yield return new WaitForSeconds(1.2f);
+        lP.SetActive(false);
+        rP.SetActive(true);
+        yield return new WaitForSeconds(1.2f);
+        rP.SetActive(false);
         yield return new WaitForSeconds(TimeToNextState);
         CallSwapState(nextState);
 

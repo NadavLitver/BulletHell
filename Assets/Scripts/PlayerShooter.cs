@@ -49,7 +49,7 @@ public class PlayerShooter : MonoBehaviour
     public float holyShockCD;
     public float teleportCD;
 
-    [SerializeField] private RuneLight runeLight;
+    [SerializeField] private PlayerRuneLight runeLight;
 
     void Update()
     {
@@ -111,8 +111,8 @@ public class PlayerShooter : MonoBehaviour
             {
                 if (Input.GetKeyDown(SpecialButton))
                 {
-                    UseSpecialAbility();
-                    Inventory.InventoryInstace.specialAbility.runningCD = 0;
+                  Inventory.InventoryInstace.specialAbility.runningCD = 0;
+                  UseSpecialAbility();
                    
                 }
             }
@@ -185,7 +185,7 @@ public class PlayerShooter : MonoBehaviour
                 CurSpecial.GetComponent<Animator>().SetBool("PlayEmission", false);
                 Inventory.InventoryInstace.specialAbility.runningCD = 0;
                 specialKeyDownCounter = 0;
-                Destroy(CurSpecial.gameObject, 3f);
+                Destroy(CurSpecial.gameObject, 0.5f);
             }
          
         }

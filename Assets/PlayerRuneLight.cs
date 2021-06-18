@@ -2,15 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RuneLight : MonoBehaviour
+public class PlayerRuneLight : MonoBehaviour
 {
     [SerializeField] private UnityEngine.Experimental.Rendering.Universal.Light2D m_light;
     public float idleIntensity;
-
-    private void OnEnable()
-    {
-        SetLight(idleIntensity, 1f);
-    }
     public void PlayRuneAnim(float intensity, float lerpSpeed)
     {
         StopAllCoroutines();
@@ -21,14 +16,14 @@ public class RuneLight : MonoBehaviour
     {
         m_light.intensity = intensity;
         float currDurr = 0;
-        while (m_light.intensity > 0)
+        while (m_light.intensity > idleIntensity)
         {
             currDurr += Time.deltaTime / lerpSpeed;
-            m_light.intensity = Mathf.Lerp(m_light.intensity, 0, currDurr);
+            m_light.intensity = Mathf.Lerp(m_light.intensity, idleIntensity, currDurr);
             yield return new WaitForEndOfFrame();
         }
-        m_light.intensity = 0;
-        this.gameObject.SetActive(false);
+        m_light.intensity = idleIntensity;
+        
     }
     public void SetLight(float Intensity, float lerpSpeed)
     {

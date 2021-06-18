@@ -5,7 +5,7 @@ public class SortOrder : MonoBehaviour
 {
     [SerializeField] private bool doUpdate;
     private SpriteRenderer m_sr;
-    private float height = 7;
+   
     void Start()
     {
         m_sr = GetComponent<SpriteRenderer>() ?? GetComponentInChildren<SpriteRenderer>();

@@ -15,6 +15,10 @@ public abstract class LiveBody : MonoBehaviour
         if(isVulnerable){hp -= damage;}
         if(hp <= 0)
         {
+            if (gameObject.CompareTag("Player"))
+            {
+                GameManager.gm.RestartScene();
+            }
             Debug.Log(gameObject.name + " is Dead");
             Destroy(gameObject,0.1f);
         }

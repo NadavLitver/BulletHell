@@ -21,9 +21,10 @@ public class BulletPool : MonoBehaviour
     void Start()
     {
         bullets = new List<GameObject>();
+        CreateStartingPool();
     }
 
-    public GameObject GetBullet(int amountOfBullets)
+    public GameObject GetBullet()
     {
         if (AmountOfInactiveBullets() > 1)
         {
@@ -63,6 +64,13 @@ public class BulletPool : MonoBehaviour
         }
         Debug.Log(amount);
         return amount;
+    }
+    void CreateStartingPool()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            GetBullet();
+        }
     }
 }
     

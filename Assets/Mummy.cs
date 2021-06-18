@@ -24,9 +24,9 @@ public class Mummy : LiveBody
         ai = GetComponent<IAstarAI>();
         destinationSetter = GetComponent<AIDestinationSetter>();
         animator = GetComponentInChildren<Animator>();
+        throwCooldownRunning = ThrowCD;
         destinationSetter.target = FindObjectOfType<Target>().transform;
         target = destinationSetter.target;
-        throwCooldownRunning = ThrowCD;
     }
     private void Update()
     {

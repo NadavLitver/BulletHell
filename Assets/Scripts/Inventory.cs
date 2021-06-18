@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         InventoryInstace = this;
-        SwapWeapon(2);
+        SwapWeapon(0);
     }
     public void SwapWeapon(int index)
     {

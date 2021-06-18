@@ -44,7 +44,7 @@ public class PlayerMovement : LiveBody
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
-        StartCoroutine(SetPlayerHealthBar.SetHP(hp));
+      StartCoroutine(SetPlayerHealthBar.SetHPCorou(hp));
     }
     private void FixedUpdate()
     {
@@ -90,5 +90,6 @@ public class PlayerMovement : LiveBody
             lastDirection = new Vector2Int(0, -1);
 
         }
-    } 
+    }
+   
 }

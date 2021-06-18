@@ -7,6 +7,8 @@ public class Pickable : MonoBehaviour
     private RuneLight runelight;
 
     private bool isInRange;
+    public bool Picked;
+
     private PlayerMovement player;
     private void Start()
     {
@@ -23,15 +25,16 @@ public class Pickable : MonoBehaviour
     }
     void PickUp()
     {
-        if (isInRange)
+        if (isInRange && !Picked)
         {
+            Picked = true;
             Inventory.InventoryInstace.SwapWeapon(abilityHeld);
-            runelight.PlayRuneAnim(800, 4);
+            runelight.PlayRuneAnim(400, 2);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !Picked)
         {
             isInRange = true;
             runelight.SetLight(30, 1f);
@@ -39,11 +42,15 @@ public class Pickable : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") &&!Picked)
         {
             isInRange = false;
             runelight.SetLight(runelight.idleIntensity, 1f);
         }
+    }
+    private void OnDisable()
+    {
+        Picked = false;
     }
 
 }
