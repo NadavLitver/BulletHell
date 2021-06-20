@@ -62,7 +62,6 @@ public class BulletPool : MonoBehaviour
                 amount++;
             }
         }
-        Debug.Log(amount);
         return amount;
     }
     void CreateStartingPool()

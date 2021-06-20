@@ -42,10 +42,12 @@ public class SummonState : State
     }
      IEnumerator SummonEnemy(GameObject type)
      {
-        Transform summonPos = type == MummyType ? lSummonPoint : rSummonPoint;
+        //Transform summonPos = type == MummyType ? lSummonPoint : rSummonPoint;
         for (int i = 0; i < amountOfEnemiesPerSummon; i++)
         {
-            Instantiate(type, summonPos.position, summonPos.rotation, summonPos);
+            Instantiate(type, lSummonPoint.position, lSummonPoint.rotation, lSummonPoint);
+            yield return new WaitForSeconds(TimeBetweenEnemy);
+            Instantiate(type, rSummonPoint.position, rSummonPoint.rotation, rSummonPoint);
             yield return new WaitForSeconds(TimeBetweenEnemy);
         }
 

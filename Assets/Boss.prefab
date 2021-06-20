@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 200026174}
   - component: {fileID: 200026175}
   m_Layer: 15
-  m_Name: LinePattern
+  m_Name: RLinePattern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,9 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRef: {fileID: 0}
   bulletAmount: 10
-  startAngle: 90
-  endAngle: 270
-  WPS: 5
 --- !u!1 &350365886
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +56,7 @@ GameObject:
   - component: {fileID: 350365887}
   - component: {fileID: 350365888}
   m_Layer: 15
-  m_Name: WavePattern
+  m_Name: RWavePattern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +92,6 @@ MonoBehaviour:
   bulletAmount: 10
   startAngle: 90
   endAngle: 270
-  WPS: 5
 --- !u!1 &381190287
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +103,7 @@ GameObject:
   - component: {fileID: 381190288}
   - component: {fileID: 381190289}
   m_Layer: 15
-  m_Name: WavePattern
+  m_Name: LWavePattern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,7 +139,6 @@ MonoBehaviour:
   bulletAmount: 10
   startAngle: 90
   endAngle: 270
-  WPS: 5
 --- !u!1 &436388293
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +150,7 @@ GameObject:
   - component: {fileID: 436388294}
   - component: {fileID: 436388295}
   m_Layer: 15
-  m_Name: ZigZagPatternPattern
+  m_Name: RZigZagPatternPattern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,8 +184,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRef: {fileID: 0}
   bulletAmount: 10
-  distanceBetweenBullets: 1
-  WPS: 5
+  distanceBetweenBullets: 1.1
+--- !u!1 &767719070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 767719071}
+  - component: {fileID: 767719072}
+  m_Layer: 15
+  m_Name: LCirclePattern
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &767719071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767719070}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8819917267643686741}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &767719072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767719070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925e17c5cb042764091b984322c5bd5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRef: {fileID: 0}
+  CirclePrefab: {fileID: 1676116582576900140, guid: da9eedb0972e0874c8fbaa2ca5d236b5,
+    type: 3}
 --- !u!1 &953112647
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +272,7 @@ GameObject:
   - component: {fileID: 1400838738}
   - component: {fileID: 1400838739}
   m_Layer: 15
-  m_Name: LinePattern
+  m_Name: LLinePattern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -266,9 +306,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRef: {fileID: 0}
   bulletAmount: 10
-  startAngle: 90
-  endAngle: 270
-  WPS: 5
+--- !u!1 &1675461567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1675461568}
+  - component: {fileID: 1675461569}
+  m_Layer: 15
+  m_Name: RCirclePattern
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1675461568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675461567}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4121643818157034975}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1675461569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675461567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925e17c5cb042764091b984322c5bd5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRef: {fileID: 0}
+  CirclePrefab: {fileID: 1676116582576900140, guid: da9eedb0972e0874c8fbaa2ca5d236b5,
+    type: 3}
 --- !u!1 &1872279802
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +393,7 @@ GameObject:
   - component: {fileID: 2050533691}
   - component: {fileID: 2050533692}
   m_Layer: 15
-  m_Name: ZigZagPatternPattern
+  m_Name: LZigZagPatternPattern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -324,7 +407,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050533690}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.84, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8819917267643686741}
@@ -344,8 +427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRef: {fileID: 0}
   bulletAmount: 10
-  distanceBetweenBullets: 1
-  WPS: 5
+  distanceBetweenBullets: 1.1
 --- !u!1 &126667364925439585
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +719,7 @@ MonoBehaviour:
   lSummonPoint: {fileID: 953112648}
   amountOfEnemiesPerSummon: 3
   TimeBetweenEnemy: 2
-  TimeToNextState: 10
+  TimeToNextState: 7
 --- !u!114 &126667366583538340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,14 +754,17 @@ MonoBehaviour:
   boss: {fileID: 126667364925439614}
   nextState: {fileID: 126667366583538341}
   damageToSwapState: 20
-  amountOfPatterns: 3
+  amountOfPatterns: 4
   LwavePattern: {fileID: 381190287}
   RwavePattern: {fileID: 350365886}
   LlinePattern: {fileID: 1400838737}
   RlinePattern: {fileID: 200026173}
-  LZigZagPattern: {fileID: 0}
-  RZigZagPattern: {fileID: 0}
-  TimeToNextState: 10
+  LZigZagPattern: {fileID: 2050533690}
+  RZigZagPattern: {fileID: 436388293}
+  LCirclePattern: {fileID: 767719070}
+  RCirclePattern: {fileID: 1675461567}
+  TimeToNextState: 7
+  choosePattern: 0
 --- !u!114 &126667366583538342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,6 +830,7 @@ Transform:
   - {fileID: 350365887}
   - {fileID: 200026174}
   - {fileID: 436388294}
+  - {fileID: 1675461568}
   m_Father: {fileID: 126667365492512417}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -779,6 +865,7 @@ Transform:
   - {fileID: 381190288}
   - {fileID: 1400838738}
   - {fileID: 2050533691}
+  - {fileID: 767719071}
   m_Father: {fileID: 126667365492512417}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

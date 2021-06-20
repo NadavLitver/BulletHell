@@ -39,7 +39,7 @@ public class ZigZagShooting : Pattern
     }
     private void OnDisable()
     {
-        CancelInvoke();
+        
     }
 }
 

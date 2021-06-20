@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     private float speed;
     [SerializeField,Header("Time To Live")]
     private float TTL = 10;
-    private void Start()
+    private void OnEnable()
     {
         Invoke("SelfDestroy", TTL);
     }
