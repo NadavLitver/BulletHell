@@ -8,12 +8,18 @@ public class MenuHandler : MonoBehaviour
 
     public void PlayButton()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(PlayButtonSequence());
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public IEnumerator PlayButtonSequence()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(1);
     }
 
 
