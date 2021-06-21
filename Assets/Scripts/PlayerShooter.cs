@@ -261,7 +261,9 @@ public class PlayerShooter : MonoBehaviour
     }
     void Shoot()
     {
-        GameObject bullet = Instantiate(holyShock, handPoint.position, firePoint.rotation);
+        Vector2 shootDir = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y).normalized;
+        GameObject bullet = Instantiate(holyShock, handPoint.position, Quaternion.identity);
+        bullet.GetComponent<Bullet>().SetMovement(shootDir);
         runeLight.PlayRuneAnim(1000, 1.5f);
     }
     GameObject UseSpecialAbility()

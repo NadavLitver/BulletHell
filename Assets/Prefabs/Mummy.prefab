@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3560139203745789517}
   - component: {fileID: 3560139203745789514}
   - component: {fileID: 3560139203745789559}
+  - component: {fileID: 3989940643464223643}
   m_Layer: 11
   m_Name: Mummy
   m_TagString: Enemy
@@ -149,12 +150,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   isVulnerable: 1
-  animator: {fileID: 0}
+  animator: {fileID: 7397554295988329544}
   DistanceToThrow: 5
   bulletSpeed: 4
   ThrowCD: 1
   BulletPrefab: {fileID: 592326861669426464, guid: c5c90b99936f9e34a88c1d27bc5b485f,
     type: 3}
+--- !u!61 &3989940643464223643
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560139203745789556}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &8924351908158072807
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +193,6 @@ GameObject:
   - component: {fileID: 6598051769233609278}
   - component: {fileID: 2426902526752332824}
   - component: {fileID: 7397554295988329544}
-  - component: {fileID: 2894546244207452388}
   m_Layer: 11
   m_Name: GFX
   m_TagString: Enemy
@@ -257,29 +283,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &2894546244207452388
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8924351908158072807}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0

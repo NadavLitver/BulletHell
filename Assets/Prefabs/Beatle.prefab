@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1820397386903010684}
   - component: {fileID: 1820397386903010683}
   - component: {fileID: 1510320688}
+  - component: {fileID: 9169994608100953052}
   m_Layer: 11
   m_Name: Beatle
   m_TagString: Enemy
@@ -149,9 +150,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   isVulnerable: 1
-  animator: {fileID: 0}
+  animator: {fileID: 5657112708716042105}
   damage: 5
   rotationSpeed: 360
+--- !u!61 &9169994608100953052
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820397386903010629}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.0429688, y: 1.0449219}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &6049131170510531798
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +190,6 @@ GameObject:
   - component: {fileID: 8339403554500122895}
   - component: {fileID: 686069436028852009}
   - component: {fileID: 5657112708716042105}
-  - component: {fileID: 499100629}
   m_Layer: 11
   m_Name: GFX
   m_TagString: Enemy
@@ -254,29 +280,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &499100629
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6049131170510531798}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.0429688, y: 1.0449219}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
