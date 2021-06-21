@@ -16,11 +16,12 @@ public class BulletPool : MonoBehaviour
     private void Awake()
     {
         bp_instace = this;
+        bullets = new List<GameObject>();
     }
     // Start is called before the first frame update
     void Start()
     {
-        bullets = new List<GameObject>();
+       
         CreateStartingPool();
     }
 
@@ -44,13 +45,20 @@ public class BulletPool : MonoBehaviour
      
         if (notEnoughBulletsInPool)
         {
-            GameObject b = Instantiate(pooledBullet,transform,true);
-            b.SetActive(false);
-            bullets.Add(b);
-            return b;
+            return CreateAndAddToList();
+
         }
         return null;
     }
+
+    private GameObject CreateAndAddToList()
+    {
+        GameObject b = Instantiate(pooledBullet, transform, true);
+        b.SetActive(false);
+        bullets.Add(b);
+        return b;
+    }
+
     int AmountOfInactiveBullets()
     {
         int amount = 0;
@@ -66,9 +74,9 @@ public class BulletPool : MonoBehaviour
     }
     void CreateStartingPool()
     {
-        for (int i = 0; i < 40; i++)
+        for (int i = 0; i < 100; i++)
         {
-            GetBullet();
+            CreateAndAddToList();
         }
     }
 }

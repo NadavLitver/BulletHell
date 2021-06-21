@@ -16,8 +16,7 @@ public class Mummy : LiveBody
     private bool isThrowing;
     private bool canThrow;
     
-    [SerializeField]
-    private GameObject BulletPrefab;
+   
     protected override void OnLiveBodyEnable()
     {
         base.OnLiveBodyEnable();
@@ -69,8 +68,11 @@ public class Mummy : LiveBody
         throwCooldownRunning = 0;
         canThrow = false;
         yield return new WaitForSeconds(1f);
-        GameObject bullet =  Instantiate(BulletPrefab, transform.position, transform.rotation);
-        bullet.GetComponent<MummyOrb>().velocity = direction * bulletSpeed; 
+        GameObject bullet = BulletPool.bp_instace.GetBullet();
+        bullet.transform.position = transform.position;
+        bullet.transform.rotation = transform.rotation;
+        bullet.GetComponent<Bullet>().SetMovement(direction);
+        bullet.SetActive(true);
         isThrowing = false;
          
 

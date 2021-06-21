@@ -6,41 +6,38 @@ public class OnBulletCollision : MonoBehaviour
     private int dmg;
     [SerializeField]
     private GameObject death;
-    //public AttachGameObjectsToParticles parentref;
     private void OnEnable()
     {
-        if (death != null)
-            death.SetActive(false);
+        death.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     { 
      switch (collision.tag) {
 
             case "Wall":
-                gameObject.SetActive(false);
+                OnHit();
+               
                 break;
             case "Enviroment":
-                gameObject.SetActive(false);
+                OnHit();
+
                 break;
             case "Enemy":
                 collision.GetComponent<LiveBody>().TakeDamage(dmg);
-              //  Destroy(gameObject);
+              //  Destroy(gameObject); // this is the diffrence
                 break;
             case "Player":
                 collision.GetComponent<LiveBody>().TakeDamage(dmg);
-                gameObject.SetActive(false);
+                OnHit();
                 break;
         }
     }
-    private void OnDisable()
-    {
-        if (death != null)
-        {
-            death.SetActive(true);
+    private void OnHit()
+    {  
+       
+            death.SetActive(true);   
             death.transform.parent = null;
-        }
-           
-
+            gameObject.SetActive(false);
 
     }
 
