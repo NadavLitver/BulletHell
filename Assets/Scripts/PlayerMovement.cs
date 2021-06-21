@@ -54,8 +54,33 @@ public class PlayerMovement : LiveBody
         }
         if (isTeleport)
         {
-            rb.MovePosition(Vector2.MoveTowards(rb.position, playershoot.curTelePos, playershoot.teleSpeed * Time.deltaTime));
-            if (Vector2.Distance(rb.position, playershoot.telePoint.position) < 0.5f)
+            int h = new int();
+            int v = new int();
+            Vector2 destination = new Vector2();
+
+            if (moveH > 0)
+                h = 1;
+            if(moveH < 0)
+                h = -1;
+
+            if (moveV > 0)
+                v = 1;
+            if (moveV < 0)
+                v = -1;
+
+            Vector2 movementWithoutSpeed = new Vector2(rb.position.x + h, rb.position.y + v);
+            if (h > 0 || h < 0 || v > 0 || v < 0)
+            {
+                destination = movementWithoutSpeed;
+            }else
+            {
+                destination = new Vector2(rb.position.x + lastDirection.x, rb.position.y + lastDirection.y);
+
+            }
+
+
+            rb.MovePosition(Vector2.MoveTowards(rb.position, destination, playershoot.teleSpeed * Time.deltaTime));
+            if (Vector2.Distance(rb.position, destination) < 0.1f)
             {
                 isTeleport = false;
             }

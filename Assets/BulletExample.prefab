@@ -4823,13 +4823,14 @@ GameObject:
   - component: {fileID: 1852590593580744531}
   - component: {fileID: 4696723167150836503}
   - component: {fileID: 1246883411425005780}
+  - component: {fileID: 8075936138261743345}
   m_Layer: 0
   m_Name: Death
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1852590593580744531
 Transform:
   m_ObjectHideFlags: 0
@@ -9569,6 +9570,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &8075936138261743345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063678750152344726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4866df58ec0659b42bfcb5478839699d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Parent: {fileID: 8725710489474717035}
 --- !u!1 &1742885686645564228
 GameObject:
   m_ObjectHideFlags: 0
@@ -14401,7 +14415,6 @@ GameObject:
   - component: {fileID: 8884953385755003092}
   - component: {fileID: 6907141370679250325}
   - component: {fileID: 3672296886261346925}
-  - component: {fileID: 3530466119408488149}
   m_Layer: 8
   m_Name: Center_Circle
   m_TagString: Untagged
@@ -19212,19 +19225,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &3530466119408488149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2147134975584203734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b4549afe79f2f5469c86bc3048fe50d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dmg: 5
 --- !u!1 &5309493329835934692
 GameObject:
   m_ObjectHideFlags: 0
@@ -24082,7 +24082,8 @@ GameObject:
   - component: {fileID: 8725710489474717035}
   - component: {fileID: 4397005518896393256}
   - component: {fileID: 6322498116426476772}
-  - component: {fileID: 7351635676220213132}
+  - component: {fileID: 7372073653850654543}
+  - component: {fileID: 6244143714197482946}
   m_Layer: 8
   m_Name: BulletExample
   m_TagString: Bullet
@@ -24136,7 +24137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   TTL: 10
---- !u!114 &7351635676220213132
+--- !u!114 &7372073653850654543
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24145,11 +24146,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 6322498116426476773}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 837f36971348d9941b7cb7041edbc80c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3208bfd0838bdbb41a44197d0032f2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  death: {fileID: 1063678750152344726}
   dmg: 15
+  death: {fileID: 1063678750152344726}
+--- !u!50 &6244143714197482946
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6322498116426476773}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &6424293510792456442
 GameObject:
   m_ObjectHideFlags: 0

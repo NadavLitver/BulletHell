@@ -5,40 +5,44 @@ using UnityEngine;
 public class HolyShockCollisionHandler : MonoBehaviour
 {
     [SerializeField]
-    private GameObject death;
-
-    [SerializeField]
     private int dmg;
-
+    [SerializeField]
+    private GameObject death;
     private void OnEnable()
     {
-        death.SetActive(false);
+        if (death != null)
+            death.SetActive(false);
     }
-
-    //public AttachGameObjectsToParticles parentref;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.tag)
         {
+
             case "Wall":
-                Destroy(gameObject);
+                OnHit();
+
                 break;
             case "Enviroment":
-                Destroy(gameObject);
+                OnHit();
+
                 break;
             case "Enemy":
                 collision.GetComponent<LiveBody>().TakeDamage(dmg);
-                Destroy(gameObject);
+                OnHit();
                 break;
             case "Player":
                 collision.GetComponent<LiveBody>().TakeDamage(dmg);
-                Destroy(gameObject);
+                OnHit();
                 break;
         }
     }
-    private void OnDisable()
+    private void OnHit()
     {
+
         death.SetActive(true);
         death.transform.parent = null;
+        gameObject.SetActive(false);
+
     }
+
 }

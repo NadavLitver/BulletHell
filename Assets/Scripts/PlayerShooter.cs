@@ -14,9 +14,6 @@ public class PlayerShooter : MonoBehaviour
     private Transform handPoint;
 
     [SerializeField]
-    internal Transform telePoint;
-
-    [SerializeField]
     private Collider2D bodyCollider;
 
     [SerializeField]
@@ -39,7 +36,6 @@ public class PlayerShooter : MonoBehaviour
 
     private GameObject CurSpecial;
     public float teleSpeed;
-    internal Vector2 curTelePos;
     private Vector2 mousePos;
     private Vector2 dir;
     private float holyShockTimer;
@@ -224,7 +220,6 @@ public class PlayerShooter : MonoBehaviour
     private IEnumerator Teleport()
     {
         playermove.canMove = false;
-        curTelePos = telePoint.position;
         playermove.isVulnerable = false;
         bodyCollider.enabled = false;
         playermove.isTeleport = true;
