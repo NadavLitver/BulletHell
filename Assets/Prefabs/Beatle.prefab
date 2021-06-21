@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1820397386903010683}
   - component: {fileID: 1510320688}
   - component: {fileID: 9169994608100953052}
+  - component: {fileID: 5183344860001952799}
   m_Layer: 11
   m_Name: Beatle
   m_TagString: Enemy
@@ -179,6 +180,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5183344860001952799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820397386903010629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 432dcc1dd5518a248b61b1aef9cf20a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doUpdate: 1
 --- !u!1 &6049131170510531798
 GameObject:
   m_ObjectHideFlags: 0

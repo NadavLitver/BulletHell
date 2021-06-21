@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3560139203745789514}
   - component: {fileID: 3560139203745789559}
   - component: {fileID: 3989940643464223643}
+  - component: {fileID: 8098161493140694000}
   m_Layer: 11
   m_Name: Mummy
   m_TagString: Enemy
@@ -182,6 +183,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8098161493140694000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560139203745789556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 432dcc1dd5518a248b61b1aef9cf20a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doUpdate: 1
 --- !u!1 &8924351908158072807
 GameObject:
   m_ObjectHideFlags: 0
