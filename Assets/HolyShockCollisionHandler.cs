@@ -12,7 +12,8 @@ public class HolyShockCollisionHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        death.SetActive(false);
+        if(death!= null)
+            death.SetActive(false);
     }
 
     //public AttachGameObjectsToParticles parentref;
@@ -39,6 +40,9 @@ public class HolyShockCollisionHandler : MonoBehaviour
     private void OnDisable()
     {
         death.SetActive(true);
-        death.transform.parent = null;
+        if (death != null)
+            death.transform.parent = null;
+        
+        
     }
 }
