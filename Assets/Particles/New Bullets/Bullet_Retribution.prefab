@@ -33651,7 +33651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f826d7166845b48b695066e924106d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runningCD: 0
+  runningCD: 0.0105
   cooldown: 0
   isGetKeyDown: 0
   isChargingReq: 0
@@ -33667,7 +33667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edf8b5688c569a4aba5523956416cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 15
+  dmg: 1
 --- !u!95 &7884756366738094191
 Animator:
   serializedVersion: 3

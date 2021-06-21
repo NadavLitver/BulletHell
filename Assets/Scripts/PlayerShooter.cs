@@ -51,6 +51,11 @@ public class PlayerShooter : MonoBehaviour
 
     [SerializeField] private PlayerRuneLight runeLight;
 
+
+    float recoilAmount = 20;
+    [SerializeField]
+    public float recoilCounter = 0;
+
     void Update()
     {
         GetWorldMousePos();
@@ -60,6 +65,10 @@ public class PlayerShooter : MonoBehaviour
         TeleportCDTimer();
         SpecialCDTimer();
         CountSpecialKeyTime();
+
+        if(recoilCounter > 0) 
+              recoilCounter -= Time.deltaTime;
+       
     }
 
   
@@ -261,9 +270,22 @@ public class PlayerShooter : MonoBehaviour
     }
     void Shoot()
     {
+        if(recoilCounter < 4)
+           recoilCounter += 0.5f;
+
         Vector2 shootDir = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y).normalized;
-        GameObject bullet = Instantiate(holyShock, handPoint.position, Quaternion.identity);
-        bullet.GetComponent<Bullet>().SetMovement(shootDir);
+        if(recoilCounter >= 2)
+        {
+            GameObject bullet = Instantiate(holyShock, handPoint.position, Quaternion.Euler(Quaternion.identity.x, Quaternion.identity.y, Quaternion.identity.z + Randomizer.ReturnRandomFloat(-recoilAmount,recoilAmount)));
+            bullet.GetComponent<Bullet>().SetMovement(shootDir);
+
+        }
+        else
+        {
+            GameObject bullet = Instantiate(holyShock, handPoint.position, Quaternion.identity);
+            bullet.GetComponent<Bullet>().SetMovement(shootDir);
+
+        }
         runeLight.PlayRuneAnim(1000, 1.5f);
     }
     GameObject UseSpecialAbility()
