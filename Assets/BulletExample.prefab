@@ -24136,7 +24136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  TTL: 10
+  TTL: 15
 --- !u!114 &7372073653850654543
 MonoBehaviour:
   m_ObjectHideFlags: 0

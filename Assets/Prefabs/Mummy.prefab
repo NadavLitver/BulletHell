@@ -149,14 +149,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e95a793ab85b58749baea3f95f95c5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 50
   isVulnerable: 1
   animator: {fileID: 7397554295988329544}
   DistanceToThrow: 5
   bulletSpeed: 4
   ThrowCD: 1
-  BulletPrefab: {fileID: 592326861669426464, guid: c5c90b99936f9e34a88c1d27bc5b485f,
-    type: 3}
 --- !u!61 &3989940643464223643
 BoxCollider2D:
   m_ObjectHideFlags: 0

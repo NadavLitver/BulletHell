@@ -10,9 +10,10 @@ public class SummonState : State
     [SerializeField]
     private GameObject MummyType;
     [SerializeField]
-    private Transform rSummonPoint;
+    Transform[] LsummonPoints;
     [SerializeField]
-    private Transform lSummonPoint;
+    Transform[] RsummonPoints;
+
 
     public int amountOfEnemiesPerSummon;
     public float TimeBetweenEnemy;
@@ -45,9 +46,9 @@ public class SummonState : State
         //Transform summonPos = type == MummyType ? lSummonPoint : rSummonPoint;
         for (int i = 0; i < amountOfEnemiesPerSummon; i++)
         {
-            Instantiate(type, lSummonPoint.position, lSummonPoint.rotation, lSummonPoint);
+            Instantiate(type, LsummonPoints[i].position, LsummonPoints[i].rotation, LsummonPoints[i]);
             yield return new WaitForSeconds(TimeBetweenEnemy);
-            Instantiate(type, rSummonPoint.position, rSummonPoint.rotation, rSummonPoint);
+            Instantiate(type, RsummonPoints[i].position, RsummonPoints[i].rotation, RsummonPoints[i]);
             yield return new WaitForSeconds(TimeBetweenEnemy);
         }
 

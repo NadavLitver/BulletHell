@@ -13,7 +13,12 @@ public class StateSwapper : MonoBehaviour
     public State FirstState;
     private void Start()
     {
+        Invoke("SetFirstState", 3.5f);
+    }
+    void SetFirstState()
+    {
         SwapState(FirstState);
+
     }
     public void SwapState(State state)
     {

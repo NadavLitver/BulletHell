@@ -100,15 +100,6 @@ public class BulletPatternsState : State
     {
         base.CallSwapState(NextState);
     }
-
-
-
-    void TempPattern()
-    {
-       
-
-
-    }
     private void OnDisable()
     {
      
