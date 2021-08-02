@@ -22,5 +22,13 @@ public class SortOrder : MonoBehaviour
     }
     private int getSort() {
         return Mathf.RoundToInt(-transform.position.y * 10);
-    } 
+    }
+    private void OnDisable()
+    {
+        doUpdate = false;
+    }
+    private void OnDestroy()
+    {
+        doUpdate = false;
+    }
 }

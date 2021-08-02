@@ -38,11 +38,9 @@ public class HolyShockCollisionHandler : MonoBehaviour
     }
     private void OnHit()
     {
-
         death.SetActive(true);
         death.transform.parent = null;
         gameObject.SetActive(false);
-
     }
 
 }
