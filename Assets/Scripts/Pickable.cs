@@ -45,7 +45,10 @@ public class Pickable : MonoBehaviour
         if (collision.CompareTag("Player") &&!Picked)
         {
             isInRange = false;
-            runelight.SetLight(runelight.idleIntensity, 1f);
+            if (!Picked)
+            {
+                runelight.SetLight(runelight.idleIntensity, 1f);
+            }
         }
     }
     private void OnDisable()

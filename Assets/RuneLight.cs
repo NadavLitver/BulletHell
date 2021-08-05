@@ -38,7 +38,7 @@ public class RuneLight : MonoBehaviour
     private IEnumerator setLightCoru(float intensity, float lerpSpeed)
     {
         float currdurr = 0f;
-        while (m_light.intensity != intensity)
+        while (currdurr < 1)
         {
             currdurr += Time.deltaTime / lerpSpeed;
             m_light.intensity = Mathf.Lerp(m_light.intensity, intensity, currdurr);
@@ -47,6 +47,10 @@ public class RuneLight : MonoBehaviour
 
     }
     private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+    private void OnDestroy()
     {
         StopAllCoroutines();
     }
