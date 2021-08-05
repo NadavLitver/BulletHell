@@ -17,7 +17,6 @@ public class PlayerHitEffect : MonoBehaviour
     {
         float currDurr = 0;
         float duration = .3f;
-        CamShake.instance.callCamShake(duration, 1);
         while (currDurr < 1)
         {
             m_sprite.color = Color.Lerp(Color.black, Color.white, currDurr);

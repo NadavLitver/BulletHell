@@ -46,4 +46,8 @@ public class RuneLight : MonoBehaviour
         }
 
     }
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
 }

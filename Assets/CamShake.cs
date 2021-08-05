@@ -24,8 +24,13 @@ public class CamShake : MonoBehaviour
     }
     public void callCamShake(float duration, float intensity)
     {
-        StopAllCoroutines();
         CinemachineBasicMultiChannelPerlin perlin = m_cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+
+        if (intensity < perlin.m_AmplitudeGain)
+        {
+            return;
+        }
+        StopAllCoroutines();
         perlin.m_AmplitudeGain = 0f;
         StartCoroutine(camShakeCoru(duration, intensity));
     }

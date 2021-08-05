@@ -17,6 +17,7 @@ public abstract class LiveBody : MonoBehaviour
         {
             OnDeath();
         }
+        CamShake.instance.callCamShake(0.25f, (damage / 100) * 3);
         AfterTakeDamage();
     }
     private void OnEnable()
