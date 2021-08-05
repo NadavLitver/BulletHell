@@ -20,6 +20,10 @@ public class PlayerShooter : MonoBehaviour
 
     [SerializeField]
     private GameObject holyShock;
+    [SerializeField]
+    private GameObject AuraBurst;
+    [SerializeField]
+    private GameObject Penance;
 
     [SerializeField]
     private KeyCode shootButton;
@@ -116,7 +120,7 @@ public class PlayerShooter : MonoBehaviour
             if (Input.GetKeyDown(SpecialButton))
             {
                 Inventory.InventoryInstace.specialAbility.runningCD = 0;
-                StartCoroutine(ShotgunWave());
+                StartCoroutine(AuraBurstWave());
 
             }
         }
@@ -297,7 +301,7 @@ public class PlayerShooter : MonoBehaviour
         CurSpecial = specialBullet;
         return specialBullet;
     }
-    IEnumerator ShotgunWave()
+    IEnumerator AuraBurstWave()
     {
         callPlayerKnockback(5);
 
@@ -313,7 +317,7 @@ public class PlayerShooter : MonoBehaviour
             Vector2 bulletMoveVector = new Vector2(bulletDirX, bulletDirY);
             Vector2 bulletDir = (bulletMoveVector - (Vector2)handPoint.position).normalized;
 
-            GameObject bullet = Instantiate(holyShock, handPoint.position, firePoint.rotation);
+            GameObject bullet = Instantiate(AuraBurst, handPoint.position, firePoint.rotation);
 
             bullet.GetComponent<Bullet>().SetMovement(bulletDir);
             bullet.GetComponent<Bullet>().speed *= 0.8f;
@@ -357,14 +361,14 @@ public class PlayerShooter : MonoBehaviour
                 {
                     ShootRecoilAmount = 30;
                 }
-                GameObject bullet = Instantiate(holyShock, handPoint.position, Quaternion.Euler(Quaternion.identity.x, Quaternion.identity.y, Quaternion.identity.z + Randomizer.ReturnRandomFloat(-ShootRecoilAmount, ShootRecoilAmount)));
+                GameObject bullet = Instantiate(Penance, handPoint.position, Quaternion.Euler(Quaternion.identity.x, Quaternion.identity.y, Quaternion.identity.z + Randomizer.ReturnRandomFloat(-ShootRecoilAmount, ShootRecoilAmount)));
                 bullet.GetComponent<Bullet>().SetMovement(shootDir);
 
 
             }
             else
             {
-                GameObject bullet = Instantiate(holyShock, handPoint.position, Quaternion.identity);
+                GameObject bullet = Instantiate(Penance, handPoint.position, Quaternion.identity);
                 bullet.GetComponent<Bullet>().SetMovement(shootDir);
 
             }
