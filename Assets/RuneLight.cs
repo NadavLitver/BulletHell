@@ -28,7 +28,6 @@ public class RuneLight : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         m_light.intensity = 0;
-        this.gameObject.SetActive(false);
     }
     public void SetLight(float Intensity, float lerpSpeed)
     {

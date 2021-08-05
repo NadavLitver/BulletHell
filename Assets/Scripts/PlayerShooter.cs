@@ -4,6 +4,9 @@ using UnityEngine;
 public class PlayerShooter : MonoBehaviour
 {
     [SerializeField]
+    private TeleportEffect teleportEffect;
+
+    [SerializeField]
     private PlayerMovement playerMovement;
 
     [SerializeField]
@@ -222,6 +225,8 @@ public class PlayerShooter : MonoBehaviour
     #endregion
     private IEnumerator Teleport()
     {
+        
+        teleportEffect.Activate(Direction.right);
         playerMovement.canMove = false;
         playerMovement.isVulnerable = false;
         bodyCollider.enabled = false;
