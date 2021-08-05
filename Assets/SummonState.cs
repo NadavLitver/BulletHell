@@ -55,7 +55,7 @@ public class SummonState : State
         yield return new WaitForSeconds(TimeToNextState);
         CallSwapState(nextState);
 
-    }
+     }
 
     protected override void CallSwapState(State NextState)
     {
