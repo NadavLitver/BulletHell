@@ -9,14 +9,13 @@ public class OrbHandler : MonoBehaviour
     private const string LiquidStrenghtREF = "_LiquidStr";
     private const string BounceSpeedREF = "_BouceSpeed";
 
-    public float minVal;
-    public float maxVal;
-    private float curVal;
+
+    [Range(-0.7f, 0.7f)] private float curVal;
 
     private void Start()
     {
         // Set current hp value to player hp (max hp)
-        curVal = player.hp;
+        curVal = 0.7f;
     }
 
     private void Update()

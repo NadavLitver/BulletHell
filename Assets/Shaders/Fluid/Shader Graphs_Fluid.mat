@@ -32,7 +32,7 @@ Material:
     - Vector1_D3DAECE: 0.5
     - _BouceSpeed: 1.5
     - _FoamStr: 0.07
-    - _LiquidStr: 98.40813
+    - _LiquidStr: 100
     - _NoiseSpeed: 0.1
     - _NoiseStr: 0.1
     m_Colors:
