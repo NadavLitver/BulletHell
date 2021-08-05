@@ -105,8 +105,10 @@ public class StatueMover : MonoBehaviour
                     {
                         statue.GetComponentInChildren<SortOrder>().UpdateSortOrder();
                     }  
+                        CanFirstState = false;
+
                 }
-                   
+
             }
 
         }
@@ -129,6 +131,8 @@ public class StatueMover : MonoBehaviour
                     {
                         statue.GetComponentInChildren<SortOrder>().UpdateSortOrder();
                     }
+                    CanSecondState = false;
+
                 }
             }
         }
@@ -150,6 +154,7 @@ public class StatueMover : MonoBehaviour
                     {
                         statue.GetComponentInChildren<SortOrder>().UpdateSortOrder();
                     }
+                    CanThirdState = false;
 
                 }
             }
@@ -170,6 +175,7 @@ public class StatueMover : MonoBehaviour
                     foreach (GameObject statue in Statues)
                     {
                         statue.GetComponentInChildren<SortOrder>().UpdateSortOrder();
+                        canFourthState = false;
                     }
 
                 }

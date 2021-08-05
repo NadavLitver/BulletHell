@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8848383925636932111}
   - component: {fileID: 4864884336895004560}
   - component: {fileID: 7354669461006887874}
-  m_Layer: 8
+  m_Layer: 16
   m_Name: Bullet_Penance
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -4874,7 +4874,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -9614,7 +9614,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1213962761
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -14439,7 +14439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5d688f8982ec04aaff5258dad536d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TTL: 9
+  TTL: 3
 --- !u!1 &1541696966385356426
 GameObject:
   m_ObjectHideFlags: 0
@@ -19323,7 +19323,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -38633,7 +38633,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -43445,7 +43445,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
