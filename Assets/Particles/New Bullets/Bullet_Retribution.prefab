@@ -33651,8 +33651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f826d7166845b48b695066e924106d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runningCD: 0.0105
-  cooldown: 0
+  runningCD: 0.0087178
+  cooldown: 1
   isGetKeyDown: 0
   isChargingReq: 0
 --- !u!114 &7850508355993698784
