@@ -15,6 +15,7 @@ public class PlayerMovement : LiveBody
     
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private PlayerShooter playershoot;
+    [SerializeField] OrbHandler orbHandler;
     internal bool isTeleport;
     private Vector2 movement;
 
@@ -45,6 +46,7 @@ public class PlayerMovement : LiveBody
     {
         base.TakeDamage(damage);
       StartCoroutine(SetPlayerHealthBar.SetHPCorou(hp));
+        orbHandler.SetHP(hp);
     }
     private void FixedUpdate()
     {
