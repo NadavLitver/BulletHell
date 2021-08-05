@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HolyShockCollisionHandler : MonoBehaviour
 {
@@ -20,13 +18,15 @@ public class HolyShockCollisionHandler : MonoBehaviour
 
             case "Wall":
                 OnHit();
-
                 break;
             case "Enviroment":
                 OnHit();
-
                 break;
             case "Enemy":
+                collision.GetComponent<LiveBody>().TakeDamage(dmg);
+                OnHit();
+                break;
+            case "Boss":
                 collision.GetComponent<LiveBody>().TakeDamage(dmg);
                 OnHit();
                 break;

@@ -15,12 +15,7 @@ public abstract class LiveBody : MonoBehaviour
         if(isVulnerable){hp -= damage;}
         if(hp <= 0)
         {
-            if (gameObject.CompareTag("Player"))
-            {
-                GameManager.gm.RestartScene();
-            }
-            Debug.Log(gameObject.name + " is Dead");
-            Destroy(gameObject,0.1f);
+            OnDeath();
         }
         AfterTakeDamage();
     }
@@ -33,5 +28,21 @@ public abstract class LiveBody : MonoBehaviour
       
     }
     protected abstract void AfterTakeDamage();
+    void OnDeath()
+    {
+        if (gameObject.CompareTag("Player"))
+        {
+            GameManager.gm.PlayerLost?.Invoke();
+
+        }
+        else if (gameObject.CompareTag("Boss"))
+        {
+            GameManager.gm.PlayerWon?.Invoke();
+
+        }
+        Debug.Log(gameObject.name + " is Dead");
+        StopAllCoroutines();
+        Destroy(gameObject, 0.2f);
+    }
   
 }

@@ -44,7 +44,7 @@ public class PlayerMovement : LiveBody
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
-      StartCoroutine(SetPlayerHealthBar.SetHPCorou(hp));
+        StartCoroutine(SetPlayerHealthBar.SetHPCorou(hp));
     }
     private void FixedUpdate()
     {

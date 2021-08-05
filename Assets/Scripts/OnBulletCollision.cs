@@ -20,11 +20,14 @@ public class OnBulletCollision : MonoBehaviour
                 break;
             case "Enviroment":
                 OnHit();
-
                 break;
             case "Enemy":
                 collision.GetComponent<LiveBody>().TakeDamage(dmg);
-              //  Destroy(gameObject); // this is the diffrence
+                OnHit();
+                break;
+            case "Boss":
+                collision.GetComponent<LiveBody>().TakeDamage(dmg);
+                OnHit();
                 break;
             case "Player":
                 collision.GetComponent<LiveBody>().TakeDamage(dmg);

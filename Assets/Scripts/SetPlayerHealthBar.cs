@@ -30,7 +30,7 @@ public class SetPlayerHealthBar : MonoBehaviour
     {
         while(slider.value != hp)
         {
-            slider.value = Mathf.MoveTowards(slider.value, hp, 0.25f);
+            slider.value = Mathf.MoveTowards(slider.value, hp, 2f);
             yield return new WaitForEndOfFrame();
         }
         yield break;

@@ -136,7 +136,7 @@ public class PlayerShooter : MonoBehaviour
         if (Input.GetKeyDown(SpecialButton) && !Inventory.InventoryInstace.specialAbility.isChargingReq)
         {
             isMachineGun = true;
-            StartCoroutine(MachineGun());
+            StartCoroutine("MachineGun");
 
         }
         else if (Input.GetKeyDown(SpecialButton) && Inventory.InventoryInstace.specialAbility.isChargingReq)
@@ -183,6 +183,7 @@ public class PlayerShooter : MonoBehaviour
             specialKeyPressing = false;
             isMachineGun = false;
             playerMovement.canMove = true;
+            StopCoroutine("MachineGun");
             if (CurSpecial != null)
             {
                 CurSpecial.GetComponent<Animator>().SetBool("PlayEmission", false);
@@ -371,9 +372,14 @@ public class PlayerShooter : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenPenanceShots);
 
         }
+        yield return null;
     }
-
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
 }
+
 internal static class ShotgunData
 {
     internal static int bulletAmount = 4;

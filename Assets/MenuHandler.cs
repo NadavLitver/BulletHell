@@ -18,7 +18,7 @@ public class MenuHandler : MonoBehaviour
 
     public IEnumerator PlayButtonSequence()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(1);
     }
 
