@@ -41,8 +41,4 @@ public class WaveShooting : Pattern
             angle += angleStep;
         }
     }
-    private void OnDisable()
-    {
-        
-    }
 }

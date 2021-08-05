@@ -6,7 +6,7 @@ public class BulletPatternsState : State
 {
     
     
-    [SerializeField]private int amountOfPatterns = 4;
+    [SerializeField]private int amountOfPatterns =5;
     [SerializeField,Header("Wave Shooting Script")] GameObject LwavePattern;
     [SerializeField,Header("Wave Shooting Script")] GameObject RwavePattern;
 
@@ -18,7 +18,11 @@ public class BulletPatternsState : State
 
 
     [SerializeField, Header("Circle Shooting Script")] GameObject LCirclePattern;
-    [SerializeField, Header("ZigZag Shooting Script")] GameObject RCirclePattern;
+    [SerializeField, Header("Circle Shooting Script")] GameObject RCirclePattern;
+
+
+    [SerializeField, Header("X Shooting Script")] GameObject LxShapePattern;
+    [SerializeField, Header("X Shooting Script")] GameObject RxShapePattern;
     public float TimeToNextState = 10;
 
     public bool choosePattern = false;
@@ -60,6 +64,10 @@ public class BulletPatternsState : State
                 animator.SetTrigger("Shoot");
                 StartCoroutine(PatternDelay(LCirclePattern, RCirclePattern));
                 break;
+            case 4:
+                animator.SetTrigger("Shoot");
+                StartCoroutine(PatternDelay(LxShapePattern, RxShapePattern));
+                break;
             default:
                 break;
         }
@@ -67,7 +75,7 @@ public class BulletPatternsState : State
     void ManualPattern()
     {
         animator.SetTrigger("Shoot");
-        StartCoroutine(PatternDelay(LCirclePattern, RCirclePattern));
+        StartCoroutine(PatternDelay(LxShapePattern, RxShapePattern));
     }
   
     IEnumerator PatternDelay(GameObject lP, GameObject rP)

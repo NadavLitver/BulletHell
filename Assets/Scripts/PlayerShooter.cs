@@ -1,11 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerShooter : MonoBehaviour
 {
     [SerializeField]
-    private PlayerMovement playermove;
+    private PlayerMovement playerMovement;
 
     [SerializeField]
     private Transform firePoint;
@@ -44,13 +43,13 @@ public class PlayerShooter : MonoBehaviour
     public float specialKeyDownCounter;
     public float holyShockCD;
     public float teleportCD;
-
+    private bool isMachineGun = false;
     [SerializeField] private PlayerRuneLight runeLight;
 
 
-    float recoilAmount = 20;
-    [SerializeField]
-    public float recoilCounter = 0;
+    private float recoilCounter = 0;
+
+    public float timeBetweenPenanceShots = 0.2f;
 
     void Update()
     {
@@ -62,12 +61,12 @@ public class PlayerShooter : MonoBehaviour
         SpecialCDTimer();
         CountSpecialKeyTime();
 
-        if(recoilCounter > 0) 
-              recoilCounter -= Time.deltaTime;
-       
+        if (recoilCounter > 0)
+            recoilCounter -= Time.deltaTime;
+
     }
 
-  
+
 
     private void SpecialCDTimer()
     {
@@ -111,58 +110,56 @@ public class PlayerShooter : MonoBehaviour
     #region specialInput
     void GetInputSpecial()
     {
-       
-            if (Inventory.InventoryInstace.specialAbility.isGetKeyDown)
+
+        if (Inventory.InventoryInstace.specialAbility.isGetKeyDown)
+        {
+            if (Input.GetKeyDown(SpecialButton))
             {
-                if (Input.GetKeyDown(SpecialButton))
-                {
-                  Inventory.InventoryInstace.specialAbility.runningCD = 0;
-                  UseSpecialAbility();
-                   
-                }
+                Inventory.InventoryInstace.specialAbility.runningCD = 0;
+                StartCoroutine(ShotgunWave());
+
             }
-            else
-            {
+        }
+        else
+        {
 
             CheckSpecialKeyDown();
             CheckSpecialKeyUp();
-            }
+        }
 
 
     }
-   
+
 
     private void CheckSpecialKeyDown()
     {
         if (Input.GetKeyDown(SpecialButton) && !Inventory.InventoryInstace.specialAbility.isChargingReq)
         {
-            UseSpecialAbility();
-            if (CurSpecial != null)
-            {
-                CurSpecial.GetComponent<Animator>().SetBool("PlayEmission", true);
-            }
+            isMachineGun = true;
+            StartCoroutine(MachineGun());
 
-        }else if(Input.GetKeyDown(SpecialButton) && Inventory.InventoryInstace.specialAbility.isChargingReq)
+        }
+        else if (Input.GetKeyDown(SpecialButton) && Inventory.InventoryInstace.specialAbility.isChargingReq)
         {
             specialKeyPressing = true;
-            playermove.canMove = false;
+            playerMovement.canMove = false;
         }
     }
     private void CountSpecialKeyTime()
     {
-        if (playermove.canMove == false)
+        if (playerMovement.canMove == false)
         {
             if (specialKeyPressing)
             {
-                 specialKeyDownCounter += Time.deltaTime;
-                
+                specialKeyDownCounter += Time.deltaTime;
+
                 if (specialKeyDownCounter >= chargeTimeForRetribution)
                 {
                     UseSpecialAbility();
                     specialKeyPressing = false;
                     Inventory.InventoryInstace.specialAbility.runningCD = 0;
                     CurSpecial.GetComponent<Animator>().SetBool("PlayEmission", true);
-
+                    StartCoroutine(callPlayerKnockbackDelayed(5, 1f));
 
                 }
 
@@ -173,18 +170,19 @@ public class PlayerShooter : MonoBehaviour
 
 
                 specialKeyDownCounter = 0;
-                playermove.canMove = true;
+                playerMovement.canMove = true;
 
             }
-        } 
-          
+        }
+
     }
     private void CheckSpecialKeyUp()
     {
         if (Input.GetKeyUp(SpecialButton))
         {
             specialKeyPressing = false;
-            playermove.canMove = true;
+            isMachineGun = false;
+            playerMovement.canMove = true;
             if (CurSpecial != null)
             {
                 CurSpecial.GetComponent<Animator>().SetBool("PlayEmission", false);
@@ -192,7 +190,7 @@ public class PlayerShooter : MonoBehaviour
                 specialKeyDownCounter = 0;
                 Destroy(CurSpecial.gameObject, 0.5f);
             }
-         
+
         }
     }
     #endregion
@@ -219,18 +217,18 @@ public class PlayerShooter : MonoBehaviour
     #endregion
     private IEnumerator Teleport()
     {
-        playermove.canMove = false;
-        playermove.isVulnerable = false;
+        playerMovement.canMove = false;
+        playerMovement.isVulnerable = false;
         bodyCollider.enabled = false;
-        playermove.isTeleport = true;
+        playerMovement.isTeleport = true;
         sr.color = new Color(255, 255, 255, 0);
         yield return new WaitForSeconds(0.26f);
-        playermove.isTeleport = false;
-        playermove.isVulnerable = true;
+        playerMovement.isTeleport = false;
+        playerMovement.isVulnerable = true;
         bodyCollider.enabled = true;
         sr.color = new Color(255, 255, 255, 255);
         yield return new WaitForSeconds(0.45f);
-        playermove.canMove = true;
+        playerMovement.canMove = true;
         yield break;
     }
     private void GetWorldMousePos()
@@ -265,20 +263,24 @@ public class PlayerShooter : MonoBehaviour
     }
     void Shoot()
     {
-        if(recoilCounter < 4)
-           recoilCounter += 0.5f;
+        if (recoilCounter < 4)
+            recoilCounter += 0.5f;
+        float ShootRecoilAmount = 10;
 
         Vector2 shootDir = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y).normalized;
-        if(recoilCounter >= 2)
+        if (recoilCounter >= 2)
         {
-            GameObject bullet = Instantiate(holyShock, handPoint.position, Quaternion.Euler(Quaternion.identity.x, Quaternion.identity.y, Quaternion.identity.z + Randomizer.ReturnRandomFloat(-recoilAmount,recoilAmount)));
+            GameObject bullet = Instantiate(holyShock, handPoint.position, Quaternion.Euler(Quaternion.identity.x, Quaternion.identity.y, Quaternion.identity.z + Randomizer.ReturnRandomFloat(-ShootRecoilAmount, ShootRecoilAmount)));
             bullet.GetComponent<Bullet>().SetMovement(shootDir);
+            bullet.GetComponent<Bullet>().speed *= 0.6f;
+
 
         }
         else
         {
             GameObject bullet = Instantiate(holyShock, handPoint.position, Quaternion.identity);
             bullet.GetComponent<Bullet>().SetMovement(shootDir);
+            bullet.GetComponent<Bullet>().speed *= 0.4f;
 
         }
         runeLight.PlayRuneAnim(1000, 1.5f);
@@ -294,4 +296,89 @@ public class PlayerShooter : MonoBehaviour
         CurSpecial = specialBullet;
         return specialBullet;
     }
+    IEnumerator ShotgunWave()
+    {
+        callPlayerKnockback(5);
+
+        yield return new WaitForSeconds(0.1f);
+
+        float angle = ShotgunData.startAngle;
+
+        for (int i = 0; i < ShotgunData.bulletAmount; i++)
+        {
+
+            float bulletDirX = handPoint.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
+            float bulletDirY = handPoint.transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
+            Vector2 bulletMoveVector = new Vector2(bulletDirX, bulletDirY);
+            Vector2 bulletDir = (bulletMoveVector - (Vector2)handPoint.position).normalized;
+
+            GameObject bullet = Instantiate(holyShock, handPoint.position, firePoint.rotation);
+
+            bullet.GetComponent<Bullet>().SetMovement(bulletDir);
+            bullet.GetComponent<Bullet>().speed *= 0.8f;
+            bullet.SetActive(true);
+            angle += ShotgunData.angleStep;
+        }
+
+    }
+
+    private void callPlayerKnockback(float knockbackForce)
+    {
+        Vector2 knockBackDir = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y).normalized * -1;
+
+        playerMovement.CallPlayerKnockback(knockBackDir * knockbackForce);
+    }
+    private IEnumerator callPlayerKnockbackDelayed(float knockbackForce, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        Vector2 knockBackDir = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y).normalized * -1;
+
+        playerMovement.CallPlayerKnockback(knockBackDir * knockbackForce);
+    }
+
+    IEnumerator MachineGun()
+    {
+        while (isMachineGun)
+        {
+            if (recoilCounter < 4)
+                recoilCounter += 0.5f;
+            float ShootRecoilAmount = 10;
+
+            Vector2 shootDir = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y).normalized;
+            if (recoilCounter >= 1)
+            {
+                if (recoilCounter >= 2)
+                {
+                    ShootRecoilAmount = 20;
+                }
+                else if (recoilCounter >= 3)
+                {
+                    ShootRecoilAmount = 30;
+                }
+                GameObject bullet = Instantiate(holyShock, handPoint.position, Quaternion.Euler(Quaternion.identity.x, Quaternion.identity.y, Quaternion.identity.z + Randomizer.ReturnRandomFloat(-ShootRecoilAmount, ShootRecoilAmount)));
+                bullet.GetComponent<Bullet>().SetMovement(shootDir);
+
+
+            }
+            else
+            {
+                GameObject bullet = Instantiate(holyShock, handPoint.position, Quaternion.identity);
+                bullet.GetComponent<Bullet>().SetMovement(shootDir);
+
+            }
+            runeLight.PlayRuneAnim(1000, 1.5f);
+            yield return new WaitForSeconds(timeBetweenPenanceShots);
+
+        }
+    }
+
+}
+internal static class ShotgunData
+{
+    internal static int bulletAmount = 4;
+    internal static float startAngle = 80f;
+    internal static float endAngle = 120f;
+    internal static float angleStepTemp = (endAngle - startAngle);
+    internal static float angleStep = angleStepTemp / bulletAmount;
 }

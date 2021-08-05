@@ -101,6 +101,10 @@ public class StatueMover : MonoBehaviour
                 {
                   path.Scan();
                   FirstStateScanned = true;
+                    foreach (GameObject statue in Statues)
+                    {
+                        statue.GetComponentInChildren<SortOrder>().UpdateSortOrder();
+                    }  
                 }
                    
             }
@@ -121,7 +125,10 @@ public class StatueMover : MonoBehaviour
                 {
                         path.Scan();
                         SecondStateScanned = true;
-
+                    foreach (GameObject statue in Statues)
+                    {
+                        statue.GetComponentInChildren<SortOrder>().UpdateSortOrder();
+                    }
                 }
             }
         }
@@ -139,6 +146,10 @@ public class StatueMover : MonoBehaviour
                 {
                     path.Scan();
                     ThirdStateScanned = true;
+                    foreach (GameObject statue in Statues)
+                    {
+                        statue.GetComponentInChildren<SortOrder>().UpdateSortOrder();
+                    }
 
                 }
             }
@@ -156,6 +167,10 @@ public class StatueMover : MonoBehaviour
                 {
                     path.Scan();
                     FourthStateScanned = true;
+                    foreach (GameObject statue in Statues)
+                    {
+                        statue.GetComponentInChildren<SortOrder>().UpdateSortOrder();
+                    }
 
                 }
             }

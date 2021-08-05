@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     Vector2 selfDir;
     [SerializeField]
-    private float speed;
+    internal float speed;
     [SerializeField,Header("Time To Live")]
     private float TTL = 10;
     private void OnEnable()

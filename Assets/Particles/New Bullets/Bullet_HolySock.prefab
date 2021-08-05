@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8848383925636932111}
   - component: {fileID: 4864884336895004560}
   - component: {fileID: 7354669461006887874}
-  m_Layer: 8
+  m_Layer: 16
   m_Name: Bullet_HolySock
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -4823,8 +4823,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837f36971348d9941b7cb7041edbc80c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  death: {fileID: 1037659776647862892}
   dmg: 10
+  death: {fileID: 1037659776647862892}
 --- !u!1 &386813640553564806
 GameObject:
   m_ObjectHideFlags: 0

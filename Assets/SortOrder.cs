@@ -23,4 +23,10 @@ public class SortOrder : MonoBehaviour
     private int getSort() {
         return Mathf.RoundToInt(-transform.position.y * 10);
     } 
+    public void UpdateSortOrder()
+    {
+        m_sr.sortingOrder = getSort();
+
+    }
+    
 }

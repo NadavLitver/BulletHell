@@ -33654,7 +33654,7 @@ MonoBehaviour:
   runningCD: 0.0105
   cooldown: 0
   isGetKeyDown: 0
-  isChargingReq: 0
+  isChargingReq: 1
 --- !u!114 &7850508355993698784
 MonoBehaviour:
   m_ObjectHideFlags: 0

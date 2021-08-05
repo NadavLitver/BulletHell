@@ -116,5 +116,20 @@ public class PlayerMovement : LiveBody
 
         }
     }
+    private IEnumerator PlayerKnockbackRoutine(Vector2 velocity)
+    {
+        canMove = false;
+        rb.velocity = Vector2.zero;
+        movement = Vector2.zero;
+        rb.velocity = velocity;
+        Debug.Log(velocity);
+        yield return new WaitForSeconds(0.2f);
+        rb.velocity = Vector2.zero;
+        canMove = true;
+    }
+    public void CallPlayerKnockback(Vector2 velocity)
+    {
+        StartCoroutine(PlayerKnockbackRoutine(velocity));
+    }
    
 }
