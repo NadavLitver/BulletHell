@@ -52,7 +52,7 @@ public class CooldownHandler : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             cooldownTime = PlayerShooterInstance.holyShockCD;
             if (!inCooldown)
@@ -76,7 +76,7 @@ public class CooldownHandler : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
             cooldownTime = InventoryInstance.specialAbility.runningCD;
 
@@ -100,7 +100,7 @@ public class CooldownHandler : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             cooldownTime = PlayerShooterInstance.teleportCD;
 
