@@ -10152,6 +10152,7 @@ GameObject:
   - component: {fileID: 1010449900}
   - component: {fileID: 1353293400874591302}
   - component: {fileID: 3392892212629700969}
+  - component: {fileID: 6555176732540997109}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -10310,14 +10311,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb4a07b0a4379843859f8f85c4067e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playermove: {fileID: 7806111776557038028}
+  playerMovement: {fileID: 7806111776557038028}
   firePoint: {fileID: 7806111775941365351}
   handPoint: {fileID: 7806111775639085442}
-  telePoint: {fileID: 7806111776659316240}
   bodyCollider: {fileID: 7806111776557038031}
   sr: {fileID: 7806111776557038018}
-  holyShock: {fileID: 3852776666628693728, guid: e93d0b98f0f7b904e868cd8419f7c227,
-    type: 3}
+  holyShock: {fileID: 53648587881800305, guid: f3c251d293eedc34aa9271859fc5414a, type: 3}
   shootButton: 323
   TeleportButton: 304
   SpecialButton: 324
@@ -10325,9 +10324,10 @@ MonoBehaviour:
   teleSpeed: 10
   specialKeyPressing: 0
   specialKeyDownCounter: 0
-  holyShockCD: 0.2
+  holyShockCD: 0.35
   teleportCD: 0.75
   runeLight: {fileID: 3392892212629700969}
+  timeBetweenPenanceShots: 0.2
 --- !u!114 &7806111776557038025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10434,6 +10434,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_light: {fileID: 789738309}
   idleIntensity: 15
+--- !u!114 &6555176732540997109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7806111776557038016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1b5ee2095e8d4498641be881db1cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7806111776659316241
 GameObject:
   m_ObjectHideFlags: 0

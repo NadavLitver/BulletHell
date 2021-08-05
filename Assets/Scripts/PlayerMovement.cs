@@ -18,12 +18,15 @@ public class PlayerMovement : LiveBody
     internal bool isTeleport;
     private Vector2 movement;
 
+    private PlayerHitEffect m_hiteffect;
+
     protected override void OnLiveBodyEnable()
     {
         base.OnLiveBodyEnable();
         lastDirection = new Vector2Int(0, -1);
         canMove = true;
         rb = GetComponent<Rigidbody2D>();
+        m_hiteffect = GetComponent<PlayerHitEffect>();
     }
     private void Update()
     {
@@ -89,7 +92,7 @@ public class PlayerMovement : LiveBody
 
     protected override void AfterTakeDamage()
     {
-       
+        m_hiteffect.CallHitEffect();
     }
     Vector2 Dir()
     {

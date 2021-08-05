@@ -18,6 +18,16 @@ public class GameManager : MonoBehaviour
             PlayerWon = new UnityEvent();
 
     }
+    public void CallDeactivateAndActiveGO(GameObject GO)
+    {
+        StartCoroutine(DeactivateAndActivateGO(GO));
+    }
+    private IEnumerator DeactivateAndActivateGO(GameObject GO)
+    {
+        GO.SetActive(false);
+        yield return new WaitForSeconds(5f);
+        GO.SetActive(true);
+    }
     public void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); ;

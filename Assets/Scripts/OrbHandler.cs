@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class OrbHandler : MonoBehaviour
 {
@@ -12,14 +13,16 @@ public class OrbHandler : MonoBehaviour
     [Range(-0.7f, 0.7f)] private float curVal;
     private float tempRange = 0.7f;
 
-
     private void Start()
+    {
+        GameManager.gm.CallDeactivateAndActiveGO(gameObject);
+    }
+    
+    private void OnEnable()
     {
         curVal = 0.7f;
         m_mat.SetFloat(LiquidStrenghtREF, curVal);
-
     }
-
     private void Update()
     {
         SetLiquidBounce();
@@ -33,10 +36,7 @@ public class OrbHandler : MonoBehaviour
 
     private void SetLiquidBounce()
     {
-        
         m_mat.SetFloat(BounceSpeedREF, 1.5f);
-
-        
     }
 
 
