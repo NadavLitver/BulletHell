@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class OrbHandler : MonoBehaviour
 {
     public PlayerMovement player;
-
     public Material m_mat;
 
+    // Liquid shader properties
     private const string LiquidStrenghtREF = "_LiquidStr";
     private const string BounceSpeedREF = "_BouceSpeed";
 
@@ -17,10 +15,17 @@ public class OrbHandler : MonoBehaviour
 
     private void Start()
     {
+        // Set current hp value to player hp (max hp)
         curVal = player.hp;
     }
 
     private void Update()
+    {
+        SetHP();
+        SetLiquidBounce();
+    }
+
+    private void SetHP()
     {
         if (curVal < player.hp)
         {
@@ -34,12 +39,14 @@ public class OrbHandler : MonoBehaviour
         m_mat.SetFloat(LiquidStrenghtREF, curVal);
     }
 
+    private void SetLiquidBounce()
+    {
+        if (curVal <= 15f)
+        {
+            m_mat.SetFloat(BounceSpeedREF, 1.5f);
 
-
-
-
-
-
+        }
+    }
 
 
 
