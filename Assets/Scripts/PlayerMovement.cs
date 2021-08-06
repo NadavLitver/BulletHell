@@ -18,6 +18,9 @@ public class PlayerMovement : LiveBody
     internal bool isTeleport;
     private Vector2 movement;
 
+    [HideInInspector]
+    public Direction myDir;
+
     private PlayerHitEffect m_hiteffect;
 
     protected override void OnLiveBodyEnable()
@@ -103,21 +106,24 @@ public class PlayerMovement : LiveBody
         if(moveH > 0)
         {
             lastDirection = new Vector2Int(1, 0);
+            myDir = Direction.right;
         }else if ( moveH < 0)
         {
             lastDirection = new Vector2Int(-1, 0);
-
+            myDir = Direction.left;
         }
 
         if (moveV > 0)
         {
             lastDirection = new Vector2Int(0, 1);
+            myDir = Direction.back;
         }
         else if (moveV < 0)
         {
             lastDirection = new Vector2Int(0, -1);
-
+            myDir = Direction.front;
         }
+        
     }
     private IEnumerator PlayerKnockbackRoutine(Vector2 velocity)
     {
@@ -134,5 +140,4 @@ public class PlayerMovement : LiveBody
     {
         StartCoroutine(PlayerKnockbackRoutine(velocity));
     }
-   
 }

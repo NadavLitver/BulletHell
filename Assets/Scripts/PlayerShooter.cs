@@ -225,19 +225,18 @@ public class PlayerShooter : MonoBehaviour
     #endregion
     private IEnumerator Teleport()
     {
-        
-        teleportEffect.Activate(Direction.right);
+        teleportEffect.Activate(playerMovement.myDir);
         playerMovement.canMove = false;
         playerMovement.isVulnerable = false;
         bodyCollider.enabled = false;
         playerMovement.isTeleport = true;
         sr.color = new Color(255, 255, 255, 0);
-        yield return new WaitForSeconds(0.26f);
+        yield return new WaitForSeconds(0.19f);
         playerMovement.isTeleport = false;
         playerMovement.isVulnerable = true;
         bodyCollider.enabled = true;
         sr.color = new Color(255, 255, 255, 255);
-        yield return new WaitForSeconds(0.45f);
+        yield return new WaitForSeconds(0.31f);
         playerMovement.canMove = true;
         yield break;
     }

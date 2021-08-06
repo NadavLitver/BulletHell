@@ -1,11 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 public enum Direction { right, left, back, front }
 public class TeleportEffect : MonoBehaviour
 {
     [SerializeField] private ParticleSystem ps;
-    
+
     [Header("Light params")]
     [SerializeField] private float In;
     [SerializeField] private float Stay;
@@ -23,19 +22,15 @@ public class TeleportEffect : MonoBehaviour
     public GameObject BackGO;
     public GameObject FrontGO;
 
-    private void Start()
-    {
-        RightGO.gameObject.SetActive(false);
-        LeftGO.gameObject.SetActive(false);
-        BackGO.gameObject.SetActive(false);
-        FrontGO.gameObject.SetActive(false);
-    }
+    [SerializeField] private Color idleColor;
+    [SerializeField] private Color targetColor;
+
 
     private DirectionHandler GetHandlerfromDirection(Direction dir)
     {
         switch (dir)
         {
-            case Direction.right:return Right;
+            case Direction.right: return Right;
             case Direction.left: return Left;
             case Direction.back: return Back;
             case Direction.front: return Front;
@@ -48,30 +43,33 @@ public class TeleportEffect : MonoBehaviour
     }
     private IEnumerator ActivateCoru(DirectionHandler DH)
     {
-        DH.gameObject.SetActive(true);
-        RightGO.gameObject.SetActive(true);
+        DH.Activate();
+        ps.gameObject.SetActive(true);
+        Debug.Log(DH.name);
         float currDurr = 0;
         while (currDurr < 1)
         {
+            //in
             currDurr += Time.deltaTime / In;
-            DH.m_sr.color = new Color(1, 1, 1, Mathf.Lerp(1, 0, currDurr));
-            DH.m_light.intensity = Mathf.Lerp(100, 0, currDurr);
+            DH.m_sr.color = Color.Lerp(idleColor, targetColor, currDurr);
+            DH.m_light.intensity = Mathf.Lerp(Intensity, 0, currDurr);
+            yield return new WaitForEndOfFrame();
         }
+        //stay
         currDurr = 1;
-        DH.m_light.intensity = Mathf.Lerp(50, 0, currDurr);
-        DH.m_sr.color = new Color(1, 1, 1, Mathf.Lerp(1, 0, currDurr));
+        DH.m_light.intensity = Mathf.Lerp(Intensity, 0, currDurr);
+        DH.m_sr.color = Color.Lerp(idleColor, targetColor, currDurr);
 
         yield return new WaitForSeconds(Stay);
         while (currDurr <= 0)
         {
+            //out
             currDurr -= Time.deltaTime / Out;
-            DH.m_light.intensity = Mathf.Lerp(50, 0, currDurr);
-            DH.m_sr.color = new Color(1, 1, 1, Mathf.Lerp(1, 0, currDurr));
+            DH.m_light.intensity = Mathf.Lerp(Intensity, 0, currDurr);
+            DH.m_sr.color = Color.Lerp(idleColor, targetColor, currDurr);
+            yield return new WaitForEndOfFrame();
         }
-        ps.gameObject.SetActive(true);
-        DH.gameObject.SetActive(false);
-        RightGO.gameObject.SetActive(false);
-
+        DH.Deactivate();
         currDurr = 0;
     }
 
