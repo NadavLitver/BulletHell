@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1684340246584710064
 Transform:
   m_ObjectHideFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1684340246584710076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.1, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2059856181
-  m_SortingLayer: 3
+  m_SortingLayerID: 1213962761
+  m_SortingLayer: 2
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 227c89d880590a94aa2d2c43c97e6753, type: 3}
   m_Color: {r: 1, g: 0.7909454, b: 0, a: 1}
@@ -106,7 +106,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684340246584710076}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 7
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 0000000035e9c67a099a5b48
+  m_ApplyToSortingLayers: ebdec9b7099a5b48
   m_LightCookieSprite: {fileID: 21300000, guid: 227c89d880590a94aa2d2c43c97e6753,
     type: 3}
   m_UseNormalMap: 0

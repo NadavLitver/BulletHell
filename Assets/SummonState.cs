@@ -46,9 +46,12 @@ public class SummonState : State
         //Transform summonPos = type == MummyType ? lSummonPoint : rSummonPoint;
         for (int i = 0; i < amountOfEnemiesPerSummon; i++)
         {
-            Instantiate(type, LsummonPoints[i].position, LsummonPoints[i].rotation, LsummonPoints[i]);
-            yield return new WaitForSeconds(TimeBetweenEnemy);
-            Instantiate(type, RsummonPoints[i].position, RsummonPoints[i].rotation, RsummonPoints[i]);
+            for (int j = 0; j < LsummonPoints.Length; j++)
+            {
+                Instantiate(type, RsummonPoints[i].position, RsummonPoints[i].rotation, RsummonPoints[i]);
+                Instantiate(type, LsummonPoints[i].position, LsummonPoints[i].rotation, LsummonPoints[i]);
+                yield return new WaitForSeconds(TimeBetweenEnemy);
+            }
             yield return new WaitForSeconds(TimeBetweenEnemy);
         }
 

@@ -10,6 +10,7 @@ public class Beatle : LiveBody
     public int damage;
     [SerializeField]
     private float rotationSpeed;
+    [SerializeField] private EnemyHitAndDeadEffect m_effects;
   
     protected override void OnLiveBodyEnable()
     {
@@ -32,7 +33,6 @@ public class Beatle : LiveBody
     }
     protected override void AfterTakeDamage()
     {
-        //this.GetComponentInChildren<SpriteRenderer>().color = Color.red;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -50,6 +50,18 @@ public class Beatle : LiveBody
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90f));
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime) ;
 
+    }
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        if (hp <= 0)
+        {
+            m_effects.OnDeath();
+        }
+        else
+        {
+            m_effects.TakeDamage(damage);
+        }
     }
 }
 

@@ -44,7 +44,6 @@ public class TeleportEffect : MonoBehaviour
     private IEnumerator ActivateCoru(DirectionHandler DH)
     {
         DH.Activate();
-        ps.gameObject.SetActive(true);
         Debug.Log(DH.name);
         float currDurr = 0;
         while (currDurr < 1)
@@ -70,6 +69,7 @@ public class TeleportEffect : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         DH.Deactivate();
+        ps.gameObject.SetActive(true);
         currDurr = 0;
     }
 

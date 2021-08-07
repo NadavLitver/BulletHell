@@ -10,14 +10,20 @@ public class Pickable : MonoBehaviour
     public bool Picked;
 
     private PlayerMovement player;
-    private void Start()
+    private void OnEnable()
     {
-        player = FindObjectOfType<PlayerMovement>();
-        runelight = GetComponent<RuneLight>();
+        if (player == null)
+        {
+            player = FindObjectOfType<PlayerMovement>();
+        }
+        if (runelight == null)
+        {
+            runelight = GetComponent<RuneLight>();
+        }
+        runelight.SetLight(runelight.idleIntensity, 0.5f);
     }
     private void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.E))
         {
             PickUp();
@@ -29,7 +35,7 @@ public class Pickable : MonoBehaviour
         {
             Picked = true;
             Inventory.InventoryInstace.SwapWeapon(abilityHeld);
-            runelight.PlayRuneAnim(400, 2);
+            runelight.PlayRuneAnim(100, 1.5f);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
