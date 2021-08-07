@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Boss : LiveBody
 {
+    [SerializeField] private BossHitEffect m_hitEffect;
+
     protected override void OnLiveBodyEnable()
     {
         base.OnLiveBodyEnable();
@@ -13,7 +15,12 @@ public class Boss : LiveBody
     {
        
     }
+    public override void TakeDamage(int damage)
+    {
+        m_hitEffect.TakeDamage(damage);
+        base.TakeDamage(damage);
+    }
 
-   
-   
+
+
 }

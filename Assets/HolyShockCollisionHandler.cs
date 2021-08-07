@@ -34,11 +34,17 @@ public class HolyShockCollisionHandler : MonoBehaviour
                 collision.GetComponent<LiveBody>().TakeDamage(dmg);
                 OnHit();
                 break;
+            case "Stage":
+                if (GameManager.gm.BossRef.isVulnerable)
+                {
+                    break;
+                }
+                OnHit();
+                break;
         }
     }
     private void OnHit()
     {
-
         death.SetActive(true);
         death.transform.parent = null;
         gameObject.SetActive(false);

@@ -225,19 +225,28 @@ public class PlayerShooter : MonoBehaviour
     #endregion
     private IEnumerator Teleport()
     {
+        //pre - in
         teleportEffect.Activate(playerMovement.myDir);
+        teleportEffect.transform.position = playerMovement.transform.position;
         playerMovement.canMove = false;
         playerMovement.isVulnerable = false;
         bodyCollider.enabled = false;
         playerMovement.isTeleport = true;
         sr.color = new Color(255, 255, 255, 0);
-        yield return new WaitForSeconds(0.19f);
+        yield return new WaitForSeconds(teleportEffect.In);
+        //after - in
         playerMovement.isTeleport = false;
         playerMovement.isVulnerable = true;
         bodyCollider.enabled = true;
-        sr.color = new Color(255, 255, 255, 255);
-        yield return new WaitForSeconds(0.31f);
+        yield return new WaitForSeconds(teleportEffect.Stay);
+        //pre - out
+        teleportEffect.transform.position = playerMovement.transform.position;
+        teleportEffect.transform.parent = playerMovement.transform;
+        yield return new WaitForSeconds(teleportEffect.Out);
         playerMovement.canMove = true;
+        //after - out
+        sr.color = new Color(255, 255, 255, 255);
+        teleportEffect.transform.parent = null;
         yield break;
     }
     private void GetWorldMousePos()

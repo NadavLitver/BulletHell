@@ -6,10 +6,10 @@ public class TeleportEffect : MonoBehaviour
     [SerializeField] private ParticleSystem ps;
 
     [Header("Light params")]
-    [SerializeField] private float In;
-    [SerializeField] private float Stay;
-    [SerializeField] private float Out;
-    [SerializeField] private float Intensity;
+    public float In;       
+    public float Stay;
+    public float Out;
+    public float Intensity;
 
     [Header("GO References")]
     public DirectionHandler Right;
@@ -44,6 +44,7 @@ public class TeleportEffect : MonoBehaviour
     private IEnumerator ActivateCoru(DirectionHandler DH)
     {
         DH.Activate();
+        
         Debug.Log(DH.name);
         float currDurr = 0;
         while (currDurr < 1)
@@ -58,9 +59,9 @@ public class TeleportEffect : MonoBehaviour
         currDurr = 1;
         DH.m_light.intensity = Mathf.Lerp(Intensity, 0, currDurr);
         DH.m_sr.color = Color.Lerp(idleColor, targetColor, currDurr);
-
+        ps.gameObject.SetActive(true);
         yield return new WaitForSeconds(Stay);
-        while (currDurr <= 0)
+        while (currDurr > 0)
         {
             //out
             currDurr -= Time.deltaTime / Out;
@@ -69,8 +70,6 @@ public class TeleportEffect : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         DH.Deactivate();
-        ps.gameObject.SetActive(true);
         currDurr = 0;
     }
-
 }

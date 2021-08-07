@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
     public UnityEvent PlayerLost;
     public UnityEvent PlayerWon;
+
+    public Boss BossRef;
     private void Awake()
     {
         gm = this;
