@@ -32,11 +32,11 @@ Material:
     - Vector1_D3DAECE: 0.5
     - _BouceSpeed: 1.5
     - _FoamStr: 0.07
-    - _LiquidStr: 0.27999997
+    - _LiquidStr: 0.55999994
     - _NoiseSpeed: 0.1
     - _NoiseStr: 0.1
     m_Colors:
     - Color_190EBA98: {r: 0.8207547, g: 0.75977886, b: 0.23137255, a: 0}
     - Color_6578A6CD: {r: 0.7647059, g: 0.6831981, b: 0.12941173, a: 1}
-    - _FoamColor: {r: 1, g: 0.9816401, b: 0.6745283, a: 0}
+    - _FoamColor: {r: 1, g: 0.98164004, b: 0.5254902, a: 1}
     - _LiquidColor: {r: 0.99215686, g: 0.95022595, b: 0.22745097, a: 0}
