@@ -57,6 +57,7 @@ public class TeleportEffect : MonoBehaviour
         }
         //stay
         currDurr = 1;
+        yield return new WaitForSeconds(0.05f);
         DH.m_light.intensity = Mathf.Lerp(Intensity, 0, currDurr);
         DH.m_sr.color = Color.Lerp(idleColor, targetColor, currDurr);
         ps.gameObject.SetActive(true);

@@ -71,6 +71,7 @@ Material:
     - _EnableBlackTint: 0
     - _EnableCustomFade: 1
     - _EnableUVDistort: 1
+    - _EnableUVScroll: 0
     - _InvFade: 1
     - _UVDistortFade: 0.267
     - _UVDistortSpace: 0
@@ -82,5 +83,6 @@ Material:
     - _TintColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _UVDistortFrom: {r: -1, g: -1, b: 0, a: 0}
     - _UVDistortNoiseScale: {r: 0.1, g: 0.1, b: 0, a: 0}
-    - _UVDistortSpeed: {r: 6, g: 6, b: 0, a: 0}
+    - _UVDistortSpeed: {r: 2, g: 2, b: 0, a: 0}
     - _UVDistortTo: {r: 1, g: 1, b: 0, a: 0}
+    - _UVScrollSpeed: {r: 0.2, g: 0, b: 0, a: 0}
