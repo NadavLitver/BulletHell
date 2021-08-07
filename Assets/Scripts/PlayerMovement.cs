@@ -23,6 +23,8 @@ public class PlayerMovement : LiveBody
 
     private PlayerHitEffect m_hiteffect;
 
+    [SerializeField]private OrbHandler orbRef;
+
     protected override void OnLiveBodyEnable()
     {
         base.OnLiveBodyEnable();
@@ -30,6 +32,10 @@ public class PlayerMovement : LiveBody
         canMove = true;
         rb = GetComponent<Rigidbody2D>();
         m_hiteffect = GetComponent<PlayerHitEffect>();
+        if (orbRef.isActiveAndEnabled)
+        {
+            orbRef.SetHP(hp);
+        }
     }
     private void Update()
     {
@@ -49,6 +55,8 @@ public class PlayerMovement : LiveBody
     }
     public override void TakeDamage(int damage)
     {
+
+        orbRef.SetHP(hp);
         base.TakeDamage(damage);
         StartCoroutine(SetPlayerHealthBar.SetHPCorou(hp));
     }

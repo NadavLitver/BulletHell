@@ -8,15 +8,8 @@ public class SetPlayerHealthBar : MonoBehaviour
     public Transform Follow;
     public float healthBarSpeed;
     private static Slider slider;
-    // Start is called before the first frame update
-    private void Awake()
-    {
-       
-
-    }
     void Start()
     {
-       
         slider = GetComponent<Slider>();
         transform.position = Camera.main.WorldToScreenPoint(Follow.position);
     }
