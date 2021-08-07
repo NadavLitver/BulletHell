@@ -9,15 +9,13 @@ public class SummonState : State
     private GameObject BeatleType;
     [SerializeField]
     private GameObject MummyType;
-    [SerializeField]
-    Transform[] LsummonPoints;
-    [SerializeField]
-    Transform[] RsummonPoints;
 
 
     public int amountOfEnemiesPerSummon;
     public float TimeBetweenEnemy;
     public float TimeToNextState = 10;
+
+    [SerializeField] private List<SarcHandler> m_sacs;
 
 
     protected override void StateOnEnable()
@@ -43,19 +41,22 @@ public class SummonState : State
     }
      IEnumerator SummonEnemy(GameObject type)
      {
-        //Transform summonPos = type == MummyType ? lSummonPoint : rSummonPoint;
+        boss.isVulnerable = false;
         for (int i = 0; i < amountOfEnemiesPerSummon; i++)
         {
-            for (int j = 0; j < LsummonPoints.Length; j++)
+            for (int j = 0; j < m_sacs.Count; j++)
             {
-                Instantiate(type, RsummonPoints[i].position, RsummonPoints[i].rotation, RsummonPoints[i]);
-                Instantiate(type, LsummonPoints[i].position, LsummonPoints[i].rotation, LsummonPoints[i]);
-                yield return new WaitForSeconds(TimeBetweenEnemy);
+                m_sacs[j].Open();
+                yield return new WaitForSeconds(TimeBetweenEnemy / 2);
+                m_sacs[j].Spawn(type);
+                yield return new WaitForSeconds(TimeBetweenEnemy / 2);
+                m_sacs[j].Close();
             }
             yield return new WaitForSeconds(TimeBetweenEnemy);
         }
 
         yield return new WaitForSeconds(TimeToNextState);
+        boss.isVulnerable = true;
         CallSwapState(nextState);
 
      }

@@ -5,6 +5,8 @@ public class SortOrder : MonoBehaviour
 {
     [SerializeField] private bool doUpdate;
     private SpriteRenderer m_sr;
+
+    [SerializeField] private int modifier;
    
     void Start()
     {
@@ -21,7 +23,7 @@ public class SortOrder : MonoBehaviour
         }
     }
     private int getSort() {
-        return Mathf.RoundToInt(-transform.position.y * 10);
+        return Mathf.RoundToInt(-transform.position.y * 10) + modifier;
     } 
     public void UpdateSortOrder()
     {

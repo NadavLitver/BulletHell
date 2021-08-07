@@ -9,7 +9,7 @@ public abstract class State : MonoBehaviour
     [SerializeField]
     protected Animator animator;
     [SerializeField]
-    private Boss boss;
+    protected Boss boss;
     protected int hpWhenEnterState;
     [SerializeField]
     protected State nextState;
