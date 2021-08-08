@@ -10,8 +10,8 @@ public class PickupSpawner : MonoBehaviour
     [SerializeField]
     List<GameObject> pickups;
 
-    float maxX = 11;
-    float maxY = 6.5f;
+    float maxX = 10;
+    float maxY = 4.5f;
     void Start()
     {
         InvokeRepeating("Spawn", 0, timeBetweenPickupSpawn);
@@ -19,15 +19,6 @@ public class PickupSpawner : MonoBehaviour
 
     void Spawn()
     {
-        for (int i = 0; i < pickups.Count; i++)
-        {
-            if (pickups[i].activeInHierarchy)
-            {
-                if(!pickups[i].GetComponent<Pickable>().Picked)
-                    pickups[i].GetComponent<RuneLight>().PlayRuneAnim(100, 1f);
-                
-            }
-        }
         int RandomPickupNum = Randomizer.ReturnRandomNum(0,pickups.Count);
         Debug.Log(RandomPickupNum);
         GameObject curPickup = pickups[RandomPickupNum];

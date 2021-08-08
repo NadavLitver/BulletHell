@@ -29,6 +29,10 @@ public class Mummy : LiveBody
     }
     private void Update()
     {
+        if (target == null)
+        {
+            return;
+        }
         if (Vector2.Distance(transform.position, target.position) <= DistanceToThrow)
         {
             ai.canMove = false;
