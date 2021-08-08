@@ -55,10 +55,12 @@ public class PlayerMovement : LiveBody
     }
     public override void TakeDamage(int damage)
     {
-
-        orbRef.SetHP(hp);
+        if (orbRef.isActiveAndEnabled)
+        {
+            orbRef.SetHP(hp);
+        }
         base.TakeDamage(damage);
-        StartCoroutine(SetPlayerHealthBar.SetHPCorou(hp));
+        //StartCoroutine(SetPlayerHealthBar.SetHPCorou(hp));
     }
     private void FixedUpdate()
     {

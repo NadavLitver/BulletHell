@@ -4786,6 +4786,7 @@ MonoBehaviour:
   cooldown: 0.6
   isGetKeyDown: 0
   isChargingReq: 0
+  spriteForUI: {fileID: 21300000, guid: 642eadc5fcacab448a91757f82d5457a, type: 3}
 --- !u!95 &-4179898433051576490
 Animator:
   serializedVersion: 3

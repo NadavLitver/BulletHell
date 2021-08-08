@@ -17,7 +17,7 @@ public class SetPlayerHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        transform.position = new Vector2(Mathf.MoveTowards(transform.position.x, Camera.main.WorldToScreenPoint(Follow.position).x, healthBarSpeed * Time.deltaTime),Camera.main.WorldToScreenPoint(Follow.position).y);
+        //transform.position = new Vector2(Mathf.MoveTowards(transform.position.x, Camera.main.WorldToScreenPoint(Follow.position).x, healthBarSpeed * Time.deltaTime),Camera.main.WorldToScreenPoint(Follow.position).y);
     }
     public static IEnumerator SetHPCorou(int hp)
     {

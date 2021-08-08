@@ -5,9 +5,10 @@ public class SortOrder : MonoBehaviour
 {
     [SerializeField] private bool doUpdate;
     private SpriteRenderer m_sr;
+    private ParticleSystem m_ps;
 
     [SerializeField] private int modifier;
-   
+
     void Start()
     {
         m_sr = GetComponent<SpriteRenderer>() ?? GetComponentInChildren<SpriteRenderer>();
@@ -28,7 +29,6 @@ public class SortOrder : MonoBehaviour
     public void UpdateSortOrder()
     {
         m_sr.sortingOrder = getSort();
-
     }
     
 }
