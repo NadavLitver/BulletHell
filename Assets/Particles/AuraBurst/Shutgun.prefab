@@ -4830,6 +4830,7 @@ MonoBehaviour:
   cooldown: 0.5
   isGetKeyDown: 1
   isChargingReq: 0
+  spriteForUI: {fileID: 21300000, guid: d1142b2f3eb7aac429f06a3d77941c99, type: 3}
 --- !u!114 &8118960924173371141
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,7 +10,9 @@ public class OrbHandler : MonoBehaviour
     private const string BounceSpeedREF = "_BouceSpeed";
 
 
-    [Range(-0.7f, 0.7f)] private float curVal;
+    [Range(-1f, 0.85f)] private float curVal;
+    [Range(-1f, 0.85f)] private float targetVal;
+    
     //private float tempRange = 0.7f;
     private void Start()
     {
@@ -19,16 +21,31 @@ public class OrbHandler : MonoBehaviour
     
     private void OnEnable()
     {
-        m_mat.SetFloat(LiquidStrenghtREF, curVal);
+        m_mat.SetFloat(LiquidStrenghtREF, 0.85f);
+        SetHP(curVal);
+
     }
 
     public void SetHP(float playerHP)
     {
+        curVal = m_mat.GetFloat(LiquidStrenghtREF);
         SetLiquidBounce();
-        curVal = Mathf.Lerp(-0.7f, 0.7f, playerHP / 100);
+        targetVal = Mathf.Lerp(-1f, 0.85f, playerHP / 100);
         m_mat.SetFloat(LiquidStrenghtREF, curVal);
+        StopAllCoroutines();
+        StartCoroutine(SetHPCoru());
     }
-
+    private IEnumerator SetHPCoru()
+    {
+        float currDurr = 0;
+        float lerpSpeed = 0.25f;
+        while (currDurr < 1)
+        {
+            currDurr += Time.deltaTime / lerpSpeed;
+            m_mat.SetFloat(LiquidStrenghtREF, Mathf.Lerp(curVal, targetVal, currDurr));
+            yield return new WaitForEndOfFrame();
+        }
+    }
     private void SetLiquidBounce()
     {
         m_mat.SetFloat(BounceSpeedREF, 1.5f);
