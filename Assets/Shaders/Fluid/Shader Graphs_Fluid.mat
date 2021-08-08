@@ -30,9 +30,10 @@ Material:
     - Vector1_88782A4D: 0.37
     - Vector1_A943F4D3: 0.5
     - Vector1_D3DAECE: 0.5
+    - _AlphaStrength: 0.5
     - _BouceSpeed: 1.5
     - _FoamStr: 0.07
-    - _LiquidStr: 0
+    - _LiquidStr: 0.295
     - _NoiseSpeed: 0.1
     - _NoiseStr: 0.1
     m_Colors:
