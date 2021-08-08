@@ -12,6 +12,7 @@ public class Pickable : MonoBehaviour
     private PlayerMovement player;
     private void OnEnable()
     {
+        Picked = false;
         if (player == null)
         {
             player = FindObjectOfType<PlayerMovement>();

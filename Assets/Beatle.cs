@@ -46,6 +46,10 @@ public class Beatle : LiveBody
     }
      void LookAtPlayer()
     {
+        if (destinationSetter == null)
+        {
+            return;
+        }
         float angle = Mathf.Atan2(destinationSetter.target.position.y - transform.position.y, destinationSetter.target.position.x - transform.position.x) * Mathf.Rad2Deg;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90f));
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime) ;

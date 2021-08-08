@@ -32,10 +32,6 @@ public class PlayerMovement : LiveBody
         canMove = true;
         rb = GetComponent<Rigidbody2D>();
         m_hiteffect = GetComponent<PlayerHitEffect>();
-        if (orbRef.isActiveAndEnabled)
-        {
-            orbRef.SetHP(hp);
-        }
     }
     private void Update()
     {
@@ -55,12 +51,7 @@ public class PlayerMovement : LiveBody
     }
     public override void TakeDamage(int damage)
     {
-        if (orbRef.isActiveAndEnabled)
-        {
-            orbRef.SetHP(hp);
-        }
         base.TakeDamage(damage);
-        //StartCoroutine(SetPlayerHealthBar.SetHPCorou(hp));
     }
     private void FixedUpdate()
     {
@@ -106,6 +97,12 @@ public class PlayerMovement : LiveBody
     protected override void AfterTakeDamage()
     {
         m_hiteffect.CallHitEffect();
+        StartCoroutine(setOrbHealth());
+    }
+    private IEnumerator setOrbHealth()
+    {
+        yield return new WaitUntil(() => orbRef.isActiveAndEnabled);
+        orbRef.SetHP(hp);
     }
     Vector2 Dir()
     {

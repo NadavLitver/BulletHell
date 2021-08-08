@@ -12,18 +12,19 @@ public class OrbHandler : MonoBehaviour
 
     [Range(-1f, 0.85f)] private float curVal;
     [Range(-1f, 0.85f)] private float targetVal;
-    
-    //private float tempRange = 0.7f;
+
+    public PlayerMovement playerRef;
+
+    [SerializeField] private float LerpSpeed;
+        
     private void Start()
     {
         GameManager.gm.CallDeactivateAndActiveGO(gameObject);
     }
-    
     private void OnEnable()
     {
-        m_mat.SetFloat(LiquidStrenghtREF, 0.85f);
-        SetHP(curVal);
-
+        SetLiquidBounce();
+        SetHP(playerRef.hp);
     }
 
     public void SetHP(float playerHP)
