@@ -312,13 +312,13 @@ public class PlayerShooter : MonoBehaviour
     }
     IEnumerator AuraBurstWave()
     {
+        AudioManager.am.PlaySound(AudioManager.am.Player_AuraBurst, 0.4f);
         callPlayerKnockback(5);
 
         yield return new WaitForSeconds(0.1f);
 
         float angle = ShotgunData.startAngle;
 
-        AudioManager.am.PlaySound(AudioManager.am.Player_AuraBurst, 0.4f);
         for (int i = 0; i < ShotgunData.bulletAmount; i++)
         {
 
@@ -330,7 +330,7 @@ public class PlayerShooter : MonoBehaviour
             GameObject bullet = Instantiate(AuraBurst, handPoint.position, firePoint.rotation);
 
             bullet.GetComponent<Bullet>().SetMovement(bulletDir);
-            bullet.GetComponent<Bullet>().speed *= 0.8f;
+            //bullet.GetComponent<Bullet>().speed = 0.8f;
             bullet.SetActive(true);
             angle += ShotgunData.angleStep;
         }

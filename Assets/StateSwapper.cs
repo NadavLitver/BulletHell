@@ -24,7 +24,7 @@ public class StateSwapper : MonoBehaviour
     void SetFirstState()
     {
         SwapState(FirstState);
-
+        
     }
     public void SwapState(State state)
     {

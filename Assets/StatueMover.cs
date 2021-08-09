@@ -18,6 +18,7 @@ public class StatueMover : MonoBehaviour
     float moveSpeed;
     private bool CanFirstState, CanSecondState, CanThirdState, canFourthState;
     private bool FirstStateScanned, SecondStateScanned, ThirdStateScanned, FourthStateScanned;
+    private bool EnterFirstState, EnterSecondState, EnterThirdState, EnterFourthState;
 
     public AstarPath path;
 
@@ -34,13 +35,13 @@ public class StatueMover : MonoBehaviour
         Invoke("EnableSecondState", 20);
         Invoke("EnableThirdState", 30);
         Invoke("EnableFourthState", 40);
-        Invoke("EnableThirdState", 50);
-        Invoke("EnableSecondState", 60);
+        Invoke("EnableSecondState", 50);
+        Invoke("EnableThirdState", 60);
         Invoke("EnableFirstState", 90);
 
 
     }
-    private void FixedUpdate()
+    private void Update()
     {
         if (CanFirstState)
         {
@@ -93,7 +94,9 @@ public class StatueMover : MonoBehaviour
     }
     void FirstStatePositioning()
     {
-        AudioManager.am.PlaySound(AudioManager.am.StatuesMoving, 0.4f);
+        if(!EnterFirstState)
+             AudioManager.am.PlaySound(AudioManager.am.StatuesMoving, 0.4f);
+        EnterFirstState = true;
 
         for (int i = 0; i < Statues.Length; i++)
         {
@@ -110,8 +113,8 @@ public class StatueMover : MonoBehaviour
                     {
                         statue.GetComponentInChildren<SortOrder>().UpdateSortOrder();
                     }  
-                        CanFirstState = false;
-
+                      CanFirstState = false;
+                    EnterFirstState = false;
                 }
 
             }
@@ -121,7 +124,9 @@ public class StatueMover : MonoBehaviour
 
     void SecondStatePositioning()
     {
-
+        if (!EnterSecondState)
+            AudioManager.am.PlaySound(AudioManager.am.StatuesMoving, 0.4f);
+        EnterSecondState = true;
         for (int i = 0; i < Statues.Length; i++)
         {
             Statues[i].transform.position = Vector2.MoveTowards(Statues[i].transform.position, SecondStatePositions[i], moveSpeed * Time.deltaTime);
@@ -137,7 +142,7 @@ public class StatueMover : MonoBehaviour
                         statue.GetComponentInChildren<SortOrder>().UpdateSortOrder();
                     }
                     CanSecondState = false;
-
+                    EnterSecondState = false;
                 }
             }
         }
@@ -145,7 +150,9 @@ public class StatueMover : MonoBehaviour
     }
     void ThirdStatePositioning()
     {
-
+        if (!EnterThirdState)
+            AudioManager.am.PlaySound(AudioManager.am.StatuesMoving, 0.4f);
+        EnterThirdState = true;
         for (int i = 0; i < Statues.Length; i++)
         {
             Statues[i].transform.position = Vector2.MoveTowards(Statues[i].transform.position, ThirdStatePositions[i], moveSpeed * Time.deltaTime);
@@ -160,13 +167,16 @@ public class StatueMover : MonoBehaviour
                         statue.GetComponentInChildren<SortOrder>().UpdateSortOrder();
                     }
                     CanThirdState = false;
-
+                    EnterThirdState = false;
                 }
             }
         }
     }
     void FourthStatePositioning()
     {
+        if (!EnterFourthState)
+            AudioManager.am.PlaySound(AudioManager.am.StatuesMoving, 0.4f);
+        EnterFourthState = true;
 
         for (int i = 0; i < Statues.Length; i++)
         {
@@ -180,8 +190,9 @@ public class StatueMover : MonoBehaviour
                     foreach (GameObject statue in Statues)
                     {
                         statue.GetComponentInChildren<SortOrder>().UpdateSortOrder();
-                        canFourthState = false;
                     }
+                        canFourthState = false;
+                    EnterFourthState = false;
 
                 }
             }

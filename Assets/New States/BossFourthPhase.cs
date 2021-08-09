@@ -9,6 +9,7 @@ public class BossFourthPhase : State
     {
         base.StateOnEnable();
         boss.ThirtyPercentEvent.AddListener(CallSwapState);
+        boss.isVulnerable = false;
         StartCoroutine(RepeatLaser());
     }
     IEnumerator RepeatLaser()
@@ -18,6 +19,7 @@ public class BossFourthPhase : State
         animator.SetTrigger("Laser");
         yield return new WaitForSeconds(timeBetweenLasers);
         animator.SetTrigger("Laser");
+        boss.isVulnerable = true;
 
         yield return new WaitForSeconds(timeBetweenLasers);
         CallSwapState();

@@ -45,26 +45,32 @@ public class EnemyHitAndDeadEffect : MonoBehaviour
     }
     public void OnDeath()
     {
-        StartCoroutine(OnDeathCoru());
+       GameManager.gm.StartCoroutine(OnDeathCoru());//let the game manager control the routine so less null errors
+       Destroy(gameObject, 0.1f);
     }
     private IEnumerator OnDeathCoru()
     {
-        transform.parent = null;
-        m_ps.SetActive(true);
-        m_ps.transform.parent = null;
-        m_sr.material.SetFloat(MultiplierRefID, IdleMultiplier);
-        m_sr.material.SetColor(ColorRefID, IdleColor);
-        float currDurr = 0;
-        while (currDurr < 1)
+        if(this!= null)
         {
-            currDurr += Time.deltaTime / 0.5f;
-            if (m_light != null)
+            transform.parent = null;
+            m_ps.SetActive(true);
+            m_ps.transform.parent = null;
+            m_sr.material.SetFloat(MultiplierRefID, IdleMultiplier);
+            m_sr.material.SetColor(ColorRefID, IdleColor);
+            float currDurr = 0;
+            while (currDurr < 1)
             {
-                m_light.intensity = Mathf.Lerp(100, 0, currDurr);
+                currDurr += Time.deltaTime / 0.5f;
+                if (m_light != null)
+                {
+                    m_light.intensity = Mathf.Lerp(100, 0, currDurr);
+                }
+                if(m_sr != null)
+                  m_sr.material.SetFloat(FadeRefID, Mathf.Lerp(1, 0, currDurr));
+                yield return new WaitForEndOfFrame();
             }
-            m_sr.material.SetFloat(FadeRefID, Mathf.Lerp(1, 0, currDurr));
-            yield return new WaitForEndOfFrame();
+
         }
-        Destroy(gameObject);
+      
     }
 }

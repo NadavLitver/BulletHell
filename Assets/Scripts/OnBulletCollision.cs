@@ -17,7 +17,6 @@ public class OnBulletCollision : MonoBehaviour
 
             case "Wall":
                 OnHit();
-
                 break;
             case "Enviroment":
                 OnHit();

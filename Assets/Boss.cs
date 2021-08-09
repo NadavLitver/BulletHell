@@ -13,7 +13,6 @@ public class Boss : LiveBody
     public UnityEvent ThirtyPercentEvent;
     public UnityEvent TenPercentEvent;
 
-
     protected override void OnLiveBodyEnable()
     {
         base.OnLiveBodyEnable();

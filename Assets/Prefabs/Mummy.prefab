@@ -181,9 +181,9 @@ MonoBehaviour:
   hp: 50
   isVulnerable: 1
   animator: {fileID: 7397554295988329544}
-  DistanceToThrow: 5
-  bulletSpeed: 4
-  ThrowCD: 1
+  DistanceToThrow: 5.5
+  bulletSpeed: 3
+  ThrowCD: 0.9
   m_effects: {fileID: 1294855841637159936}
   bulletPivot: {fileID: 3734939970676551297}
 --- !u!61 &3989940643464223643

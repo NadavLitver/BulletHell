@@ -68,8 +68,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   TTL: 10
+  launchDelay: 0
   m_type: 2
   doPlaySound: 0
+  isRandomSound: 0
 --- !u!198 &3498801081055493522
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4825,7 +4827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837f36971348d9941b7cb7041edbc80c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 10
+  dmg: 20
   death: {fileID: 1037659776647862892}
 --- !u!1 &715064508592364687
 GameObject:

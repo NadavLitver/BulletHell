@@ -38,7 +38,8 @@ public class Beatle : LiveBody
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            animator.SetTrigger("Explode");
+            if(animator != null)
+                animator.SetTrigger("Explode");
             collision.gameObject.GetComponent<LiveBody>().TakeDamage(damage);
             Destroy(gameObject, 1f);
             this.enabled = false;

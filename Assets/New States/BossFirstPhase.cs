@@ -24,7 +24,8 @@ public class BossFirstPhase : State
         base.StateOnEnable();
         StartCoroutine(ChoosePattern());
         boss.EightyPercentEvent.AddListener(CallSwapState);
-        
+        GameManager.gm.FirstPhaseStarted?.Invoke();
+
     }
     IEnumerator ChoosePattern()
     {

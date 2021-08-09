@@ -39,17 +39,17 @@ public class Mummy : LiveBody
         {
             return;
         }
+        UpdateAnimator();
         if (Vector2.Distance(transform.position, target.position) <= DistanceToThrow)
         {
             ai.canMove = false;
 
             if (!isThrowing && canThrow)
             {
-                Vector2 dir = (target.position - transform.position).normalized;
-                StartCoroutine(Throw(dir));
+                StartCoroutine(Throw());
                 Debug.Log("Reached");
             }
-            return;
+            
 
         }
         else
@@ -69,32 +69,44 @@ public class Mummy : LiveBody
         {
             canThrow = true;
         }
-        UpdateAnimator();
     }
 
     private void UpdateAnimator()
     {
-        Vector2 dir = (target.position - transform.position).normalized;
-        animator.SetFloat("x", dir.x);
-        animator.SetFloat("y", dir.y);
+        if(animator != null)
+        {
+            Vector2 dir = (target.position - transform.position).normalized;
+            animator.SetFloat("x", dir.x);
+            animator.SetFloat("y", dir.y);
+        }
+      
     }
 
-    IEnumerator Throw(Vector2 direction)
+    IEnumerator Throw()
     {
-        AudioManager.am.PlaySound(AudioManager.am.mummy_Attack, 0.25f, true, 0.1f);
-        animator.SetTrigger("Throw");
-        isThrowing = true;
-        throwCooldownRunning = 0;
-        canThrow = false;
-        yield return new WaitForSeconds(.2f);
-        GameObject bullet = BulletPool.bp_instace.GetBullet();
-        bullet.transform.position = transform.position;
-        bullet.transform.rotation = transform.rotation;
-        bullet.GetComponent<Bullet>().SetMovement(direction);
-        bullet.SetActive(true);
-        bullet.transform.position = bulletPivot.position;
-        isThrowing = false;
-         
+        if(this!= null)
+        {
+            Vector2 dir = (target.position - transform.position).normalized;
+            AudioManager.am.PlaySound(AudioManager.am.mummy_Attack, 0.25f, true, 0.1f);
+            if (animator != null)
+                animator.SetTrigger("Throw");
+            isThrowing = true;
+            throwCooldownRunning = 0;
+            canThrow = false;
+            yield return new WaitForSeconds(.15f);
+            GameObject bullet = BulletPool.bp_instace.GetBullet();
+            bullet.transform.position = transform.position;
+            bullet.transform.rotation = transform.rotation;
+            bullet.GetComponent<Bullet>().SetMovement(dir);
+            bullet.SetActive(true);
+            if(bulletPivot != null)
+                bullet.transform.position = bulletPivot.position;
+
+            
+            isThrowing = false;
+        }
+        
+
 
     }
 

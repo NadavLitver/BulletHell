@@ -11,10 +11,8 @@ public class Bullet : MonoBehaviour
     private float TTL = 10;
     [SerializeField] private float launchDelay;
 
-
+    private int startingSpeed = 4;
     private bool canMove = false;
-
-
     public enum BulletType { HolyShock, Penance, AuraBurst, MummyAttack }
 
     [SerializeField] private BulletType m_type;
@@ -24,7 +22,8 @@ public class Bullet : MonoBehaviour
 
     private void OnEnable()
     {
-        Invoke("SelfDestroy", TTL);
+       
+       // Invoke("SelfDestroy", TTL);
 
         if (doPlaySound)
         {
@@ -32,7 +31,11 @@ public class Bullet : MonoBehaviour
         }
         StartCoroutine(Movebullet());
         if (GameManager.gm.isBulletSpeedDoubled && gameObject.layer == 8)
-            speed *= 1.5f;
+            speed = 3.5f * 1.6f;
+        if(GameManager.gm.isFirstPhaseStarted && gameObject.layer == 8)
+        {
+            speed = 3.5f * 0.75f;
+        }
     }
 
     private void PlaySound()
@@ -82,5 +85,10 @@ public class Bullet : MonoBehaviour
     {
         StopAllCoroutines();
         gameObject.SetActive(false);
+    }
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+
     }
 }

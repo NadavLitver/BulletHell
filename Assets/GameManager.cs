@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public UnityEvent PlayerWon;
     public bool isBulletSpeedDoubled;
     public bool isSixPhaseReached;
+    public bool isFirstPhaseStarted;
+    public UnityEvent FirstPhaseStarted;
     public Boss BossRef;
     private void Awake()
     {
@@ -29,7 +31,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         BossRef.ThirtyPercentEvent.AddListener(SetBulletSpeedDoubled);
+        FirstPhaseStarted.AddListener(SetFirstPhase);
+
         GameManager.gm.isSixPhaseReached = false;
+    }
+    void SetFirstPhase()
+    {
+        isFirstPhaseStarted = true;
     }
     private IEnumerator DeactivateAndActivateGO(GameObject GO)
     {
