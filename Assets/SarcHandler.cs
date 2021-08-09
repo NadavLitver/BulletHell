@@ -27,6 +27,7 @@ public class SarcHandler : MonoBehaviour
 
     public void Spawn(GameObject go)
     {
+        Vector3 scale = go.transform.localScale;
         Instantiate(go, spawnTrans.position, Quaternion.identity, transform);
     }
 

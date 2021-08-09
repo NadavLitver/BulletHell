@@ -81,6 +81,8 @@ public class BulletPatternsState : State
         
         lP.SetActive(true); 
         yield return new WaitForSeconds(timeBetweenAttacks);
+        
+        Attack();
 
         lP.SetActive(false);
         rP.SetActive(true); 
@@ -93,6 +95,8 @@ public class BulletPatternsState : State
         rP.SetActive(false);
         lP.SetActive(true);
         yield return new WaitForSeconds(timeBetweenAttacks);
+
+        Attack();
 
         lP.SetActive(false);
         rP.SetActive(true);

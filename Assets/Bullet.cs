@@ -41,19 +41,19 @@ public class Bullet : MonoBehaviour
         {
             case BulletType.HolyShock:
                 ac = AudioManager.am.Player_HolyShock;
-                volume = .35f;
+                volume = .25f;
                 break;
             case BulletType.Penance:
                 ac = AudioManager.am.Player_Penance;
-                volume = .3f;
+                volume = .2f;
                 break;
             case BulletType.AuraBurst:
                 ac = AudioManager.am.Player_AuraBurst;
-                volume = .45f;
+                volume = .35f;
                 break;
             case BulletType.MummyAttack:
                 ac = AudioManager.am.mummy_Attack;
-                volume = .15f;
+                volume = .1f;
                 break;
             default:
                 ac = AudioManager.am.Player_HolyShock;

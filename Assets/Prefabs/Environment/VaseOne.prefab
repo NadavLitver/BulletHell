@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1132882102729573398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3135215107780726746}
+  m_Layer: 0
+  m_Name: ps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3135215107780726746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132882102729573398}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2093501030356973276}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2431300980060739278
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2980081537542089251}
   - component: {fileID: 7822948403249835586}
+  - component: {fileID: 2993037862414718398}
   m_Layer: 14
   m_Name: Collider
   m_TagString: Untagged
@@ -55,8 +86,26 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.87783074, y: 0.3527969}
+  m_Size: {x: 0.87783074, y: 0.32398832}
   m_EdgeRadius: 0
+--- !u!114 &2993037862414718398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431300980060739278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17be5c2703474744ae30f3fbae0781c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ps: {fileID: 1132882102729573398}
+  IdleColor: {r: 1, g: 1, b: 1, a: 1}
+  HitColor: {r: 1, g: 0.9905196, b: 0.759434, a: 1}
+  HitMultiplier: 5
+  m_sr: {fileID: 8063733845243154108}
+  m_light: {fileID: 0}
 --- !u!1 &4221801118459141601
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +157,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9060277bccf8f6e499030b6b3892404f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -182,7 +231,7 @@ MonoBehaviour:
   - {x: -0.22403543, y: -0.48907974, z: 0}
   m_ShapePathHash: -1302282151
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1234
+  m_InstanceId: 796826
 --- !u!114 &2111360244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doUpdate: 0
+  modifier: 0
 --- !u!1 &8089920351246596003
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,6 +276,7 @@ Transform:
   - {fileID: 4289174958749210076}
   - {fileID: 6338785910924220026}
   - {fileID: 2980081537542089251}
+  - {fileID: 3135215107780726746}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -340,4 +391,4 @@ MonoBehaviour:
   - {x: -0.22403543, y: -0.48907974, z: 0}
   m_ShapePathHash: 1986870741
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1232
+  m_InstanceId: 796822

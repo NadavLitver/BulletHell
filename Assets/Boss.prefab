@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 1817292991}
   m_Layer: 15
   m_Name: Boss
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -476,8 +476,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 2000
   isVulnerable: 1
-  animator: {fileID: 0}
-  m_hitEffect: {fileID: 0}
+  animator: {fileID: 1159622365}
+  m_hitEffect: {fileID: 114434911}
 --- !u!50 &126667364925439613
 Rigidbody2D:
   serializedVersion: 4
@@ -536,6 +536,7 @@ GameObject:
   - component: {fileID: 126667365454388968}
   - component: {fileID: 126667365454388969}
   - component: {fileID: 1159622365}
+  - component: {fileID: 114434911}
   m_Layer: 11
   m_Name: GFX
   m_TagString: Enemy
@@ -576,7 +577,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a1dbeb9cb1c193e479111849fe3d5faa, type: 2}
+  - {fileID: 2100000, guid: 9060277bccf8f6e499030b6b3892404f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -627,6 +628,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114434911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126667365454388971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252e697f462ce9444ab09502117e622e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IdleColor: {r: 1, g: 1, b: 1, a: 1}
+  HitColor: {r: 1, g: 0.9869347, b: 0.759434, a: 1}
+  HitMultiplier: 1.5
+  m_sr: {fileID: 126667365454388969}
 --- !u!1 &126667365492512416
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,10 +733,16 @@ MonoBehaviour:
     type: 3}
   MummyType: {fileID: 3560139203745789556, guid: 2941062a46201f54d99211f251ae0a2e,
     type: 3}
-  amountOfEnemiesPerSummon: 3
+  amountOfEnemiesPerSummon: 2
   TimeBetweenEnemy: 2
   TimeToNextState: 6
-  m_sacs: []
+  m_sacs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &126667366583538340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -763,10 +786,11 @@ MonoBehaviour:
   RZigZagPattern: {fileID: 436388293}
   LCirclePattern: {fileID: 767719070}
   RCirclePattern: {fileID: 1675461567}
-  LxShapePattern: {fileID: 0}
-  RxShapePattern: {fileID: 0}
-  TimeToNextState: 6
+  LxShapePattern: {fileID: 6143339719603155154}
+  RxShapePattern: {fileID: 5762822230109332295}
+  TimeToNextState: 5
   choosePattern: 0
+  timeBetweenAttacks: 2.5
 --- !u!114 &126667366583538342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,7 +873,7 @@ GameObject:
   - component: {fileID: 2736929594342592280}
   - component: {fileID: 1455250302779548074}
   m_Layer: 15
-  m_Name: ExShapePattern
+  m_Name: RxShapePattern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -982,7 +1006,7 @@ PrefabInstance:
     - target: {fileID: 2434648588620148854, guid: 99cc31fb1626fe342a9c7d4df4f9dc6c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3343747449562977685, guid: 99cc31fb1626fe342a9c7d4df4f9dc6c,
         type: 3}
@@ -1062,7 +1086,7 @@ PrefabInstance:
     - target: {fileID: 2434648588620148854, guid: 99cc31fb1626fe342a9c7d4df4f9dc6c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3343747449562977685, guid: 99cc31fb1626fe342a9c7d4df4f9dc6c,
         type: 3}

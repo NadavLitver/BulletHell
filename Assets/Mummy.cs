@@ -84,12 +84,12 @@ public class Mummy : LiveBody
 
     IEnumerator Throw(Vector2 direction)
     {
-        AudioManager.am.PlaySound(AudioManager.am.mummy_Attack, 0.15f, true, 0.1f);
+        AudioManager.am.PlaySound(AudioManager.am.mummy_Attack, 0.25f, true, 0.1f);
         animator.SetTrigger("Throw");
         isThrowing = true;
         throwCooldownRunning = 0;
         canThrow = false;
-        yield return new WaitForSeconds(.6f);
+        yield return new WaitForSeconds(.2f);
         GameObject bullet = BulletPool.bp_instace.GetBullet();
         bullet.transform.position = transform.position;
         bullet.transform.rotation = transform.rotation;
@@ -107,12 +107,12 @@ public class Mummy : LiveBody
         if (hp <= 0)
         {
             m_effects.OnDeath();
-            AudioManager.am.PlaySound(AudioManager.am.mummy_Death, 0.5f);
+            AudioManager.am.PlaySound(AudioManager.am.mummy_Death, 0.35f);
         }
         else
         {
             m_effects.TakeDamage(damage);
-            AudioManager.am.PlaySound(AudioManager.am.mummy_Hit, 0.25f, true, 0.2f);
+            AudioManager.am.PlaySound(AudioManager.am.mummy_Hit, 0.2f, true, 0.1f);
         }
 
     }

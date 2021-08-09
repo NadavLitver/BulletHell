@@ -25,7 +25,7 @@ public class Boss : LiveBody
         }
         else
         {
-            AudioManager.am.PlaySound(AudioManager.am.boss_Hit, 0.1f, true,0.05f);
+            AudioManager.am.PlaySound(AudioManager.am.boss_Hit, 0.25f, true,0.1f);
         }
     }
 

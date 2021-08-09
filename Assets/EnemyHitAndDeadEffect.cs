@@ -31,7 +31,10 @@ public class EnemyHitAndDeadEffect : MonoBehaviour
         while (currDurr < 1)
         {
             currDurr += Time.deltaTime / 0.2f;
-            m_light.intensity = Mathf.Lerp(Damage, 0, currDurr);
+            if (m_light != null)
+            {
+                m_light.intensity = Mathf.Lerp(Damage, 0, currDurr);
+            }
             m_sr.material.SetFloat(MultiplierRefID, Mathf.Lerp(HitMultiplier, IdleMultiplier, currDurr));
             m_sr.material.SetColor(ColorRefID, Color.Lerp(HitColor, IdleColor, currDurr));
             yield return new WaitForEndOfFrame();
@@ -55,7 +58,10 @@ public class EnemyHitAndDeadEffect : MonoBehaviour
         while (currDurr < 1)
         {
             currDurr += Time.deltaTime / 0.5f;
-            m_light.intensity = Mathf.Lerp(100, 0, currDurr);
+            if (m_light != null)
+            {
+                m_light.intensity = Mathf.Lerp(100, 0, currDurr);
+            }
             m_sr.material.SetFloat(FadeRefID, Mathf.Lerp(1, 0, currDurr));
             yield return new WaitForEndOfFrame();
         }
