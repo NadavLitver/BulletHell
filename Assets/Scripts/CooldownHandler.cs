@@ -102,14 +102,11 @@ public class CooldownHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             cooldownTime = PlayerShooterInstance.teleportCD;
-
             if (!inCooldown)
             {
                 inCooldown = true;
                 cooldownImage.fillAmount = 1;
             }
-
-
         }
     }
 
