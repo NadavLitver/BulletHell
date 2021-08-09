@@ -30,12 +30,12 @@ public class Bullet : MonoBehaviour
             PlaySound();
         }
         StartCoroutine(Movebullet());
-        if (GameManager.gm.isBulletSpeedDoubled && gameObject.layer == 8)
-            speed = 3.5f * 1.6f;
         if(GameManager.gm.isFirstPhaseStarted && gameObject.layer == 8)
         {
             speed = 3.5f * 0.75f;
         }
+        if (GameManager.gm.isBulletSpeedDoubled && gameObject.layer == 8)
+            speed = 3.5f * 1.6f;
     }
 
     private void PlaySound()
@@ -54,7 +54,7 @@ public class Bullet : MonoBehaviour
                 break;
             case BulletType.AuraBurst:
                 ac = AudioManager.am.Player_AuraBurst;
-                volume = .35f;
+                volume = .25f;
                 break;
             case BulletType.MummyAttack:
                 ac = AudioManager.am.mummy_Attack;

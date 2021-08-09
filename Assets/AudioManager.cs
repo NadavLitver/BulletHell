@@ -45,8 +45,8 @@ public class AudioManager : MonoBehaviour
     [Header("Boss")]
     public AudioClip boss_Attack;
     public AudioClip boss_Hit;
-    public AudioClip boss_Death;
-    public AudioClip boss_swapState;
+    //public AudioClip boss_Death;
+    //public AudioClip boss_swapState;
 
 
     [Header("Sources Ref")]

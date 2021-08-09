@@ -28,7 +28,7 @@ public class StateSwapper : MonoBehaviour
     }
     public void SwapState(State state)
     {
-        AudioManager.am.PlaySound(AudioManager.am.boss_swapState, 1);
+        //AudioManager.am.PlaySound(AudioManager.am.boss_swapState, 1);
         if (state == firstPhase)
         {
             firstPhase.enabled = true;

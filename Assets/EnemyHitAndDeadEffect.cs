@@ -16,6 +16,8 @@ public class EnemyHitAndDeadEffect : MonoBehaviour
 
     [SerializeField] private SpriteRenderer m_sr;
     [SerializeField] UnityEngine.Experimental.Rendering.Universal.Light2D m_light;
+
+    private bool isAlive = true;
     void Start()
     {
         m_ps.SetActive(false);
@@ -23,6 +25,10 @@ public class EnemyHitAndDeadEffect : MonoBehaviour
     }
     public void TakeDamage(float Damage)
     {
+        if (!isAlive)
+        {
+            return;
+        }
         StartCoroutine(TakeDamageCoru(Damage));
     }
     private IEnumerator TakeDamageCoru(float Damage)
@@ -45,16 +51,22 @@ public class EnemyHitAndDeadEffect : MonoBehaviour
     }
     public void OnDeath()
     {
-       GameManager.gm.StartCoroutine(OnDeathCoru());//let the game manager control the routine so less null errors
-       Destroy(gameObject, 0.1f);
+        if (!isAlive)
+        {
+            return;
+        }
+        isAlive = false;
+        Destroy(gameObject, 0.1f);
+        StartCoroutine(OnDeathCoru());//let the game manager control the routine so less null errors
     }
     private IEnumerator OnDeathCoru()
     {
         if(this!= null)
         {
-            transform.parent = null;
             m_ps.SetActive(true);
             m_ps.transform.parent = null;
+
+            transform.parent = null;
             m_sr.material.SetFloat(MultiplierRefID, IdleMultiplier);
             m_sr.material.SetColor(ColorRefID, IdleColor);
             float currDurr = 0;
@@ -69,7 +81,6 @@ public class EnemyHitAndDeadEffect : MonoBehaviour
                   m_sr.material.SetFloat(FadeRefID, Mathf.Lerp(1, 0, currDurr));
                 yield return new WaitForEndOfFrame();
             }
-
         }
       
     }

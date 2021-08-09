@@ -28,7 +28,7 @@ public class Boss : LiveBody
         base.TakeDamage(damage);
         if (hp <= 0)
         {
-            AudioManager.am.PlaySound(AudioManager.am.boss_Death, 1);
+            //AudioManager.am.PlaySound(AudioManager.am.boss_Death, 1);
             animator.SetTrigger("Dead");
         }
         else
