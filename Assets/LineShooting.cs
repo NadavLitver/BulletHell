@@ -20,12 +20,12 @@ public class LineShooting : Pattern
     IEnumerator ShootLine()
     {
        
-          Vector2 bulletDir = (playerRef.transform.position - transform.position).normalized;
 
         for (int i = 0; i < bulletAmount; i++)
         {
          
          
+            Vector2 bulletDir = (playerRef.transform.position - transform.position).normalized;
             GameObject bullet = BulletPool.bp_instace.GetBullet();
             bullet.transform.position = transform.position;
             bullet.transform.rotation = transform.rotation;

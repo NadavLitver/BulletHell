@@ -38520,7 +38520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  TTL: 15
+  TTL: 20
   launchDelay: 0.6
   m_type: 3
   doPlaySound: 0
