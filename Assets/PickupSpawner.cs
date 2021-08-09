@@ -23,7 +23,7 @@ public class PickupSpawner : MonoBehaviour
         Debug.Log(RandomPickupNum);
         GameObject curPickup = pickups[RandomPickupNum];
         float PosX = Randomizer.ReturnRandomFloat(-maxX, maxX);
-        float PosY = Randomizer.ReturnRandomFloat(-maxY, maxY);
+        float PosY = Randomizer.ReturnRandomFloat(-maxY, maxY -1);
         curPickup.transform.position = new Vector2(PosX, PosY);
         curPickup.SetActive(true);
 
