@@ -9,6 +9,7 @@ public abstract class LiveBody : MonoBehaviour
     public bool isVulnerable = true;
     [SerializeField]
     protected Animator animator;
+    protected int maxHP;
  
     public virtual void TakeDamage(int damage)
     {
@@ -22,6 +23,7 @@ public abstract class LiveBody : MonoBehaviour
     }
     private void OnEnable()
     {
+        maxHP = hp;
         OnLiveBodyEnable();
     }
     protected virtual void OnLiveBodyEnable()

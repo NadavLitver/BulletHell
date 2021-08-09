@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class LaserHandler : MonoBehaviour
 {
-    private Collider2D m_col;
+    [SerializeField] private Collider2D m_col;
     [SerializeField] private int damage;
 
     private void OnEnable()
     {
         m_col = GetComponent<Collider2D>();
-        m_col.enabled = false;
     }
 
 
@@ -30,7 +29,7 @@ public class LaserHandler : MonoBehaviour
     private IEnumerator OnHitRoutine()
     {
         m_col.enabled = false;
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.5f);
         m_col.enabled = true;
     }
 }

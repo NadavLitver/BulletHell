@@ -30,10 +30,13 @@ public class StatueMover : MonoBehaviour
         {
             ZeroStatePositions[i] = Statues[i].transform.position;
         }
-        Invoke("EnableFirstState", 12);
-        Invoke("EnableSecondState", 24);
-        Invoke("EnableThirdState", 36);
-        Invoke("EnableFourthState", 48);
+        Invoke("EnableFirstState", 10);
+        Invoke("EnableSecondState", 20);
+        Invoke("EnableThirdState", 30);
+        Invoke("EnableFourthState", 40);
+        Invoke("EnableThirdState", 50);
+        Invoke("EnableSecondState", 60);
+        Invoke("EnableFirstState", 90);
 
 
     }

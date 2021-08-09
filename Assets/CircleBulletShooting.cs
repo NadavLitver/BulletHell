@@ -11,6 +11,7 @@ public class CircleBulletShooting : Pattern
     private void OnEnable()
     {
         StartCoroutine(ShootCircle());
+       
     }
 
    
@@ -18,9 +19,9 @@ public class CircleBulletShooting : Pattern
     {
         Vector2 bulletDir = (playerRef.transform.position - transform.position).normalized;
         GameObject bullet = Instantiate(CirclePrefab);
-        yield return new WaitForSeconds(0.5f);
         bullet.transform.position = transform.position;
         bullet.transform.rotation = transform.rotation;
+        yield return new WaitForSeconds(0.5f);
         bullet.GetComponent<CircleBulletHandler>().dir = bulletDir;
     }
 }

@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class LaserState : State
 {
+    [SerializeField] float timeBetweenLasers;
     protected override void StateOnEnable()
     {
         base.StateOnEnable();
-        animator.SetTrigger("Laser");
+        boss.ThirtyPercentEvent.AddListener(CallSwapState);
     }
-    protected override void CallSwapState(State NextState)
+   IEnumerator RepeatLaser()
     {
-        base.CallSwapState(NextState);
+        animator.SetTrigger("Laser");
+        yield return new WaitForSeconds(timeBetweenLasers);
+        animator.SetTrigger("Laser");
+        yield return new WaitForSeconds(timeBetweenLasers);
+        animator.SetTrigger("Laser");
+
+        yield return new WaitForSeconds(timeBetweenLasers);
+        CallSwapState();
+
+    }
+    protected override void CallSwapState()
+    {
+        base.CallSwapState();
     }
 }

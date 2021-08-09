@@ -16,6 +16,7 @@ public class SummonState : State
     public float TimeToNextState = 10;
 
     [SerializeField] private List<SarcHandler> m_sacs;
+    
 
 
     protected override void StateOnEnable()
@@ -50,12 +51,12 @@ public class SummonState : State
 
         boss.isVulnerable = true;
         yield return new WaitForSeconds(TimeToNextState);
-        CallSwapState(nextState);
+        CallSwapState();
      }
 
-    protected override void CallSwapState(State NextState)
+    protected override void CallSwapState()
     {
-        base.CallSwapState(NextState);
+        base.CallSwapState();
     }
 
 }

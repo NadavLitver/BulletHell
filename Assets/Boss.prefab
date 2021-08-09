@@ -352,6 +352,36 @@ MonoBehaviour:
   playerRef: {fileID: 0}
   CirclePrefab: {fileID: 1676116582576900140, guid: da9eedb0972e0874c8fbaa2ca5d236b5,
     type: 3}
+--- !u!1 &1815046419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1815046420}
+  m_Layer: 15
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1815046420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815046419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4121643818157034975}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1872279802
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,7 +507,7 @@ MonoBehaviour:
   hp: 2000
   isVulnerable: 1
   animator: {fileID: 1159622365}
-  m_hitEffect: {fileID: 114434911}
+  m_hitEffect: {fileID: 2048330470382139995}
 --- !u!50 &126667364925439613
 Rigidbody2D:
   serializedVersion: 4
@@ -537,6 +567,7 @@ GameObject:
   - component: {fileID: 126667365454388969}
   - component: {fileID: 1159622365}
   - component: {fileID: 114434911}
+  - component: {fileID: 2048330470382139995}
   m_Layer: 11
   m_Name: GFX
   m_TagString: Enemy
@@ -644,6 +675,22 @@ MonoBehaviour:
   HitColor: {r: 1, g: 0.9869347, b: 0.759434, a: 1}
   HitMultiplier: 1.5
   m_sr: {fileID: 126667365454388969}
+--- !u!114 &2048330470382139995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126667365454388971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252e697f462ce9444ab09502117e622e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IdleColor: {r: 1, g: 1, b: 1, a: 1}
+  HitColor: {r: 1, g: 0.9869347, b: 0.759434, a: 1}
+  HitMultiplier: 1.5
+  m_sr: {fileID: 126667365454388969}
 --- !u!1 &126667365492512416
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,11 +732,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 126667366583538344}
-  - component: {fileID: 126667366583538341}
-  - component: {fileID: 126667366583538340}
-  - component: {fileID: 126667366583538343}
-  - component: {fileID: 126667366583538342}
   - component: {fileID: 126667366583538345}
+  - component: {fileID: 1525539629420331301}
+  - component: {fileID: 2590892313906281042}
+  - component: {fileID: 6790659353071935039}
+  - component: {fileID: 318953625611510420}
+  - component: {fileID: 5064650211204892376}
+  - component: {fileID: 7191370751115697783}
   m_Layer: 0
   m_Name: StateHolder
   m_TagString: Untagged
@@ -712,102 +761,6 @@ Transform:
   m_Father: {fileID: 126667365454388968}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &126667366583538341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 126667366583538347}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 316135239d73bea4f9bf7f91ff17c6ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateSwapper: {fileID: 126667366583538345}
-  animator: {fileID: 1159622365}
-  boss: {fileID: 126667364925439614}
-  nextState: {fileID: 126667366583538343}
-  damageToSwapState: 20
-  BeatleType: {fileID: 1820397386903010629, guid: e67d40724dc6e5a4297df944d07d68d1,
-    type: 3}
-  MummyType: {fileID: 3560139203745789556, guid: 2941062a46201f54d99211f251ae0a2e,
-    type: 3}
-  amountOfEnemiesPerSummon: 2
-  TimeBetweenEnemy: 2
-  TimeToNextState: 6
-  m_sacs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &126667366583538340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 126667366583538347}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b5ea3fed2d540e4bae26ba8361df561, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateSwapper: {fileID: 126667366583538345}
-  animator: {fileID: 1159622365}
-  boss: {fileID: 126667364925439614}
-  nextState: {fileID: 126667366583538342}
-  damageToSwapState: 20
---- !u!114 &126667366583538343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 126667366583538347}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b9d3a55a18d734488f6aa4d6c711747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateSwapper: {fileID: 126667366583538345}
-  animator: {fileID: 1159622365}
-  boss: {fileID: 126667364925439614}
-  nextState: {fileID: 126667366583538341}
-  damageToSwapState: 20
-  amountOfPatterns: 4
-  LwavePattern: {fileID: 381190287}
-  RwavePattern: {fileID: 350365886}
-  LlinePattern: {fileID: 1400838737}
-  RlinePattern: {fileID: 200026173}
-  LZigZagPattern: {fileID: 2050533690}
-  RZigZagPattern: {fileID: 436388293}
-  LCirclePattern: {fileID: 767719070}
-  RCirclePattern: {fileID: 1675461567}
-  LxShapePattern: {fileID: 6143339719603155154}
-  RxShapePattern: {fileID: 5762822230109332295}
-  TimeToNextState: 5
-  choosePattern: 0
-  timeBetweenAttacks: 2.5
---- !u!114 &126667366583538342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 126667366583538347}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd0a6800f522cdd46b962f9cf415540b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateSwapper: {fileID: 126667366583538345}
-  animator: {fileID: 1159622365}
-  boss: {fileID: 126667364925439614}
-  nextState: {fileID: 126667366583538343}
-  damageToSwapState: 20
 --- !u!114 &126667366583538345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -820,11 +773,167 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730476baef149414490c090d47cd0ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserState: {fileID: 126667366583538340}
-  BulletPatternsState: {fileID: 126667366583538343}
-  summonState: {fileID: 126667366583538341}
-  idleState: {fileID: 126667366583538342}
-  FirstState: {fileID: 126667366583538343}
+  firstPhase: {fileID: 1525539629420331301}
+  secondPhase: {fileID: 2590892313906281042}
+  thirdPhase: {fileID: 6790659353071935039}
+  fourthPhase: {fileID: 318953625611510420}
+  fifthPhase: {fileID: 5064650211204892376}
+  sixPhase: {fileID: 7191370751115697783}
+--- !u!114 &1525539629420331301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126667366583538347}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e255c4de99b7d0a4ea7c1864d8cc780a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1159622365}
+  boss: {fileID: 126667364925439614}
+  nextState: {fileID: 2590892313906281042}
+  damageToSwapState: 20
+  amountOfPatterns: 3
+  timeBetweenAttacks: 2.5
+  LwavePattern: {fileID: 381190287}
+  RwavePattern: {fileID: 350365886}
+  LlinePattern: {fileID: 1400838737}
+  RlinePattern: {fileID: 200026173}
+  LZigZagPattern: {fileID: 2050533690}
+  RZigZagPattern: {fileID: 436388293}
+  RCirclePattern: {fileID: 1675461567}
+  LCirclePattern: {fileID: 767719070}
+  LxShapePattern: {fileID: 6143339719603155154}
+  RxShapePattern: {fileID: 5762822230109332295}
+--- !u!114 &2590892313906281042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126667366583538347}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c97ece8c5a1061488e29fa9d9e0d563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1159622365}
+  boss: {fileID: 126667364925439614}
+  nextState: {fileID: 6790659353071935039}
+  damageToSwapState: 20
+  BeatleType: {fileID: 0}
+  MummyType: {fileID: 0}
+  amountOfMummyPerSummon: 2
+  amountOfBeatlePerSummon: 1
+  TimeBetweenEnemy: 1
+  TimeToNextState: 10
+  m_Lsacs: []
+  m_Rsacs: []
+--- !u!114 &6790659353071935039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126667366583538347}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce70cfac1c4979f4bae9c66825d8262c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1159622365}
+  boss: {fileID: 126667364925439614}
+  nextState: {fileID: 318953625611510420}
+  damageToSwapState: 20
+  BeatleType: {fileID: 0}
+  MummyType: {fileID: 0}
+  m_Lsacs: []
+  m_Rsacs: []
+  TimeBetweenEnemy: 1
+  LwavePattern: {fileID: 381190287}
+  RwavePattern: {fileID: 350365886}
+  LlinePattern: {fileID: 1400838737}
+  RlinePattern: {fileID: 200026173}
+  LZigZagPattern: {fileID: 2050533690}
+  RZigZagPattern: {fileID: 436388293}
+  RCirclePattern: {fileID: 1675461567}
+  LCirclePattern: {fileID: 767719070}
+  LxShapePattern: {fileID: 6143339719603155154}
+  RxShapePattern: {fileID: 5762822230109332295}
+  amountOfPatterns: 5
+  timeBetweenAttacks: 2.5
+--- !u!114 &318953625611510420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126667366583538347}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b2d01a9b513a184689b6aa7d7b9561c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1159622365}
+  boss: {fileID: 126667364925439614}
+  nextState: {fileID: 5064650211204892376}
+  damageToSwapState: 20
+  timeBetweenLasers: 4
+--- !u!114 &5064650211204892376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126667366583538347}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4804ba6db075f674893494d7d87b411e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1159622365}
+  boss: {fileID: 126667364925439614}
+  nextState: {fileID: 7191370751115697783}
+  damageToSwapState: 20
+  amountOfPatterns: 5
+  timeBetweenAttacks: 2.5
+  LwavePattern: {fileID: 381190287}
+  RwavePattern: {fileID: 350365886}
+  LlinePattern: {fileID: 1400838737}
+  RlinePattern: {fileID: 200026173}
+  LZigZagPattern: {fileID: 2050533690}
+  RZigZagPattern: {fileID: 436388293}
+  RCirclePattern: {fileID: 1675461567}
+  LCirclePattern: {fileID: 767719070}
+  LxShapePattern: {fileID: 6143339719603155154}
+  RxShapePattern: {fileID: 5762822230109332295}
+--- !u!114 &7191370751115697783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126667366583538347}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f2f045d83466d48a7fc4d6c4e6f3bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1159622365}
+  boss: {fileID: 126667364925439614}
+  nextState: {fileID: 5064650211204892376}
+  damageToSwapState: 20
+  BeatleType: {fileID: 0}
+  MummyType: {fileID: 0}
+  amountOfMummyPerSummon: 2
+  amountOfBeatlePerSummon: 1
+  TimeBetweenEnemy: 1
+  TimeToNextState: 10
+  timeBetweenLasers: 4
+  m_Lsacs: []
+  m_Rsacs: []
 --- !u!1 &1975207636442036180
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,6 +967,7 @@ Transform:
   - {fileID: 436388294}
   - {fileID: 1675461568}
   - {fileID: 2736929594342592280}
+  - {fileID: 1815046420}
   - {fileID: 2780529088067592959}
   m_Father: {fileID: 126667365492512417}
   m_RootOrder: 0
@@ -1011,7 +1121,7 @@ PrefabInstance:
     - target: {fileID: 3343747449562977685, guid: 99cc31fb1626fe342a9c7d4df4f9dc6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3343747449562977685, guid: 99cc31fb1626fe342a9c7d4df4f9dc6c,
         type: 3}

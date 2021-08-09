@@ -16,7 +16,6 @@ public class Mummy : LiveBody
     private bool isThrowing;
     private bool canThrow;
 
-    private Vector3 m_scale;
 
     [SerializeField] private EnemyHitAndDeadEffect m_effects;
 
@@ -32,7 +31,6 @@ public class Mummy : LiveBody
         destinationSetter.target = FindObjectOfType<Target>().transform;
         target = destinationSetter.target;
 
-        m_scale = transform.localScale;
         
     }
     private void Update()
@@ -71,13 +69,12 @@ public class Mummy : LiveBody
         {
             canThrow = true;
         }
-        transform.localScale = new Vector2(target.transform.position.x > transform.position.x ? -1 : 1 * m_scale.x, m_scale.y);
         UpdateAnimator();
     }
 
     private void UpdateAnimator()
     {
-        Vector2 dir = (transform.position - target.position).normalized;
+        Vector2 dir = (target.position - transform.position ).normalized;
         animator.SetFloat("x", dir.x);
         animator.SetFloat("y", dir.y);
     }

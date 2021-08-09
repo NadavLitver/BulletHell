@@ -8,9 +8,9 @@ public class BossIdleState : State
     {
         base.StateOnEnable();
     }
-    protected override void CallSwapState(State NextState)
+    protected override void CallSwapState()
     {
-        base.CallSwapState(NextState);
+        base.CallSwapState();
     }
 
 }

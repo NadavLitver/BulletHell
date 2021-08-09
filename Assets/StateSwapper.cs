@@ -5,14 +5,20 @@ using UnityEngine;
 public class StateSwapper : MonoBehaviour
 {
     
-    public LaserState laserState;
-    public BulletPatternsState BulletPatternsState;
-    public SummonState summonState;
-    public BossIdleState idleState;
+    public BossFirstPhase firstPhase;
+    public BossSecondPhase secondPhase;
+    public BossThirdPhase thirdPhase;
+    public BossFourthPhase fourthPhase;
+    public BossFifthPhase fifthPhase;
+    public BossSixPhase sixPhase;
 
-    public State FirstState;
+
+
+
+    private State FirstState;
     private void Start()
     {
+        FirstState = firstPhase;
         Invoke("SetFirstState", 5f);
     }
     void SetFirstState()
@@ -23,44 +29,73 @@ public class StateSwapper : MonoBehaviour
     public void SwapState(State state)
     {
         AudioManager.am.PlaySound(AudioManager.am.boss_swapState, 1);
-        if(state == laserState)
+        if (state == firstPhase)
         {
-            BulletPatternsState.enabled = false;
-            summonState.enabled = false;
-            idleState.enabled = false;
-            Debug.Log("laserState");
+            firstPhase.enabled = true;
+            secondPhase.enabled = false;
+            thirdPhase.enabled = false;
+            fourthPhase.enabled = false;
+            fifthPhase.enabled = false;
+            sixPhase.enabled = false;
 
-        }
-        else if(state == BulletPatternsState)
-        {
-            laserState.enabled = false;
-            summonState.enabled = false;
-            idleState.enabled = false;
-            Debug.Log("BulletPatternsState");
 
 
         }
-        else if(state == summonState)
+        else if (state == secondPhase)
         {
-            laserState.enabled = false;
-            BulletPatternsState.enabled = false;
-            idleState.enabled = false;
-            Debug.Log("summonState");
+
+            firstPhase.enabled = false;
+            secondPhase.enabled = true;
+            thirdPhase.enabled = false;
+            fourthPhase.enabled = false;
+            fifthPhase.enabled = false;
+            sixPhase.enabled = false;
+
 
         }
-        else if(state == idleState)
+        else if (state == thirdPhase)
         {
-            laserState.enabled = false;
-            BulletPatternsState.enabled = false;
-            summonState.enabled = false;
-            Debug.Log("idleState");
+
+            firstPhase.enabled = false;
+            secondPhase.enabled = false;
+            thirdPhase.enabled = true;
+            fourthPhase.enabled = false;
+            fifthPhase.enabled = false;
+            sixPhase.enabled = false;
 
         }
-        else
+        else if (state == fourthPhase)
         {
-            Debug.LogError("boss dont know state");
+            firstPhase.enabled = false;
+            secondPhase.enabled = false;
+            thirdPhase.enabled = false;
+            fourthPhase.enabled = true;
+            fifthPhase.enabled = false;
+            sixPhase.enabled = false;
         }
-        state.enabled = true;
-        
+        else if (state == fifthPhase)
+        {
+
+            firstPhase.enabled = false;
+            secondPhase.enabled = false;
+            thirdPhase.enabled = false;
+            fourthPhase.enabled = false;
+            fifthPhase.enabled = true;
+            sixPhase.enabled = false;
+        } else if (state == sixPhase)
+        {
+
+            firstPhase.enabled = false;
+            secondPhase.enabled = false;
+            thirdPhase.enabled = false;
+            fourthPhase.enabled = false;
+            fifthPhase.enabled = false;
+            sixPhase.enabled = true;
+
+        }
+        else { Debug.LogError("boss dont know state"); }
+            
+
+
     }
 }

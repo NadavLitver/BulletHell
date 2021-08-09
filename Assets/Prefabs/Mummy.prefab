@@ -5160,7 +5160,7 @@ MonoBehaviour:
   m_ps: {fileID: 4328801553398256954}
   IdleColor: {r: 1, g: 1, b: 1, a: 1}
   HitColor: {r: 1, g: 0.99789417, b: 0.6745283, a: 1}
-  HitMultiplier: 3
+  HitMultiplier: 5
   m_sr: {fileID: 2426902526752332824}
   m_light: {fileID: 4103020068644742184}
 --- !u!114 &4103020068644742184

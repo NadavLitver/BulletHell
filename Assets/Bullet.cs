@@ -31,6 +31,8 @@ public class Bullet : MonoBehaviour
             PlaySound();
         }
         StartCoroutine(Movebullet());
+        if (GameManager.gm.isBulletSpeedDoubled && gameObject.layer == 8)
+            speed *= 1.5f;
     }
 
     private void PlaySound()

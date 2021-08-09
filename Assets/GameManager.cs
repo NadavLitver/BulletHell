@@ -9,11 +9,13 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
     public UnityEvent PlayerLost;
     public UnityEvent PlayerWon;
+    public bool isBulletSpeedDoubled;
 
     public Boss BossRef;
     private void Awake()
     {
-        gm = this;
+        if(gm ==null)
+           gm = this;
         if (PlayerLost == null)
             PlayerLost = new UnityEvent();
         if(PlayerWon == null)
@@ -24,6 +26,10 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(DeactivateAndActivateGO(GO));
     }
+    private void Start()
+    {
+        BossRef.ThirtyPercentEvent.AddListener(SetBulletSpeedDoubled);
+    }
     private IEnumerator DeactivateAndActivateGO(GameObject GO)
     {
         GO.SetActive(false);
@@ -33,6 +39,10 @@ public class GameManager : MonoBehaviour
     public void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); ;
+    }
+    void SetBulletSpeedDoubled()
+    {
+        isBulletSpeedDoubled = true;
     }
     public void QuitGame()
     {

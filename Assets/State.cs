@@ -13,27 +13,32 @@ public abstract class State : MonoBehaviour
     protected int hpWhenEnterState;
     [SerializeField]
     protected State nextState;
-    public int damageToSwapState = 20;
+  
+
+
+
     private  void OnEnable()
     {
         StateOnEnable();
+
     }
-     protected virtual void StateOnEnable()
+    private void Start()
     {
-        hpWhenEnterState = boss.hp;
+        stateSwapper = GetComponent<StateSwapper>();
+    }
+    protected virtual void StateOnEnable()
+    {
+      
 
     }
     private void Update()
     {
-        if (hpWhenEnterState >= boss.hp + damageToSwapState) 
-        {
-           // CallSwapState(nextState);
-        }
+       
       
     }
-    protected virtual void CallSwapState(State NextState)
+    protected virtual void CallSwapState()
     {
-        stateSwapper.SwapState(NextState);
+        stateSwapper.SwapState(nextState);
     }
   
 }

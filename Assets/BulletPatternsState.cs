@@ -103,7 +103,7 @@ public class BulletPatternsState : State
         yield return new WaitForSeconds(timeBetweenAttacks);
         rP.SetActive(false);
         yield return new WaitForSeconds(TimeToNextState);
-        CallSwapState(nextState);
+        CallSwapState();
     }
     private void Attack()
     {
@@ -115,9 +115,9 @@ public class BulletPatternsState : State
     {
         AudioManager.am.PlaySound(AudioManager.am.boss_Attack, 1);
     }
-    protected override void CallSwapState(State NextState)
+    protected override void CallSwapState()
     {
-        base.CallSwapState(NextState);
+        base.CallSwapState();
     }
     private void OnDisable()
     {
