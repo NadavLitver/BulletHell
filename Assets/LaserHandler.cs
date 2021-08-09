@@ -7,11 +7,6 @@ public class LaserHandler : MonoBehaviour
     [SerializeField] private Collider2D m_col;
     [SerializeField] private int damage;
 
-    private void OnEnable()
-    {
-        m_col = GetComponent<Collider2D>();
-    }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

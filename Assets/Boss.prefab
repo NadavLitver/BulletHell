@@ -352,36 +352,6 @@ MonoBehaviour:
   playerRef: {fileID: 0}
   CirclePrefab: {fileID: 1676116582576900140, guid: da9eedb0972e0874c8fbaa2ca5d236b5,
     type: 3}
---- !u!1 &1815046419
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1815046420}
-  m_Layer: 15
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1815046420
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1815046419}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4121643818157034975}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1872279802
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,6 +478,21 @@ MonoBehaviour:
   isVulnerable: 1
   animator: {fileID: 1159622365}
   m_hitEffect: {fileID: 2048330470382139995}
+  EightyPercentEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  SixtyFivePercent:
+    m_PersistentCalls:
+      m_Calls: []
+  FiftyPercentEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  ThirtyPercentEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  TenPercentEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &126667364925439613
 Rigidbody2D:
   serializedVersion: 4
@@ -791,10 +776,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e255c4de99b7d0a4ea7c1864d8cc780a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateSwapper: {fileID: 0}
   animator: {fileID: 1159622365}
   boss: {fileID: 126667364925439614}
   nextState: {fileID: 2590892313906281042}
-  damageToSwapState: 20
   amountOfPatterns: 3
   timeBetweenAttacks: 2.5
   LwavePattern: {fileID: 381190287}
@@ -819,10 +804,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c97ece8c5a1061488e29fa9d9e0d563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateSwapper: {fileID: 0}
   animator: {fileID: 1159622365}
   boss: {fileID: 126667364925439614}
   nextState: {fileID: 6790659353071935039}
-  damageToSwapState: 20
   BeatleType: {fileID: 0}
   MummyType: {fileID: 0}
   amountOfMummyPerSummon: 2
@@ -843,10 +828,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce70cfac1c4979f4bae9c66825d8262c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateSwapper: {fileID: 0}
   animator: {fileID: 1159622365}
   boss: {fileID: 126667364925439614}
   nextState: {fileID: 318953625611510420}
-  damageToSwapState: 20
   BeatleType: {fileID: 0}
   MummyType: {fileID: 0}
   m_Lsacs: []
@@ -876,10 +861,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2d01a9b513a184689b6aa7d7b9561c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateSwapper: {fileID: 0}
   animator: {fileID: 1159622365}
   boss: {fileID: 126667364925439614}
   nextState: {fileID: 5064650211204892376}
-  damageToSwapState: 20
   timeBetweenLasers: 4
 --- !u!114 &5064650211204892376
 MonoBehaviour:
@@ -893,10 +878,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4804ba6db075f674893494d7d87b411e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateSwapper: {fileID: 0}
   animator: {fileID: 1159622365}
   boss: {fileID: 126667364925439614}
   nextState: {fileID: 7191370751115697783}
-  damageToSwapState: 20
   amountOfPatterns: 5
   timeBetweenAttacks: 2.5
   LwavePattern: {fileID: 381190287}
@@ -921,10 +906,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f2f045d83466d48a7fc4d6c4e6f3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateSwapper: {fileID: 0}
   animator: {fileID: 1159622365}
   boss: {fileID: 126667364925439614}
   nextState: {fileID: 5064650211204892376}
-  damageToSwapState: 20
   BeatleType: {fileID: 0}
   MummyType: {fileID: 0}
   amountOfMummyPerSummon: 2
@@ -967,7 +952,6 @@ Transform:
   - {fileID: 436388294}
   - {fileID: 1675461568}
   - {fileID: 2736929594342592280}
-  - {fileID: 1815046420}
   - {fileID: 2780529088067592959}
   m_Father: {fileID: 126667365492512417}
   m_RootOrder: 0
@@ -1121,7 +1105,7 @@ PrefabInstance:
     - target: {fileID: 3343747449562977685, guid: 99cc31fb1626fe342a9c7d4df4f9dc6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3343747449562977685, guid: 99cc31fb1626fe342a9c7d4df4f9dc6c,
         type: 3}
@@ -1173,8 +1157,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4347674770539412740, guid: 99cc31fb1626fe342a9c7d4df4f9dc6c,
+        type: 3}
+      propertyPath: m_col
+      value: 
+      objectReference: {fileID: 6940192439132027060}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99cc31fb1626fe342a9c7d4df4f9dc6c, type: 3}
+--- !u!61 &6940192439132027060 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7539457536654168030, guid: 99cc31fb1626fe342a9c7d4df4f9dc6c,
+    type: 3}
+  m_PrefabInstance: {fileID: 644310445015512938}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2780529088067592959 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3343747449562977685, guid: 99cc31fb1626fe342a9c7d4df4f9dc6c,
@@ -1253,11 +1248,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 4347674770539412740, guid: 99cc31fb1626fe342a9c7d4df4f9dc6c,
+        type: 3}
+      propertyPath: m_col
+      value: 
+      objectReference: {fileID: 7230115216105157022}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99cc31fb1626fe342a9c7d4df4f9dc6c, type: 3}
 --- !u!4 &2490612925872483285 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3343747449562977685, guid: 99cc31fb1626fe342a9c7d4df4f9dc6c,
+    type: 3}
+  m_PrefabInstance: {fileID: 934232852964441664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &7230115216105157022 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7539457536654168030, guid: 99cc31fb1626fe342a9c7d4df4f9dc6c,
     type: 3}
   m_PrefabInstance: {fileID: 934232852964441664}
   m_PrefabAsset: {fileID: 0}

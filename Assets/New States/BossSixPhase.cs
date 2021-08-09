@@ -21,6 +21,7 @@ public class BossSixPhase : State
         base.StateOnEnable();
         boss.isVulnerable = false;
         CallSummon();
+        GameManager.gm.isSixPhaseReached = true;
 
     }
     private void CallSummon()

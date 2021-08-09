@@ -17,6 +17,7 @@ public class BossFirstPhase : State
     [SerializeField] protected GameObject LCirclePattern;
     [SerializeField] protected GameObject LxShapePattern;
     [SerializeField] protected GameObject RxShapePattern;
+    
     protected override void StateOnEnable()
     {
         boss.isVulnerable = true;
@@ -27,12 +28,13 @@ public class BossFirstPhase : State
     }
     IEnumerator ChoosePattern()
     {
-        Choose();
-        yield return new WaitForSeconds(timeBetweenAttacks * 2);
-        Choose();
-        yield return new WaitForSeconds(timeBetweenAttacks * 2);
-        Choose();
-
+        while (this.enabled)
+        {
+            Choose();
+            yield return new WaitForSeconds(timeBetweenAttacks * 2);
+        }
+      
+      
         void Choose()
         {
             var curPatternIndex = Randomizer.ReturnRandomNum(0, amountOfPatterns);
@@ -47,12 +49,6 @@ public class BossFirstPhase : State
                 case 2:
                     StartCoroutine(PatternDelay(LZigZagPattern, RZigZagPattern));
                     break;
-                //case 3:
-                //    StartCoroutine(PatternDelay(LCirclePattern, RCirclePattern));
-                //    break;
-                //case 4:
-                //    StartCoroutine(PatternDelay(LxShapePattern, RxShapePattern));
-                //    break;
                 default:
                     break;
             }

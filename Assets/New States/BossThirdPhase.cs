@@ -40,34 +40,22 @@ public class BossThirdPhase : State
     }
     IEnumerator ChoosePattern()
     {
-        yield return new WaitForSeconds(timeBetweenAttacks);
-
-
-        StartCoroutine(PatternDelay(LwavePattern, RwavePattern));
-        yield return new WaitForSeconds(timeBetweenAttacks * 2);
-        StartCoroutine(PatternDelay(LlinePattern, RlinePattern));
-        yield return new WaitForSeconds(timeBetweenAttacks * 2);
-        StartCoroutine(PatternDelay(LZigZagPattern, RZigZagPattern));
-        yield return new WaitForSeconds(timeBetweenAttacks * 2);
-        StartCoroutine(PatternDelay(LCirclePattern, RCirclePattern));
-        yield return new WaitForSeconds(timeBetweenAttacks * 2);
-        StartCoroutine(PatternDelay(LxShapePattern, RxShapePattern));
-        yield return new WaitForSeconds(timeBetweenAttacks * 2);
-        StartCoroutine(PatternDelay(LwavePattern, RwavePattern));
-        yield return new WaitForSeconds(timeBetweenAttacks * 2);
-        StartCoroutine(PatternDelay(LlinePattern, RlinePattern));
-        yield return new WaitForSeconds(timeBetweenAttacks * 2);
-        StartCoroutine(PatternDelay(LZigZagPattern, RZigZagPattern));
-        yield return new WaitForSeconds(timeBetweenAttacks * 2);
-        StartCoroutine(PatternDelay(LCirclePattern, RCirclePattern));
-        yield return new WaitForSeconds(timeBetweenAttacks * 2);
-        StartCoroutine(PatternDelay(LxShapePattern, RxShapePattern));
-        yield return new WaitForSeconds(timeBetweenAttacks * 2);
-        StartCoroutine(PatternDelay(LwavePattern, RwavePattern));
-        yield return new WaitForSeconds(timeBetweenAttacks * 2);
-        StartCoroutine(PatternDelay(LlinePattern, RlinePattern));
-        yield return new WaitForSeconds(timeBetweenAttacks * 2);
-        StartCoroutine(PatternDelay(LZigZagPattern, RZigZagPattern));
+        while (this.enabled)
+        {
+            yield return new WaitForSeconds(timeBetweenAttacks);
+            StartCoroutine(PatternDelay(LwavePattern, RwavePattern));
+            yield return new WaitForSeconds(timeBetweenAttacks * 2);
+            StartCoroutine(PatternDelay(LlinePattern, RlinePattern));
+            yield return new WaitForSeconds(timeBetweenAttacks * 2);
+            StartCoroutine(PatternDelay(LZigZagPattern, RZigZagPattern));
+            yield return new WaitForSeconds(timeBetweenAttacks * 2);
+            StartCoroutine(PatternDelay(LCirclePattern, RCirclePattern));
+            yield return new WaitForSeconds(timeBetweenAttacks * 2);
+            StartCoroutine(PatternDelay(LxShapePattern, RxShapePattern));
+            yield return new WaitForSeconds(timeBetweenAttacks * 2);
+        }
+       
+     
 
     }
     IEnumerator PatternDelay(GameObject lP, GameObject rP)

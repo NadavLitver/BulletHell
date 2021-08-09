@@ -45,7 +45,7 @@ public abstract class LiveBody : MonoBehaviour
         }
         Debug.Log(gameObject.name + " is Dead");
         StopAllCoroutines();
-        Destroy(gameObject, 0.1f);
+        Destroy(gameObject, 2f);
     }
   
 }

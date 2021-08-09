@@ -74,7 +74,7 @@ public class Mummy : LiveBody
 
     private void UpdateAnimator()
     {
-        Vector2 dir = (target.position - transform.position ).normalized;
+        Vector2 dir = (target.position - transform.position).normalized;
         animator.SetFloat("x", dir.x);
         animator.SetFloat("y", dir.y);
     }
