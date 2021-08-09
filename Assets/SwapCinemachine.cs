@@ -10,7 +10,7 @@ public class SwapCinemachine : MonoBehaviour
 
     private void Start()
     {
-        Invoke("Swap",3);
+        Invoke("Swap",2);
     }
     void Swap()
     {

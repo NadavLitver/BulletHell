@@ -11,12 +11,13 @@ public class OnBulletCollision : MonoBehaviour
         death.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
-    { 
-     switch (collision.tag) {
+    {
+        switch (collision.tag)
+        {
 
             case "Wall":
                 OnHit();
-               
+
                 break;
             case "Enviroment":
                 OnHit();
@@ -36,12 +37,11 @@ public class OnBulletCollision : MonoBehaviour
         }
     }
     private void OnHit()
-    {  
-       
-            death.SetActive(true);   
-            death.transform.parent = null;
-            gameObject.SetActive(false);
-
+    {
+        death.SetActive(true);
+        death.transform.parent = null;
+        death.transform.position = transform.position;
+        gameObject.SetActive(false);
     }
 
 }

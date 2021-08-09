@@ -60,10 +60,12 @@ public class Beatle : LiveBody
         base.TakeDamage(damage);
         if (hp <= 0)
         {
+            AudioManager.am.PlaySound(AudioManager.am.beatle_Death, 0.25f);
             m_effects.OnDeath();
         }
         else
         {
+            AudioManager.am.PlaySound(AudioManager.am.beatle_hit, 0.2f, true, 0.1f);
             m_effects.TakeDamage(damage);
         }
     }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 public class StepEffectHandler : MonoBehaviour
@@ -12,17 +10,24 @@ public class StepEffectHandler : MonoBehaviour
     [SerializeField] private Transform pivotRight;
 
 
-    private Vector3 rotation = new Vector3(60f,0f,0f);
+    private Vector3 rotation = new Vector3(60f, 0f, 0f);
     public void PlayMid()
     {
         Instantiate(step, pivotMid.position, Quaternion.Euler(rotation));
+        PlaySound();
     }
     public void PlayLeft()
     {
         Instantiate(step, pivotLeft.position, Quaternion.Euler(rotation));
+        PlaySound();
     }
     public void PlayRight()
     {
         Instantiate(step, pivotRight.position, Quaternion.Euler(rotation));
+        PlaySound();
+    }
+    private void PlaySound()
+    {
+        AudioManager.am.PlaySound(AudioManager.am.player_Step, 0.5f, true, 0.3f);
     }
 }

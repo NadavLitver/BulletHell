@@ -37,6 +37,7 @@ public class Pickable : MonoBehaviour
             Picked = true;
             Inventory.InventoryInstace.SwapWeapon(abilityHeld);
             runelight.PlayRuneAnim(100, 1.5f);
+            AudioManager.am.PlaySound(AudioManager.am.Pickup, 0.65f);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: 2DUnlit
   m_Shader: {fileID: 4800000, guid: 6b10eff4bdd4fe145b220a0c2cdbe77d, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ENABLECUSTOMFADE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0

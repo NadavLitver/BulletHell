@@ -33,7 +33,7 @@ Material:
     - _AlphaStrength: 0.8
     - _BouceSpeed: 1.5
     - _FoamStr: 0.07
-    - _LiquidStr: 0.2
+    - _LiquidStr: 0.295
     - _NoiseSpeed: 0.1
     - _NoiseStr: 0.1
     m_Colors:

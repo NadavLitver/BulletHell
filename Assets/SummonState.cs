@@ -26,18 +26,11 @@ public class SummonState : State
 
     private void ChooseEnemyType()
     {
-        switch (Randomizer.GetOneOrMinusOne())
-        {
-            case 1:
-                StartCoroutine(SummonEnemy(MummyType));
-                animator.SetTrigger("Summon");
-                break;
-            case -1:
-                StartCoroutine(SummonEnemy(BeatleType));
-                animator.SetTrigger("Summon");
-                break;
-            
-        }
+        bool isMummy;
+        animator.SetTrigger("Summon");
+        isMummy = Randomizer.ReturnRandomFloat(0, 1) > 0.5f;
+        StartCoroutine(SummonEnemy(isMummy ? MummyType : BeatleType));
+
     }
      IEnumerator SummonEnemy(GameObject type)
      {
@@ -55,10 +48,9 @@ public class SummonState : State
             yield return new WaitForSeconds(TimeBetweenEnemy);
         }
 
-        yield return new WaitForSeconds(TimeToNextState);
         boss.isVulnerable = true;
+        yield return new WaitForSeconds(TimeToNextState);
         CallSwapState(nextState);
-
      }
 
     protected override void CallSwapState(State NextState)

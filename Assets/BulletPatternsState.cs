@@ -23,9 +23,11 @@ public class BulletPatternsState : State
 
     [SerializeField, Header("X Shooting Script")] GameObject LxShapePattern;
     [SerializeField, Header("X Shooting Script")] GameObject RxShapePattern;
-    public float TimeToNextState = 10;
+    public float TimeToNextState = 15;
 
     public bool choosePattern = false;
+
+    [SerializeField] private float timeBetweenAttacks;
 
     protected override void StateOnEnable()
     {
@@ -44,28 +46,23 @@ public class BulletPatternsState : State
 
     void ChoosePattern()
     {
-
-        var curPatternIndex = Randomizer.ReturnRandomNum(0,amountOfPatterns);
+        animator.SetTrigger("Shoot");
+        var curPatternIndex = Randomizer.ReturnRandomNum(0, amountOfPatterns);
         switch (curPatternIndex)
         {
             case 0:
-                animator.SetTrigger("Shoot");
                 StartCoroutine(PatternDelay(LwavePattern, RwavePattern));
                 break;
             case 1:
-                animator.SetTrigger("Shoot");
                 StartCoroutine(PatternDelay(LlinePattern, RlinePattern));
                 break;
             case 2:
-                animator.SetTrigger("Shoot");
                 StartCoroutine(PatternDelay(LZigZagPattern, RZigZagPattern));
                 break;
             case 3:
-                animator.SetTrigger("Shoot");
                 StartCoroutine(PatternDelay(LCirclePattern, RCirclePattern));
                 break;
             case 4:
-                animator.SetTrigger("Shoot");
                 StartCoroutine(PatternDelay(LxShapePattern, RxShapePattern));
                 break;
             default:
@@ -80,29 +77,39 @@ public class BulletPatternsState : State
   
     IEnumerator PatternDelay(GameObject lP, GameObject rP)
     {
-        lP.SetActive(true);
-        yield return new WaitForSeconds(1.2f);
+        Attack();
+        
+        lP.SetActive(true); 
+        yield return new WaitForSeconds(timeBetweenAttacks);
+
         lP.SetActive(false);
-        rP.SetActive(true);
-        yield return new WaitForSeconds(1.2f);
-        rP.SetActive(false);
+        rP.SetActive(true); 
+        yield return new WaitForSeconds(timeBetweenAttacks);
 
         yield return new WaitForSeconds(0.5f);
-        animator.SetTrigger("Shoot");
-
-
+        
+        Attack();
+        
+        rP.SetActive(false);
         lP.SetActive(true);
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(timeBetweenAttacks);
+
         lP.SetActive(false);
         rP.SetActive(true);
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(timeBetweenAttacks);
         rP.SetActive(false);
         yield return new WaitForSeconds(TimeToNextState);
         CallSwapState(nextState);
+    }
+    private void Attack()
+    {
+        animator.SetTrigger("Shoot");
+        PlayAttackSound();
+    }
 
-
-
-
+    private void PlayAttackSound()
+    {
+        AudioManager.am.PlaySound(AudioManager.am.boss_Attack, 1);
     }
     protected override void CallSwapState(State NextState)
     {
@@ -110,9 +117,7 @@ public class BulletPatternsState : State
     }
     private void OnDisable()
     {
-     
         StopAllCoroutines();
-
     }
 
 

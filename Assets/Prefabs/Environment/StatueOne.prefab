@@ -4834,7 +4834,7 @@ MonoBehaviour:
   - {x: -0.4429346, y: -0.6357994, z: 0}
   m_ShapePathHash: -1861453771
   m_Mesh: {fileID: 0}
-  m_InstanceId: -962344
+  m_InstanceId: -4114210
 --- !u!1 &2431300980060739278
 GameObject:
   m_ObjectHideFlags: 0
@@ -9761,7 +9761,7 @@ MonoBehaviour:
   - {x: -0.3178013, y: -0.53362703, z: 0}
   m_ShapePathHash: -886902204
   m_Mesh: {fileID: 0}
-  m_InstanceId: -962350
+  m_InstanceId: -4114216
 --- !u!114 &2111360244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19462,9 +19462,9 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
-      minScalar: 5
+      minScalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:

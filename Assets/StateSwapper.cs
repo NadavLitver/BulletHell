@@ -13,7 +13,7 @@ public class StateSwapper : MonoBehaviour
     public State FirstState;
     private void Start()
     {
-        Invoke("SetFirstState", 3.5f);
+        Invoke("SetFirstState", 5f);
     }
     void SetFirstState()
     {
@@ -22,6 +22,7 @@ public class StateSwapper : MonoBehaviour
     }
     public void SwapState(State state)
     {
+        AudioManager.am.PlaySound(AudioManager.am.boss_swapState, 1);
         if(state == laserState)
         {
             BulletPatternsState.enabled = false;

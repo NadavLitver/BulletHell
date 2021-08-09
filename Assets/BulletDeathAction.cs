@@ -18,6 +18,7 @@ public class BulletDeathAction : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         transform.parent = Parent;
+        transform.localPosition = Vector3.zero;
         
     }
 }

@@ -39,13 +39,13 @@ public class CamShake : MonoBehaviour
         float currDurr = 0;
         Debug.Log("camshake start");
         CinemachineBasicMultiChannelPerlin PerlinStart = m_cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        PerlinStart.m_AmplitudeGain = intensity;
-
+        float startIntensity = PerlinStart.m_AmplitudeGain + intensity;
+        PerlinStart.m_AmplitudeGain = startIntensity;
         while (currDurr < 1)
         {
             CinemachineBasicMultiChannelPerlin perlin = m_cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
             currDurr += Time.deltaTime / duration;
-            perlin.m_AmplitudeGain = Mathf.Lerp(intensity, 0, currDurr);
+            perlin.m_AmplitudeGain = Mathf.Lerp(startIntensity, 0, currDurr);
             yield return new WaitForEndOfFrame();
         }
         Debug.Log("camshake stop");

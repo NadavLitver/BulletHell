@@ -7,6 +7,7 @@ public class LaserState : State
     protected override void StateOnEnable()
     {
         base.StateOnEnable();
+        animator.SetTrigger("Laser");
     }
     protected override void CallSwapState(State NextState)
     {

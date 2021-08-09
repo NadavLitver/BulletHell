@@ -17,10 +17,15 @@ public class PlayerHitEffect : MonoBehaviour
     {
         float currDurr = 0;
         float duration = .3f;
+        m_sprite.color = Color.Lerp(Color.black, Color.white, currDurr);
+        AudioManager.am.PlaySound(AudioManager.am.player_Hit, 0.5f);
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(0.1f);
+        Time.timeScale = 1;
         while (currDurr < 1)
         {
-            m_sprite.color = Color.Lerp(Color.black, Color.white, currDurr);
             currDurr += Time.deltaTime / duration;
+            m_sprite.color = Color.Lerp(Color.black, Color.white, currDurr);
             yield return new WaitForEndOfFrame();
         }
         m_sprite.color = Color.white;

@@ -90,6 +90,8 @@ public class StatueMover : MonoBehaviour
     }
     void FirstStatePositioning()
     {
+        AudioManager.am.PlaySound(AudioManager.am.StatuesMoving, 0.4f);
+
         for (int i = 0; i < Statues.Length; i++)
         {
             Statues[i].transform.position = Vector2.MoveTowards(Statues[i].transform.position, firstStatePositions[i], moveSpeed * Time.deltaTime);

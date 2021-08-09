@@ -164,21 +164,16 @@ public class PlayerShooter : MonoBehaviour
                 {
                     UseSpecialAbility();
                     specialKeyPressing = false;
-                    Inventory.InventoryInstace.specialAbility.runningCD = 0;
                     CurSpecial.GetComponent<Animator>().SetBool("PlayEmission", true);
+                    Inventory.InventoryInstace.specialAbility.runningCD = 0;
                     StartCoroutine(callPlayerKnockbackDelayed(5, 1f));
 
                 }
-
             }
-
             if (specialKeyDownCounter >= chargeTimeForRetribution + 2)
             {
-
-
                 specialKeyDownCounter = 0;
                 playerMovement.canMove = true;
-
             }
         }
 
@@ -196,7 +191,7 @@ public class PlayerShooter : MonoBehaviour
                 CurSpecial.GetComponent<Animator>().SetBool("PlayEmission", false);
                 Inventory.InventoryInstace.specialAbility.runningCD = 0;
                 specialKeyDownCounter = 0;
-                Destroy(CurSpecial.gameObject, 0.5f);
+                //Destroy(CurSpecial.gameObject, 0.5f);
             }
 
         }
@@ -226,6 +221,7 @@ public class PlayerShooter : MonoBehaviour
     private IEnumerator Teleport()
     {
         //pre - in
+        AudioManager.am.PlaySound(AudioManager.am.Player_Teleport, 0.4f);
         teleportEffect.Activate(playerMovement.myDir);
         teleportEffect.transform.position = playerMovement.transform.position;
         playerMovement.canMove = false;
@@ -322,6 +318,7 @@ public class PlayerShooter : MonoBehaviour
 
         float angle = ShotgunData.startAngle;
 
+        AudioManager.am.PlaySound(AudioManager.am.Player_AuraBurst, 0.4f);
         for (int i = 0; i < ShotgunData.bulletAmount; i++)
         {
 

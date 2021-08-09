@@ -17,6 +17,7 @@ public class SarcHandler : MonoBehaviour
 
     public void Open()
     {
+        AudioManager.am.PlaySound(AudioManager.am.Sarc, .4f, true, 0.1f);
         m_anim.SetBool(openRefID, true);
     }
     public void Close()
