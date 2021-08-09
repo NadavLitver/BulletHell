@@ -9,9 +9,6 @@ public class MenuHandler : MonoBehaviour
     public GameObject CreditsCanvas;
     public GameObject CreditsMenu;
 
-
-
-
     public void PlayButton()
     {
         SceneManager.LoadScene(1);
@@ -31,7 +28,6 @@ public class MenuHandler : MonoBehaviour
         CreditsCanvas.SetActive(false);
         MainMenu.SetActive(true);
         MainMenuCanvas.SetActive(true);
-
     }
 
     public void QuitGame()
