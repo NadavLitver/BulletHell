@@ -163,10 +163,11 @@ public class PlayerShooter : MonoBehaviour
             if (specialKeyPressing)
             {
                 specialKeyDownCounter += Time.deltaTime;
+                if(CurSpecial == null)
+                  CurSpecial =  UseSpecialAbility();
 
                 if (specialKeyDownCounter >= chargeTimeForRetribution)
                 {
-                    UseSpecialAbility();
                     specialKeyPressing = false;
                     CurSpecial.GetComponent<Animator>().SetBool("PlayEmission", true);
                     Inventory.InventoryInstace.specialAbility.runningCD = 0;
@@ -192,9 +193,11 @@ public class PlayerShooter : MonoBehaviour
             StopCoroutine("MachineGun");
             if (CurSpecial != null)
             {
+
                 CurSpecial.GetComponent<Animator>().SetBool("PlayEmission", false);
                 Inventory.InventoryInstace.specialAbility.runningCD = 0;
                 specialKeyDownCounter = 0;
+                Destroy(CurSpecial.gameObject, 0.1f);
                 //Destroy(CurSpecial.gameObject, 0.5f);
             }
 
@@ -290,7 +293,7 @@ public class PlayerShooter : MonoBehaviour
         {
             GameObject bullet = Instantiate(holyShock, handPoint.position, Quaternion.Euler(Quaternion.identity.x, Quaternion.identity.y, Quaternion.identity.z + Randomizer.ReturnRandomFloat(-ShootRecoilAmount, ShootRecoilAmount)));
             bullet.GetComponent<Bullet>().SetMovement(shootDir);
-            bullet.GetComponent<Bullet>().speed *= 0.6f;
+            bullet.GetComponent<Bullet>().speed *= 0.5f;
 
 
         }
@@ -298,7 +301,7 @@ public class PlayerShooter : MonoBehaviour
         {
             GameObject bullet = Instantiate(holyShock, handPoint.position, Quaternion.identity);
             bullet.GetComponent<Bullet>().SetMovement(shootDir);
-            bullet.GetComponent<Bullet>().speed *= 0.4f;
+            bullet.GetComponent<Bullet>().speed *= 0.5f;
 
         }
         runeLight.PlayRuneAnim(1000, 1.5f);
@@ -311,7 +314,7 @@ public class PlayerShooter : MonoBehaviour
         {
             specialBullet.transform.parent = firePoint.transform;
         }
-        CurSpecial = specialBullet;
+       // CurSpecial = specialBullet;
         return specialBullet;
     }
     IEnumerator AuraBurstWave()

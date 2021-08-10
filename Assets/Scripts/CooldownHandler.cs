@@ -91,7 +91,7 @@ public class CooldownHandler : MonoBehaviour
     {
         if (inCooldown)
         {
-            cooldownImage.fillAmount -= 1 / cooldownTime * Time.deltaTime;
+            cooldownImage.fillAmount -=  cooldownTime * Time.deltaTime;
             if (cooldownImage.fillAmount <= 0)
             {
                 cooldownImage.fillAmount = 0;
