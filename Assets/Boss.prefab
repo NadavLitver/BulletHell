@@ -255,7 +255,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953112647}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.9, z: 0}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8819917267643686741}
@@ -376,7 +376,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872279802}
   m_LocalRotation: {x: -0, y: -0, z: 0.70710576, w: 0.70710784}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4121643818157034975}
@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16fc7f93adf048040b379b3e938101ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 2000
+  hp: 5000
   isVulnerable: 1
   animator: {fileID: 1159622365}
   m_hitEffect: {fileID: 2048330470382139995}
@@ -614,7 +614,7 @@ SpriteRenderer:
   m_SortingLayerID: 1213962761
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8c0ea9d4d343df943b4f833ae44979ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6d7559e717aaf4541a916ba3e2b944f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -808,14 +808,22 @@ MonoBehaviour:
   animator: {fileID: 1159622365}
   boss: {fileID: 126667364925439614}
   nextState: {fileID: 6790659353071935039}
-  BeatleType: {fileID: 0}
-  MummyType: {fileID: 0}
-  amountOfMummyPerSummon: 2
+  BeatleType: {fileID: 1820397386903010629, guid: e67d40724dc6e5a4297df944d07d68d1,
+    type: 3}
+  MummyType: {fileID: 3560139203745789556, guid: 2941062a46201f54d99211f251ae0a2e,
+    type: 3}
+  amountOfMummyPerSummon: 1
   amountOfBeatlePerSummon: 1
   TimeBetweenEnemy: 1
   TimeToNextState: 10
-  m_Lsacs: []
-  m_Rsacs: []
+  m_Lsacs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_Rsacs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &6790659353071935039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -832,10 +840,18 @@ MonoBehaviour:
   animator: {fileID: 1159622365}
   boss: {fileID: 126667364925439614}
   nextState: {fileID: 318953625611510420}
-  BeatleType: {fileID: 0}
-  MummyType: {fileID: 0}
-  m_Lsacs: []
-  m_Rsacs: []
+  BeatleType: {fileID: 1820397386903010629, guid: e67d40724dc6e5a4297df944d07d68d1,
+    type: 3}
+  MummyType: {fileID: 3560139203745789556, guid: 2941062a46201f54d99211f251ae0a2e,
+    type: 3}
+  m_Lsacs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_Rsacs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   TimeBetweenEnemy: 1
   LwavePattern: {fileID: 381190287}
   RwavePattern: {fileID: 350365886}
@@ -865,7 +881,7 @@ MonoBehaviour:
   animator: {fileID: 1159622365}
   boss: {fileID: 126667364925439614}
   nextState: {fileID: 5064650211204892376}
-  timeBetweenLasers: 4
+  timeBetweenLasers: 3
 --- !u!114 &5064650211204892376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,15 +926,35 @@ MonoBehaviour:
   animator: {fileID: 1159622365}
   boss: {fileID: 126667364925439614}
   nextState: {fileID: 5064650211204892376}
-  BeatleType: {fileID: 0}
-  MummyType: {fileID: 0}
+  BeatleType: {fileID: 1820397386903010629, guid: e67d40724dc6e5a4297df944d07d68d1,
+    type: 3}
+  MummyType: {fileID: 3560139203745789556, guid: 2941062a46201f54d99211f251ae0a2e,
+    type: 3}
   amountOfMummyPerSummon: 2
   amountOfBeatlePerSummon: 1
   TimeBetweenEnemy: 1
   TimeToNextState: 10
   timeBetweenLasers: 4
-  m_Lsacs: []
-  m_Rsacs: []
+  m_Lsacs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_Rsacs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  amountOfPatterns: 5
+  timeBetweenAttacks: 0
+  LwavePattern: {fileID: 0}
+  RwavePattern: {fileID: 0}
+  LlinePattern: {fileID: 0}
+  RlinePattern: {fileID: 0}
+  LZigZagPattern: {fileID: 0}
+  RZigZagPattern: {fileID: 0}
+  RCirclePattern: {fileID: 0}
+  LCirclePattern: {fileID: 0}
+  LxShapePattern: {fileID: 0}
+  RxShapePattern: {fileID: 0}
 --- !u!1 &1975207636442036180
 GameObject:
   m_ObjectHideFlags: 0
