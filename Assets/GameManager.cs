@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -14,15 +13,29 @@ public class GameManager : MonoBehaviour
     public bool isFirstPhaseStarted;
     public UnityEvent FirstPhaseStarted;
     public Boss BossRef;
+    public UIManager UIManager;
+
+    public bool isPaused => UIManager.isPaused;
+
     private void Awake()
     {
-        if(gm ==null)
-           gm = this;
+        if (gm == null)
+            gm = this;
         if (PlayerLost == null)
             PlayerLost = new UnityEvent();
-        if(PlayerWon == null)
+        if (PlayerWon == null)
             PlayerWon = new UnityEvent();
 
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (UIManager != null)
+            {
+                UIManager.TogglePause();
+            }
+        }
     }
     public void CallDeactivateAndActiveGO(GameObject GO)
     {
@@ -34,6 +47,8 @@ public class GameManager : MonoBehaviour
         FirstPhaseStarted.AddListener(SetFirstPhase);
 
         GameManager.gm.isSixPhaseReached = false;
+        AudioManager.am.PlaySound(AudioManager.am.boss_Start, .8f);
+        UIManager.SetPause(false);
     }
     void SetFirstPhase()
     {

@@ -35,7 +35,7 @@ public class Mummy : LiveBody
     }
     private void Update()
     {
-        if (target == null)
+        if (target == null || GameManager.gm.isPaused)
         {
             return;
         }

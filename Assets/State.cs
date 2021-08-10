@@ -19,12 +19,8 @@ public abstract class State : MonoBehaviour
 
     private  void OnEnable()
     {
-        StateOnEnable();
-
-    }
-    private void Start()
-    {
         stateSwapper = GetComponent<StateSwapper>();
+        StateOnEnable();
     }
     protected virtual void StateOnEnable()
     {
@@ -33,8 +29,11 @@ public abstract class State : MonoBehaviour
     }
     private void Update()
     {
-       
-      
+        if (GameManager.gm.isPaused)
+        {
+            return;
+        }
+
     }
     protected virtual void CallSwapState()
     {

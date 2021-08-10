@@ -83,7 +83,7 @@ public class BossFirstPhase : State
     }
     private void OnDisable()
     {
-        boss.EightyPercentEvent.RemoveListener(CallSwapState);
           StopAllCoroutines();
+        boss.EightyPercentEvent.RemoveListener(CallSwapState);
     }
 }

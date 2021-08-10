@@ -5,8 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     Vector2 selfDir;
-    [SerializeField]
-    internal float speed;
+    internal float speed = 15f;
     [SerializeField,Header("Time To Live")]
     private float TTL = 10;
     [SerializeField] private float launchDelay;
@@ -78,7 +77,7 @@ public class Bullet : MonoBehaviour
         while (isActiveAndEnabled)
         {
         transform.Translate(selfDir * speed * Time.fixedDeltaTime);
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(0.02f);
         }
     }
     void SelfDestroy()

@@ -16,19 +16,23 @@ public class StateSwapper : MonoBehaviour
 
 
     private State FirstState;
-    private void Start()
+    private void OnEnable()
     {
         FirstState = firstPhase;
-        Invoke("SetFirstState", 5f);
+        StartCoroutine(SetFirstStartCoru());
     }
-    void SetFirstState()
+    IEnumerator SetFirstStartCoru() //!!!!
     {
+        yield return new WaitForSeconds(5f);
         SwapState(FirstState);
-        
     }
+
     public void SwapState(State state)
     {
-        //AudioManager.am.PlaySound(AudioManager.am.boss_swapState, 1);
+        if (state != firstPhase)
+        {
+            AudioManager.am.PlaySound(AudioManager.am.boss_swapState, .8f);
+        }
         if (state == firstPhase)
         {
             firstPhase.enabled = true;

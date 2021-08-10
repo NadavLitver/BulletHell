@@ -22,6 +22,10 @@ public class Beatle : LiveBody
     }
     private void Update()
     {
+        if (GameManager.gm.isPaused)
+        {
+            return;
+        }
         if (ai.reachedDestination)
         {
             Debug.Log("Reached");

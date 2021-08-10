@@ -60,6 +60,10 @@ public class PlayerShooter : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.gm.isPaused)
+        {
+            return;
+        }
         GetWorldMousePos();
         GetFirePointDirNor();
         SetFirePointRotation();

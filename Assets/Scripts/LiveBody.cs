@@ -33,6 +33,7 @@ public abstract class LiveBody : MonoBehaviour
     protected abstract void AfterTakeDamage();
     void OnDeath()
     {
+        GetComponent<Collider2D>().enabled = false;
         if (gameObject.CompareTag("Player"))
         {
             GameManager.gm.PlayerLost?.Invoke();

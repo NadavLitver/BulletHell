@@ -50,8 +50,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586ee4f42053ccd4a9d0f44393bc8a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MasterVolume: 0
+  masterSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
   Ambiance: {fileID: 8300000, guid: 6fc5fe77640aec145b8ab86420958c28, type: 3}
+  Pickup: {fileID: 8300000, guid: 988beb1766b7ff24c9f3c69886bc0afa, type: 3}
+  StatuesMoving: {fileID: 8300000, guid: e785b242e2afb8e409c816d1823619f7, type: 3}
+  Sarc: {fileID: 8300000, guid: 31572065e8900614fb51302e078629cc, type: 3}
+  Button_Click: {fileID: 8300000, guid: d3ffef4003a450a44a56bf5824606a59, type: 3}
   Player_Teleport: {fileID: 8300000, guid: 667b3854d19a5b548be04b7f89d8d299, type: 3}
   Player_AuraBurst: {fileID: 8300000, guid: acca6d8a6e0bee64e9df65dca73c6177, type: 3}
   Player_Retribution: {fileID: 8300000, guid: 095ce3a6ebc28534b977db1e2faa352c, type: 3}
@@ -61,14 +67,22 @@ MonoBehaviour:
   player_Hit: {fileID: 8300000, guid: 7ceee210480eadb43904ecc5cb382e52, type: 3}
   beatle_Death: {fileID: 8300000, guid: 5c6e481cf64208c4ca9f6f425cec852b, type: 3}
   beatle_hit: {fileID: 8300000, guid: d2cd69e6362b7cb42a31c1f835ec6012, type: 3}
-  m_source: {fileID: 2872123805159336120}
+  mummy_Attack: {fileID: 8300000, guid: 82d93114f23e00b4eb4861360cd72c94, type: 3}
+  mummy_Hit: {fileID: 8300000, guid: cb906c284a13c7b4c98f972e7eae3421, type: 3}
+  mummy_Death: {fileID: 8300000, guid: aaab3cb5a2bbdb241907af07b156ff5d, type: 3}
+  boss_Attack: {fileID: 8300000, guid: 31fdb9c19fb585f4cb0f48ebc7e331c7, type: 3}
+  boss_Hit: {fileID: 8300000, guid: c2540a20bc669fd4a8bc57f10d95642c, type: 3}
+  boss_Death: {fileID: 8300000, guid: f505bf585b21ba2428832d449023eab9, type: 3}
+  boss_swapState: {fileID: 8300000, guid: 2f14c527a2569704185fb4d907bdae11, type: 3}
+  boss_Start: {fileID: 8300000, guid: e716fc420e6052f4aaa45e577b79f46b, type: 3}
+  m_defaultSource: {fileID: 2872123805159336120}
   m_randomSources:
   - {fileID: 2872123804910703465}
   - {fileID: 2872123805345563246}
   - {fileID: 2872123806378280743}
   - {fileID: 2872123805069013706}
   - {fileID: 2872123805357121932}
-  m_sourceAmbiance: {fileID: 2872123805818305196}
+  m_musicSource: {fileID: 2872123805818305196}
 --- !u!1 &2872123804910703478
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,7 +761,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
