@@ -21,8 +21,7 @@ public class BossFifthPhase : State
     {
         base.StateOnEnable();
         boss.isVulnerable = true;
-        if(GameManager.gm.isSixPhaseReached)
-          boss.TenPercentEvent.AddListener(CallSwapState);
+        boss.TenPercentEvent.AddListener(CallSwapState);
         StartCoroutine(ChoosePattern());
     }
     IEnumerator ChoosePattern()

@@ -5,13 +5,11 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     Vector2 selfDir;
-    internal float speed = 15f;
+    public float startingSpeed = 7f;
+    internal float speed ;
     [SerializeField,Header("Time To Live")]
     private float TTL = 10;
     [SerializeField] private float launchDelay;
-
-    private int startingSpeed = 4;
-    private bool canMove = false;
     public enum BulletType { HolyShock, Penance, AuraBurst, MummyAttack }
 
     [SerializeField] private BulletType m_type;
@@ -19,22 +17,21 @@ public class Bullet : MonoBehaviour
     [SerializeField] private bool doPlaySound;
     [SerializeField] private bool isRandomSound;
 
+
     private void OnEnable()
     {
-       
-       // Invoke("SelfDestroy", TTL);
+        speed = startingSpeed;
 
         if (doPlaySound)
         {
             PlaySound();
         }
-        StartCoroutine(Movebullet());
+      
         if(GameManager.gm.isFirstPhaseStarted && gameObject.layer == 8)
-        {
-            speed = 3.5f * 0.75f;
-        }
+            speed *=  0.75f;
+       
         if (GameManager.gm.isBulletSpeedDoubled && gameObject.layer == 8)
-            speed = 3.5f * 1.6f;
+            speed *=  1.6f;
     }
 
     private void PlaySound()
@@ -71,15 +68,12 @@ public class Bullet : MonoBehaviour
     {
         selfDir = dir;
     }
-    private IEnumerator Movebullet()
+    private void FixedUpdate()
     {
-        yield return new WaitForSeconds(launchDelay);
-        while (isActiveAndEnabled)
-        {
         transform.Translate(selfDir * speed * Time.fixedDeltaTime);
-            yield return new WaitForSeconds(0.02f);
-        }
+
     }
+   
     void SelfDestroy()
     {
         StopAllCoroutines();

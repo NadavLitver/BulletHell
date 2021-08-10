@@ -33651,8 +33651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f826d7166845b48b695066e924106d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runningCD: 0.0119143
-  cooldown: 0
+  runningCD: 1
+  cooldown: 1.5
   isGetKeyDown: 0
   isChargingReq: 1
   spriteForUI: {fileID: 21300000, guid: aff68db2e66854247bf3df56b36aefda, type: 3}

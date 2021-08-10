@@ -16,6 +16,7 @@ public class CircleBulletHandler : MonoBehaviour
         StartCoroutine(SelfDestroy());
         if (GameManager.gm.isBulletSpeedDoubled)
             speed *= 1.5f;
+          
     }
         // Update is called once per frame
     void FixedUpdate()
