@@ -50,4 +50,11 @@ public class CamShake : MonoBehaviour
         }
         Debug.Log("camshake stop");
     }
+    public void StopShaking()
+    {
+        StopAllCoroutines();
+        CinemachineBasicMultiChannelPerlin perlin = m_cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        perlin.m_AmplitudeGain = 0;
+
+    }
 }

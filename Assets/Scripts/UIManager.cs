@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
     }
     public void TogglePause()
     {
+        CamShake.instance.StopShaking();
         isPaused = !isPaused;
         SetPause(isPaused);
     }

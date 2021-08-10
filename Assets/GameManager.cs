@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public Boss BossRef;
     public UIManager UIManager;
 
+
     public bool isPaused => UIManager.isPaused;
 
     private void Awake()
