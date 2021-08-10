@@ -21,7 +21,7 @@ public class SetCursorOnScreen : MonoBehaviour
     }
     public void Shoot()
     {
-        
+        StartCoroutine(ShootCoru());
     }
     private IEnumerator ShootCoru()
     {

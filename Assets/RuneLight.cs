@@ -32,7 +32,10 @@ public class RuneLight : MonoBehaviour
     public void SetLight(float Intensity, float lerpSpeed)
     {
         StopAllCoroutines();
-        StartCoroutine(setLightCoru(Intensity, lerpSpeed));
+        if (isActiveAndEnabled)
+        {
+            StartCoroutine(setLightCoru(Intensity, lerpSpeed));
+        }
     }
     private IEnumerator setLightCoru(float intensity, float lerpSpeed)
     {

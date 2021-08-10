@@ -944,17 +944,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   amountOfPatterns: 5
-  timeBetweenAttacks: 0
-  LwavePattern: {fileID: 0}
-  RwavePattern: {fileID: 0}
-  LlinePattern: {fileID: 0}
-  RlinePattern: {fileID: 0}
-  LZigZagPattern: {fileID: 0}
-  RZigZagPattern: {fileID: 0}
-  RCirclePattern: {fileID: 0}
-  LCirclePattern: {fileID: 0}
-  LxShapePattern: {fileID: 0}
-  RxShapePattern: {fileID: 0}
+  timeBetweenAttacks: 2.5
+  LwavePattern: {fileID: 381190287}
+  RwavePattern: {fileID: 350365886}
+  LlinePattern: {fileID: 1400838737}
+  RlinePattern: {fileID: 200026173}
+  LZigZagPattern: {fileID: 2050533690}
+  RZigZagPattern: {fileID: 436388293}
+  RCirclePattern: {fileID: 1675461567}
+  LCirclePattern: {fileID: 767719070}
+  LxShapePattern: {fileID: 6143339719603155154}
+  RxShapePattern: {fileID: 5762822230109332295}
 --- !u!1 &1975207636442036180
 GameObject:
   m_ObjectHideFlags: 0

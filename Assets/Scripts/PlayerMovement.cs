@@ -147,4 +147,10 @@ public class PlayerMovement : LiveBody
     {
         StartCoroutine(PlayerKnockbackRoutine(velocity));
     }
+
+    public void OnDeath()
+    {
+        isVulnerable = false;
+        animator.SetTrigger("Death");
+    }
 }

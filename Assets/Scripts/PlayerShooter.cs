@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerShooter : MonoBehaviour
 {
+    [SerializeField] private SetCursorOnScreen player_Cursor;
+
     [SerializeField]
     private TeleportEffect teleportEffect;
 
@@ -164,7 +166,11 @@ public class PlayerShooter : MonoBehaviour
             {
                 specialKeyDownCounter += Time.deltaTime;
                 if(CurSpecial == null)
+                {
                   CurSpecial =  UseSpecialAbility();
+                    player_Cursor.Shoot();
+
+                }
 
                 if (specialKeyDownCounter >= chargeTimeForRetribution)
                 {
@@ -284,6 +290,8 @@ public class PlayerShooter : MonoBehaviour
     }
     void Shoot()
     {
+        player_Cursor.Shoot();
+        Debug.Log("shoot");
         if (recoilCounter < 4)
             recoilCounter += 0.5f;
         float ShootRecoilAmount = 10;
@@ -319,6 +327,7 @@ public class PlayerShooter : MonoBehaviour
     }
     IEnumerator AuraBurstWave()
     {
+        player_Cursor.Shoot();
         AudioManager.am.PlaySound(AudioManager.am.Player_AuraBurst, 0.4f);
         callPlayerKnockback(5);
 
@@ -361,6 +370,7 @@ public class PlayerShooter : MonoBehaviour
 
     IEnumerator MachineGun()
     {
+        player_Cursor.Shoot();
         while (isMachineGun)
         {
             if (recoilCounter < 4)

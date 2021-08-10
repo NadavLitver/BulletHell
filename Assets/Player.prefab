@@ -10356,7 +10356,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7806111776557038016}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ce8b8156b69bf34eac8f3bba0af0d33, type: 3}
   m_Name: 
@@ -10404,7 +10404,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7806111776557038016}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb4a07b0a4379843859f8f85c4067e4, type: 3}
   m_Name: 
@@ -10421,14 +10421,14 @@ MonoBehaviour:
   shootButton: 323
   TeleportButton: 304
   SpecialButton: 324
-  chargeTimeForRetribution: 0.75
-  teleSpeed: 10
+  chargeTimeForRetribution: 2
+  teleSpeed: 13
   specialKeyPressing: 0
-  specialKeyDownCounter: 0
+  specialKeyDownCounter: 0.5
   holyShockCD: 0.35
-  teleportCD: 0.75
+  teleportCD: 1.5
   runeLight: {fileID: 3392892212629700969}
-  timeBetweenPenanceShots: 0.2
+  timeBetweenPenanceShots: 0.23
 --- !u!114 &7806111776557038025
 MonoBehaviour:
   m_ObjectHideFlags: 0

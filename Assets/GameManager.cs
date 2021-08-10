@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     }
     public void RestartScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); ;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     void SetBulletSpeedDoubled()
     {

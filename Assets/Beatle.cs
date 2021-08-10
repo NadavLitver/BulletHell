@@ -22,7 +22,7 @@ public class Beatle : LiveBody
     }
     private void Update()
     {
-        if (GameManager.gm.isPaused)
+        if (destinationSetter.target == null || GameManager.gm.isPaused)
         {
             return;
         }

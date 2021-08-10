@@ -8,7 +8,6 @@ public class Mummy : LiveBody
 {
     IAstarAI ai;
     AIDestinationSetter destinationSetter;
-    private Transform target;
     public float DistanceToThrow;
     public float bulletSpeed;
     private float throwCooldownRunning;
@@ -29,18 +28,15 @@ public class Mummy : LiveBody
         animator = GetComponentInChildren<Animator>();
         throwCooldownRunning = ThrowCD;
         destinationSetter.target = FindObjectOfType<Target>().transform;
-        target = destinationSetter.target;
-
-        
     }
     private void Update()
     {
-        if (target == null || GameManager.gm.isPaused)
+        if (destinationSetter.target == null || GameManager.gm.isPaused)
         {
             return;
         }
         UpdateAnimator();
-        if (Vector2.Distance(transform.position, target.position) <= DistanceToThrow)
+        if (Vector2.Distance(transform.position, destinationSetter.target.position) <= DistanceToThrow)
         {
             ai.canMove = false;
 
@@ -75,7 +71,7 @@ public class Mummy : LiveBody
     {
         if(animator != null)
         {
-            Vector2 dir = (target.position - transform.position).normalized;
+            Vector2 dir = (destinationSetter.target.position - transform.position).normalized;
             animator.SetFloat("x", dir.x);
             animator.SetFloat("y", dir.y);
         }
@@ -86,7 +82,7 @@ public class Mummy : LiveBody
     {
         if(this!= null)
         {
-            Vector2 dir = (target.position - transform.position).normalized;
+            Vector2 dir = (destinationSetter.target.position - transform.position).normalized;
             AudioManager.am.PlaySound(AudioManager.am.mummy_Attack, 0.25f, true, 0.1f);
             if (animator != null)
                 animator.SetTrigger("Throw");

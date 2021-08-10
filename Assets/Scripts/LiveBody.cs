@@ -37,16 +37,17 @@ public abstract class LiveBody : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             GameManager.gm.PlayerLost?.Invoke();
-
         }
         else if (gameObject.CompareTag("Boss"))
         {
             GameManager.gm.PlayerWon?.Invoke();
-
+        }
+        else
+        {
+            Destroy(gameObject, 1f);
         }
         Debug.Log(gameObject.name + " is Dead");
         StopAllCoroutines();
-        Destroy(gameObject, 1f);
     }
   
 }

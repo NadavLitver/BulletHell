@@ -9,6 +9,18 @@ public class MenuHandler : MonoBehaviour
     public GameObject CreditsCanvas;
     public GameObject CreditsMenu;
 
+    public static MenuHandler instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     public void PlayButton()
     {
         SceneManager.LoadScene(1);
@@ -16,18 +28,18 @@ public class MenuHandler : MonoBehaviour
 
     public void CreditsButton()
     {
-        MainMenu.SetActive(false);
-        MainMenuCanvas.SetActive(false);
         CreditsMenu.SetActive(true);
         CreditsCanvas.SetActive(true);
+        MainMenu.SetActive(false);
+        MainMenuCanvas.SetActive(false);
     }
 
     public void BackButton()
     {
-        CreditsMenu.SetActive(false);
-        CreditsCanvas.SetActive(false);
         MainMenu.SetActive(true);
         MainMenuCanvas.SetActive(true);
+        CreditsMenu.SetActive(false);
+        CreditsCanvas.SetActive(false);
     }
 
     public void QuitGame()
